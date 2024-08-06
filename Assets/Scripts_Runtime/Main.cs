@@ -9,7 +9,15 @@ public class NewBehaviourScript : MonoBehaviour {
 
     void Awake() {
         ctx = new MainContext();
-    
+        Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+
+
+        ctx.Inject(canvas);
+
+        // === Load ===
+        ModuleAssets.Load(ctx.assetsContext);
+
+        UIApp.Panel_Goods_Open(ctx.uiContext);  
     }
 
     // Update is called once per frame

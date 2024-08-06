@@ -18,13 +18,13 @@ MonoBehaviour:
   m_GUID: 76b26658488257642bff9064f406a51a
   m_SerializeEntries:
   - m_GUID: b99beff47e4f1ab459e0632f59589d5a
-    m_Address: Assets/Rescoures_Runtime/Panel/Panel_Goods/Panel_GoodElement.prefab
+    m_Address: Panel_GoodElement
     m_ReadOnly: 0
     m_SerializedLabels:
     - Panel
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91eb99f9bfc6ccb40a01ea68295f038e
-    m_Address: Assets/Rescoures_Runtime/Panel/Panel_Goods/Panel_Goods.prefab
+    m_Address: Panel_Goods
     m_ReadOnly: 0
     m_SerializedLabels:
     - Panel

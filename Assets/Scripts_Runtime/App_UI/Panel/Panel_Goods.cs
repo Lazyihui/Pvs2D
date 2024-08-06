@@ -9,10 +9,13 @@ public class Panel_Goods : MonoBehaviour {
     [SerializeField] Transform goodsElementGruop;
 
 
-    public void AddGoodsElement(Sprite spriteLight, Sprite spriteDark) {
+    public void Ctor() { }
+
+
+    public void AddGoodsElement() {
         Panel_GoodsElment goodsElement = Instantiate(goodsElementPrefab, goodsElementGruop);
-        
-        goodsElement.Init(spriteLight, spriteDark);
+
+        // goodsElement.Init(spriteLight, spriteDark);
         goodsElement.Ctor();
 
         // TODO:
@@ -20,6 +23,10 @@ public class Panel_Goods : MonoBehaviour {
             Debug.Log("Click ");
         };
 
+    }
+
+    public void Show() {
+        gameObject.SetActive(true);
     }
 
 }
