@@ -23,41 +23,45 @@ public class Panel_GoodsElement : MonoBehaviour {
 
     public float cdTimer;
 
-    public void Init(Sprite spriteLight, Sprite spriteDark) {
+    // 每个卡片要的阳光数量
+    public int plantCount;
+
+    public void Init(Sprite spriteLight, Sprite spriteDark, int planetCount) {
         this.spriteLight.sprite = spriteLight;
         this.spriteDark.sprite = spriteDark;
+        this.plantCount = planetCount;
     }
 
     public void Ctor() {
         status = GoodStatus.Cooling;
+
+        // 不能写在这里 要用TM
         cdTime = 2;
         cdTimer = 0;
+
+        plantCount = 50;
     }
 
-
-    public void SetStatus(GoodStatus status, float dt) {
+    //这里逻辑有点问题
+    public void SetStatus(GoodStatus status, int sunCount, float dt) {
         this.status = status;
-        switch (status) {
-            case GoodStatus.Cooling:
-                Cooling(dt);
-                break;
-            case GoodStatus.WaitingSun:
-                WaitingSun();
-                break;
-            case GoodStatus.Ready:
-                Ready();
-                break;
-            default:
-                break;
+        if (status == GoodStatus.Cooling) {
+            Cooling(dt, sunCount);
+        } else if (status == GoodStatus.WaitingSun) {
+            WaitingSun(sunCount);
+        } else if (status == GoodStatus.Ready) {
+            Ready(sunCount);
         }
+
     }
 
-    void Cooling(float dt) {
+    void Cooling(float dt, int sunCount) {
         // 冷却
         cdTimer += dt;
         cardMask.fillAmount = (cdTime - cdTimer) / cdTime;
+
         if (cdTimer >= cdTime) {
-            WaitingSun();
+            this.status = GoodStatus.WaitingSun;
         }
 
 
@@ -65,23 +69,35 @@ public class Panel_GoodsElement : MonoBehaviour {
         spriteLight.gameObject.SetActive(false);
         spriteDark.gameObject.SetActive(true);
 
-
-        // button.interactable = false;
     }
 
-    void WaitingSun() {
-        status = GoodStatus.WaitingSun;
+    void WaitingSun(int sunCount) {
 
-        spriteLight.gameObject.SetActive(false);
-        spriteDark.gameObject.SetActive(true);
-        cardMask.gameObject.SetActive(false);
-        // button.interactable = false;
+        if (sunCount >= plantCount) {
+            Debug.Log(plantCount);
+
+            this.status = GoodStatus.Ready;
+        } else {
+
+            spriteLight.gameObject.SetActive(false);
+            spriteDark.gameObject.SetActive(true);
+            cardMask.gameObject.SetActive(false);
+
+        }
+
+
     }
 
-    void Ready() {
+    void Ready(int sunCount) {
+
         spriteLight.gameObject.SetActive(true);
         spriteDark.gameObject.SetActive(false);
-        // button.interactable = true;
+
+        if (sunCount >= plantCount) {
+
+        } else {
+            status = GoodStatus.WaitingSun;
+        }
     }
 
 }

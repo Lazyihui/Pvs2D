@@ -28,7 +28,11 @@ public class NewBehaviourScript : MonoBehaviour {
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
         for (int i = 0; i < goodlen; i++) {
             Panel_GoodsElement good = goods[i];
-            UIApp.Panel_GoodsElement_SetStatus(good, GoodStatus.Cooling, dt);
+            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext,good,  dt);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            ctx.uiContext.idService.sunCount -= 60;
         }
 
     }

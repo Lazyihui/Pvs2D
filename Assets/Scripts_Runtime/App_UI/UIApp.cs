@@ -28,7 +28,7 @@ public static class UIApp {
     }
 
 
-    public static void Panel_GoodsElement_SetStatus(Panel_GoodsElement goodsElement, GoodStatus status, float dt) {
-        goodsElement.SetStatus(status, dt);
+    public static void Panel_GoodsElement_SetStatus(UIContext ctx, Panel_GoodsElement goodsElement, float dt) {
+        goodsElement.SetStatus(goodsElement.status, ctx.idService.sunCount, dt);
     }
 }
