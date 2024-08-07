@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Panel_Goods : MonoBehaviour {
 
     [SerializeField] Panel_GoodsElement goodsElementPrefab;
 
     [SerializeField] Transform goodsElementGruop;
+    [SerializeField] Text sunCountText;
 
 
     public void Ctor() { }
@@ -23,13 +24,18 @@ public class Panel_Goods : MonoBehaviour {
         };
 
 
-        
-        
+
+
         ele.id = ctx.idService.goodsIDRecord++;
         ctx.goodsRespository.Add(ele);
 
-        
+
     }
+
+    public void SetSunCount(int sunCount) {
+        sunCountText.text = sunCount.ToString();
+    }
+
 
     public void Show() {
         gameObject.SetActive(true);
