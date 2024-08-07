@@ -13,19 +13,22 @@ public class Panel_Goods : MonoBehaviour {
 
 
     public void AddGoodsElement(UIContext ctx) {
-        Panel_GoodsElement goodsElement = Instantiate(goodsElementPrefab, goodsElementGruop);
+        Panel_GoodsElement ele = Instantiate(goodsElementPrefab, goodsElementGruop);
 
         // goodsElement.Init(spriteLight, spriteDark);
-        goodsElement.Ctor();
+        ele.Ctor();
 
-        goodsElement.id = ctx.idService.goodsIDRecord++;
-        ctx.goodsRespository.Add(goodsElement);
-
-        // TODO:
-        goodsElement.OnClickCardHandle = () => {
-            Debug.Log("Click ");
+        ele.OnClickCardHandle = (typeID, plantCount) => {
+            ctx.uiEvent.Panel_GoodsElement_CardClick(typeID, plantCount);
         };
 
+
+        
+        
+        ele.id = ctx.idService.goodsIDRecord++;
+        ctx.goodsRespository.Add(ele);
+
+        
     }
 
     public void Show() {

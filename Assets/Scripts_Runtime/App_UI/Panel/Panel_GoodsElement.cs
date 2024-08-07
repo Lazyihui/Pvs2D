@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 
 public class Panel_GoodsElement : MonoBehaviour {
-    [SerializeField] Button button;
+    [SerializeField] Button cardButton;
 
     [SerializeField] Image spriteLight;
 
@@ -14,10 +14,11 @@ public class Panel_GoodsElement : MonoBehaviour {
 
     public int id;
 
+    public int typeID;
     public GoodStatus status;
 
 
-    public Action OnClickCardHandle;
+    public Action<int, int> OnClickCardHandle;
 
     public float cdTime;
 
@@ -34,6 +35,10 @@ public class Panel_GoodsElement : MonoBehaviour {
 
     public void Ctor() {
         status = GoodStatus.Cooling;
+
+        cardButton.onClick.AddListener(() => {
+            OnClickCardHandle(this.typeID, this.plantCount);
+        });
 
         // 不能写在这里 要用TM
         cdTime = 2;
@@ -69,12 +74,12 @@ public class Panel_GoodsElement : MonoBehaviour {
         spriteLight.gameObject.SetActive(false);
         spriteDark.gameObject.SetActive(true);
 
+
     }
 
     void WaitingSun(int sunCount) {
 
         if (sunCount >= plantCount) {
-            Debug.Log(plantCount);
 
             this.status = GoodStatus.Ready;
         } else {
@@ -92,6 +97,7 @@ public class Panel_GoodsElement : MonoBehaviour {
 
         spriteLight.gameObject.SetActive(true);
         spriteDark.gameObject.SetActive(false);
+        cardMask.gameObject.SetActive(false);
 
         if (sunCount >= plantCount) {
 
@@ -99,5 +105,7 @@ public class Panel_GoodsElement : MonoBehaviour {
             status = GoodStatus.WaitingSun;
         }
     }
+
+
 
 }

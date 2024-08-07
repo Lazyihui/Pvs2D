@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-    MainContext ctx ;
+    MainContext ctx;
     bool isTearDown = false;
 
     void Awake() {
@@ -17,10 +17,26 @@ public class NewBehaviourScript : MonoBehaviour {
         // === Load ===
         ModuleAssets.Load(ctx.assetsContext);
 
-        UIApp.Panel_Goods_Open(ctx.uiContext);  
+        Binding();
+
+        UIApp.Panel_Goods_Open(ctx.uiContext);
     }
 
-    // Update is called once per frame
+    void Binding() {
+        var uiEvent = ctx.uiContext.uiEvent;
+
+        uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
+            Debug.Log("typeID:" + typeID + " plantCount:" + plantCount);
+
+            //1. 还要种植 (先种植在计算)
+
+            //2. 要进入冷却  并且 要扣除阳光
+
+
+        };
+    }
+
+
     void Update() {
         float dt = Time.deltaTime;
 
@@ -28,10 +44,10 @@ public class NewBehaviourScript : MonoBehaviour {
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
         for (int i = 0; i < goodlen; i++) {
             Panel_GoodsElement good = goods[i];
-            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext,good,  dt);
+            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, good, dt);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             ctx.uiContext.idService.sunCount -= 60;
         }
 

@@ -171,14 +171,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36edd9e38a0591478574fd11afae561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 8505117938242744068}
+  cardButton: {fileID: 8505117938242744068}
   spriteLight: {fileID: 4115991455351548530}
   spriteDark: {fileID: 1666757961436084444}
   cardMask: {fileID: 3291599603701532147}
   id: 0
+  typeID: 0
   status: 0
   cdTime: 0
   cdTimer: 0
+  plantCount: 0
 --- !u!1 &6858859771465510388
 GameObject:
   m_ObjectHideFlags: 0
