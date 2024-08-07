@@ -5,13 +5,16 @@ public class MainContext {
 
     public UIContext uiContext;
 
+
+        public IDService idService;
     public MainContext() {
         assetsContext = new AssetsContext();
         uiContext = new UIContext();
+        idService = new IDService();
     }
 
 
     public void Inject(Canvas canvas) {
-        uiContext.Inject(assetsContext, canvas);
+        uiContext.Inject(assetsContext, canvas,idService);
     }
 }

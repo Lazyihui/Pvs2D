@@ -174,7 +174,11 @@ MonoBehaviour:
   button: {fileID: 8505117938242744068}
   spriteLight: {fileID: 4115991455351548530}
   spriteDark: {fileID: 1666757961436084444}
+  cardMask: {fileID: 3291599603701532147}
+  id: 0
   status: 0
+  cdTime: 0
+  cdTimer: 0
 --- !u!1 &6858859771465510388
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,13 @@ public class NewBehaviourScript : MonoBehaviour {
     void Update() {
         float dt = Time.deltaTime;
 
+
+        int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
+        for (int i = 0; i < goodlen; i++) {
+            Panel_GoodsElement good = goods[i];
+            UIApp.Panel_GoodsElement_SetStatus(good, GoodStatus.Cooling, dt);
+        }
+
     }
 
     void OnDestory() {

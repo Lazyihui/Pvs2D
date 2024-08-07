@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Panel_GoodsElment : MonoBehaviour {
+public class Panel_GoodsElement : MonoBehaviour {
     [SerializeField] Button button;
 
     [SerializeField] Image spriteLight;
@@ -11,6 +11,8 @@ public class Panel_GoodsElment : MonoBehaviour {
     [SerializeField] Image spriteDark;
 
     [SerializeField] Image cardMask;
+
+    public int id;
 
     public GoodStatus status;
 

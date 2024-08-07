@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Panel_Goods : MonoBehaviour {
 
-    [SerializeField] Panel_GoodsElment goodsElementPrefab;
+    [SerializeField] Panel_GoodsElement goodsElementPrefab;
 
     [SerializeField] Transform goodsElementGruop;
 
@@ -12,11 +12,14 @@ public class Panel_Goods : MonoBehaviour {
     public void Ctor() { }
 
 
-    public void AddGoodsElement() {
-        Panel_GoodsElment goodsElement = Instantiate(goodsElementPrefab, goodsElementGruop);
+    public void AddGoodsElement(UIContext ctx) {
+        Panel_GoodsElement goodsElement = Instantiate(goodsElementPrefab, goodsElementGruop);
 
         // goodsElement.Init(spriteLight, spriteDark);
         goodsElement.Ctor();
+
+        goodsElement.id = ctx.idService.goodsIDRecord++;
+        ctx.goodsRespository.Add(goodsElement);
 
         // TODO:
         goodsElement.OnClickCardHandle = () => {

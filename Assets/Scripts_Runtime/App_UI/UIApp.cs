@@ -12,12 +12,12 @@ public static class UIApp {
 
         if (panel == null) {
             bool has = ctx.assetsContext.TryGetPanel("Panel_Goods", out GameObject prefab);
-            if(!has) {
+            if (!has) {
                 Debug.LogError("Panel_Goods not found");
                 return;
             }
             panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Goods>();
-            panel.AddGoodsElement();
+            panel.AddGoodsElement(ctx);
             panel.Ctor();
             ctx.panel_Goods = panel;
         }
@@ -25,7 +25,10 @@ public static class UIApp {
 
         panel.Show();
 
+    }
 
 
+    public static void Panel_GoodsElement_SetStatus(Panel_GoodsElement goodsElement, GoodStatus status, float dt) {
+        goodsElement.SetStatus(status, dt);
     }
 }
