@@ -11,8 +11,9 @@ public class NewBehaviourScript : MonoBehaviour {
         ctx = new MainContext();
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
+        Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
-        ctx.Inject(canvas);
+        ctx.Inject(canvas, camera);
 
         // === Load ===
         ModuleAssets.Load(ctx.assetsContext);
@@ -28,7 +29,9 @@ public class NewBehaviourScript : MonoBehaviour {
         var uiEvent = ctx.uiContext.uiEvent;
 
         uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
+
             Debug.Log("typeID:" + typeID + " plantCount:" + plantCount);
+            PlantDomain.Spawn(ctx.gameContext, 1);
 
             //1. 还要种植 (先种植在计算)
 

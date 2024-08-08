@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public static class GameBusiness {
 
     public static void Enter(GameContext ctx) {
 
-        PlantDomain.Spawn(ctx, 1);
 
     }
 
@@ -45,6 +46,13 @@ public static class GameBusiness {
     }
 
     static void PreTick(GameContext ctx, float dt) {
+        //  初始化input   要种在世界坐标上
+       ModuleInput input = ctx.moduleInput;
+        input.mouseScreenPos = Input.mousePosition;
+
+        Camera camera = ctx.camera;
+        input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
+
 
     }
 
