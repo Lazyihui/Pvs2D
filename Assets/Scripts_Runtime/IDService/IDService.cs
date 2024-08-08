@@ -5,11 +5,14 @@ public class IDService {
 
     public int goodsIDRecord;
 
+    public int PlantIDRecord;
+
 
     public IDService() {
         sunCount = 100;
 
         goodsIDRecord = 0;
+        PlantIDRecord = 0;
 
     }
 

@@ -40,6 +40,8 @@ public class NewBehaviourScript : MonoBehaviour {
     void Update() {
         float dt = Time.deltaTime;
 
+        GameBusiness.Tick(ctx.gameContext, dt);
+
         UIApp.Panel_GoodsUpdateSunCount(ctx.uiContext);
 
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
