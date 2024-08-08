@@ -20,6 +20,8 @@ public class NewBehaviourScript : MonoBehaviour {
         Binding();
 
         UIApp.Panel_Goods_Open(ctx.uiContext);
+
+        GameBusiness.Enter(ctx.gameContext);
     }
 
     void Binding() {

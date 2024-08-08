@@ -5,7 +5,9 @@ using UnityEngine;
 
 public static class GameBusiness {
 
-    public static void Enter() {
+    public static void Enter(GameContext ctx) {
+
+        PlantDomain.Spawn(ctx, 1);
 
     }
 
@@ -47,7 +49,6 @@ public static class GameBusiness {
     }
 
     static void LogicFix(GameContext ctx, float dt) {
-        Debug.Log("LogicFix");
     }
 
     static void LateTick(GameContext ctx, float dt) {

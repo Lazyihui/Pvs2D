@@ -10,7 +10,7 @@ public static class PlantDomain {
 
     public static PlantEntity Spawn(GameContext ctx, int typeID) {
 
-        bool has = ctx.assetsContext.TryGetEntity("PlantEntity", out GameObject prefab);
+        bool has = ctx.assetsContext.TryGetEntity("Plant_Entity", out GameObject prefab);
         if (!has) {
             Debug.LogError("PlantEntity prefab not found");
             return null;
