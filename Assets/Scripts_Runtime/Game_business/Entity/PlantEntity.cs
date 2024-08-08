@@ -25,7 +25,10 @@ public class PlantEntity : MonoBehaviour {
         anim = animator;
     }
 
-
+    public void SetPos(Vector2 pos) {
+        transform.position = pos;
+    }
+    
     public void SetStatus(PlantEntity plant) {
         if (plant.plantStatus == PlantStatus.Disable) {
             // plant.plantStatus = PlantStatus.Enable;

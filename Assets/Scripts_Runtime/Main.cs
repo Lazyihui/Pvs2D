@@ -31,6 +31,7 @@ public class NewBehaviourScript : MonoBehaviour {
         uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
 
             Debug.Log("typeID:" + typeID + " plantCount:" + plantCount);
+
             PlantDomain.Spawn(ctx.gameContext, 1);
 
             //1. 还要种植 (先种植在计算)
@@ -57,7 +58,10 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             ctx.uiContext.idService.sunCount -= 60;
+            
+            Debug.Log("mouseWorldPos:" + ctx.moduleInput.mouseWorldPos+"mouseScreenPos:"+ctx.moduleInput.mouseScreenPos);
         }
+
 
     }
 

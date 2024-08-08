@@ -57,6 +57,12 @@ public static class GameBusiness {
     }
 
     static void LogicFix(GameContext ctx, float dt) {
+        int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
+        for (int i = 0; i < plantLen; i++) {
+            PlantEntity plant = plants[i];
+            UserInterfaceDomain.UpdataHandPlantPos(ctx, plant);
+        }
+
     }
 
     static void LateTick(GameContext ctx, float dt) {

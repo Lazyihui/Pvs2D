@@ -11,8 +11,6 @@ public static class UserInterfaceDomain {
         }
 
         plant.SetPos(ctx.moduleInput.mouseWorldPos);
-
-        Debug.Log(plant.transform.position);
     }
 
 }

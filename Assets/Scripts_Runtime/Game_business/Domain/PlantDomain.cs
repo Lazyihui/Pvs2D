@@ -19,6 +19,7 @@ public static class PlantDomain {
         GameObject go = GameObject.Instantiate(prefab);
         PlantEntity plant = go.GetComponent<PlantEntity>();
         plant.Ctor();
+        // plant.SetPos(new Vector2(0, 0));
         plant.typeID = typeID;
         plant.id = ctx.idService.PlantIDRecord++;
         ctx.plantRepository.Add(plant);
