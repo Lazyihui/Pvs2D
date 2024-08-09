@@ -1,6 +1,10 @@
 using UnityEngine;
 
 public class MainContext {
+
+    public Transform CellGroup;
+
+
     public AssetsContext assetsContext;
 
     public UIContext uiContext;
@@ -24,10 +28,11 @@ public class MainContext {
     }
 
 
-    public void Inject(Canvas canvas,Camera camera) {
+    public void Inject(Canvas canvas, Camera camera, Transform CellGroup) {
         this.canvas = canvas;
         this.camera = camera;
+        this.CellGroup = CellGroup;
         uiContext.Inject(assetsContext, canvas, idService);
-        gameContext.Inject(assetsContext, idService,moduleInput,canvas,camera);
+        gameContext.Inject(assetsContext, idService, moduleInput, canvas, camera, CellGroup,uiContext);
     }
 }

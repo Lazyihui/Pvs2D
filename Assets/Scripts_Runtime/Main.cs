@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
-
+    
     MainContext ctx;
     bool isTearDown = false;
 
+    [SerializeField] Transform CellGroup;
     void Awake() {
         ctx = new MainContext();
         Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
 
         Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
 
-        ctx.Inject(canvas, camera);
+        ctx.Inject(canvas, camera, CellGroup);
 
         // === Load ===
         ModuleAssets.Load(ctx.assetsContext);
 
         Binding();
 
-        UIApp.Panel_Goods_Open(ctx.uiContext);
+        
 
         GameBusiness.Enter(ctx.gameContext);
     }

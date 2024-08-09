@@ -21,7 +21,7 @@ public static class PlantDomain {
         plant.Ctor();
         // plant.SetPos(new Vector2(0, 0));
         plant.typeID = typeID;
-        plant.id = ctx.idService.PlantIDRecord++;
+        plant.id = ctx.idService.plantIDRecord++;
         ctx.plantRepository.Add(plant);
         return plant;
 
