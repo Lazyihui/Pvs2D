@@ -31,15 +31,15 @@ public class NewBehaviourScript : MonoBehaviour {
 
         uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
 
-            if (ctx.gameEntity.hasHandPlant) {
+            if (ctx.gameEntity.handPlant != null) {
+                Debug.Log("已经有植物了");
                 return;
             }
 
             ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, 1);
 
-            ctx.gameEntity.hasHandPlant = true;
+            //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
 
-            //1. 还要种植 (先种植在计算)
 
             //2. 要进入冷却  并且 要扣除阳光
 

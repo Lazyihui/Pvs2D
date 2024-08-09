@@ -17,7 +17,6 @@ public static class CellDomain {
         entity.id = ctx.idService.cellIDRecord++;
 
         entity.OnMouseDownHandle = () => {
-            Debug.Log("CellEntity OnMouseDown");
             Plant(ctx, entity);
         };
 
@@ -28,14 +27,17 @@ public static class CellDomain {
 
 
     public static void Plant(GameContext ctx, CellEntity cell) {
-        if (ctx.gameEntity.handPlant == null) {
+        if (ctx.gameEntity.handPlant == null || cell.isHavsPlant) {
             return;
         }
 
+        cell.isHavsPlant = true;
+
         ctx.gameEntity.handPlant.transform.position = cell.transform.position;
 
+        ctx.gameEntity.handPlant.plantStatus = PlantStatus.Enable;
+        
         ctx.gameEntity.handPlant = null;
-
 
     }
 
