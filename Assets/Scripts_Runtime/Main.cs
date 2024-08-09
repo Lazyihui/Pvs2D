@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
-    
+
     MainContext ctx;
     bool isTearDown = false;
 
@@ -21,7 +21,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Binding();
 
-        
+
 
         GameBusiness.Enter(ctx.gameContext);
     }
@@ -31,9 +31,12 @@ public class NewBehaviourScript : MonoBehaviour {
 
         uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
 
-            Debug.Log("typeID:" + typeID + " plantCount:" + plantCount);
-
+            if (ctx.gameContext.gameEntity.hasHandPlant) {
+                return;
+            }
             PlantDomain.Spawn(ctx.gameContext, 1);
+
+            ctx.gameContext.gameEntity.hasHandPlant = true;
 
             //1. 还要种植 (先种植在计算)
 
@@ -59,8 +62,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             ctx.uiContext.idService.sunCount -= 60;
-            
-            Debug.Log("mouseWorldPos:" + ctx.moduleInput.mouseWorldPos+"mouseScreenPos:"+ctx.moduleInput.mouseScreenPos);
+
+            Debug.Log("mouseWorldPos:" + ctx.moduleInput.mouseWorldPos + "mouseScreenPos:" + ctx.moduleInput.mouseScreenPos);
         }
 
 
