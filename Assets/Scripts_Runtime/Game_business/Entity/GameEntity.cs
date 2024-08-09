@@ -4,8 +4,11 @@ public class GameEntity {
     // 手上是否有植物
     public bool hasHandPlant;
 
+    public PlantEntity handPlant;
+
     public GameEntity() {
         hasHandPlant = false;
+        handPlant = null;
     }
 
 }

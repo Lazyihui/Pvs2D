@@ -16,10 +16,27 @@ public static class CellDomain {
         entity.Ctor();
         entity.id = ctx.idService.cellIDRecord++;
 
+        entity.OnMouseDownHandle = () => {
+            Debug.Log("CellEntity OnMouseDown");
+            Plant(ctx, entity);
+        };
+
         ctx.cellRepository.Add(entity);
         return entity;
 
     }
 
+
+    public static void Plant(GameContext ctx, CellEntity cell) {
+        if (ctx.gameEntity.handPlant == null) {
+            return;
+        }
+
+        ctx.gameEntity.handPlant.transform.position = cell.transform.position;
+
+        ctx.gameEntity.handPlant = null;
+
+
+    }
 
 }

@@ -19,24 +19,25 @@ public class NewBehaviourScript : MonoBehaviour {
         // === Load ===
         ModuleAssets.Load(ctx.assetsContext);
 
-        Binding();
+        Binding(ctx.gameContext);
 
 
 
         GameBusiness.Enter(ctx.gameContext);
     }
 
-    void Binding() {
+    void Binding(GameContext ctx) {
         var uiEvent = ctx.uiContext.uiEvent;
 
         uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
 
-            if (ctx.gameContext.gameEntity.hasHandPlant) {
+            if (ctx.gameEntity.hasHandPlant) {
                 return;
             }
-            PlantDomain.Spawn(ctx.gameContext, 1);
 
-            ctx.gameContext.gameEntity.hasHandPlant = true;
+            ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, 1);
+
+            ctx.gameEntity.hasHandPlant = true;
 
             //1. 还要种植 (先种植在计算)
 

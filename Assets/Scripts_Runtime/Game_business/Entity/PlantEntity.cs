@@ -41,6 +41,8 @@ public class PlantEntity : MonoBehaviour {
         }
     }
 
+    void OnClick() {
+    }
 
     void Disable() { }
 

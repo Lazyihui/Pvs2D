@@ -10,12 +10,20 @@ public class CellEntity : MonoBehaviour {
 
     public Vector2Int pos;
 
-    public void Ctor() { }
+    public Action OnMouseDownHandle;
+
+    public bool isHavsPlant;
+
+    public void Ctor() { 
+        isHavsPlant = false;
+    }
 
 
     public void SetPosInt(Vector2Int pos) {
         this.pos = pos;
     }
 
-
+    public void OnMouseDown() {
+        OnMouseDownHandle.Invoke();
+    }
 }
