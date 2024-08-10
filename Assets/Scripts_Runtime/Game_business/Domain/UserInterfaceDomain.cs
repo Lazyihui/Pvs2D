@@ -6,7 +6,7 @@ public static class UserInterfaceDomain {
 
     public static void UpdataHandPlantPos(GameContext ctx, PlantEntity plant) {
 
-        if (plant.plantStatus == PlantStatus.Enable || ctx.gameEntity.handPlant == null) {
+        if (plant.plantStatus == PlantStatus.Enable ) {
             return;
         }
 

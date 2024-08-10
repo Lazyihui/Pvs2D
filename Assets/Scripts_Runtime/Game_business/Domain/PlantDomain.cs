@@ -23,7 +23,7 @@ public static class PlantDomain {
         plant.typeID = typeID;
         plant.id = ctx.idService.plantIDRecord++;
         ctx.plantRepository.Add(plant);
-        return plant;
+        return plant; // 0x54
 
     }
 }

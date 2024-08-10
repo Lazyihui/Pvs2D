@@ -36,7 +36,7 @@ public class NewBehaviourScript : MonoBehaviour {
                 return;
             }
 
-            ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, 1);
+            ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, 1); // 0x54
 
             //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
 

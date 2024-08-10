@@ -1,5 +1,5 @@
 
-public enum PlantStatus {
+public enum PlantStatus : int {
     None,
 
     // 不可用 就是生成在手上

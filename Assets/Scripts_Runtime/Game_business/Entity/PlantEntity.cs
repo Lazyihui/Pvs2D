@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlantEntity : MonoBehaviour {
 
-    [SerializeField] Animator anim;
+    [SerializeField] Animator anim; // ulong
 
 
 
@@ -14,7 +14,7 @@ public class PlantEntity : MonoBehaviour {
 
     public int typeID;
 
-    public PlantStatus plantStatus;
+    public PlantStatus plantStatus; // int
 
 
     public void Ctor() {
