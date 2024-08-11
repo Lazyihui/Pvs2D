@@ -14,11 +14,16 @@ public class PlantEntity : MonoBehaviour {
 
     public int typeID;
 
-    public PlantStatus plantStatus; // int
+    public PlantStatus status; // int
 
+    // 时间什么的
+
+    public float spawnInterval;
+
+    public float spawnTimer;
 
     public void Ctor() {
-        plantStatus = PlantStatus.Disable;
+        status = PlantStatus.Disable;
     }
 
     public void SetAnim(Animator animator) {
@@ -28,24 +33,27 @@ public class PlantEntity : MonoBehaviour {
     public void SetPos(Vector2 pos) {
         transform.position = pos;
     }
-    
-    public void SetStatus(PlantEntity plant) {
-        if (plant.plantStatus == PlantStatus.Disable) {
-            // plant.plantStatus = PlantStatus.Enable;
-            // anim.Play("PlantEntity_Enable");
-        } else if (plant.plantStatus == PlantStatus.Enable) {
-            // plant.plantStatus = PlantStatus.Disable;
-            // anim.Play("PlantEntity_Disable");
-        } else {
 
-        }
+
+    public void AnimSetTrigger() {
+        anim.SetTrigger("IsGlowing");
     }
 
-    void OnClick() {
-    }
+    // public void SetStatus(PlantEntity plant) {
+    //     if (plant.status == PlantStatus.Disable) {
+    //         // plant.plantStatus = PlantStatus.Enable;
+    //         // anim.Play("PlantEntity_Enable");
+    //     } else if (plant.status == PlantStatus.Enable) {
+    //         // plant.plantStatus = PlantStatus.Disable;
+    //         // anim.Play("PlantEntity_Disable");
+    //     } else {
 
-    void Disable() { }
+    //     }
+    // }
 
-    void Enable() { }
+    // void Disable() { }
+
+    // void Enable() { }
+
 
 }

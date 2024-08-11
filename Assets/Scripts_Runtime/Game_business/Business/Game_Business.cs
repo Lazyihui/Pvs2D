@@ -61,13 +61,17 @@ public static class GameBusiness {
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
 
+
+
     }
 
     static void LogicFix(GameContext ctx, float dt) {
         int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
         for (int i = 0; i < plantLen; i++) {
             PlantEntity plant = plants[i];
+            
             UserInterfaceDomain.UpdataHandPlantPos(ctx, plant);
+            PlantDomain.SetStatus(ctx, plant, dt);
         }
 
     }

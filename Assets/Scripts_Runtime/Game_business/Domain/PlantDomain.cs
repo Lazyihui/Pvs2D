@@ -21,9 +21,46 @@ public static class PlantDomain {
         plant.Ctor();
         // plant.SetPos(new Vector2(0, 0));
         plant.typeID = typeID;
+        plant.spawnInterval = 5;
+        plant.spawnTimer = 0;
+
         plant.id = ctx.idService.plantIDRecord++;
         ctx.plantRepository.Add(plant);
         return plant; // 0x54
 
     }
+
+
+    public static void SetStatus(GameContext ctx, PlantEntity plant, float dt) {
+
+        if (plant.status == PlantStatus.Disable) {
+
+        }
+
+        if (plant.status == PlantStatus.Enable) {
+            spawnSunflower(ctx, plant, dt);
+        }
+
+    }
+
+    static void spawnSunflower(GameContext ctx, PlantEntity plant, float dt) {
+        // 生成阳光
+        plant.spawnTimer += dt;
+        if (plant.spawnTimer >= plant.spawnInterval) {
+            //播动画
+            Debug.Log("生成阳光");
+
+            plant.AnimSetTrigger();
+            // 生成阳光
+            // SunDomain.Spawn(ctx, plant.transform.position);
+
+
+            plant.spawnTimer = 0;
+        }
+
+
+    }
+
+
+
 }

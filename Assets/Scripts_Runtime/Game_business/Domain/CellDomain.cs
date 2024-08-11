@@ -36,7 +36,7 @@ public static class CellDomain {
 
         ctx.gameEntity.handPlant.transform.position = cell.transform.position;
         // 0x54 = 2
-        ctx.gameEntity.handPlant.plantStatus = PlantStatus.Enable;
+        ctx.gameEntity.handPlant.status = PlantStatus.Enable;
         
         ctx.gameEntity.handPlant = null;
 
