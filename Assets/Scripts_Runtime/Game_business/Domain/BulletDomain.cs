@@ -29,15 +29,38 @@ public static class BulletDomain {
         return entity;
     }
 
-    public static void addSunCount(GameContext ctx, BulletEntity bullet) {
-
-        // 要改
-        if (bullet.typeID != BulletConst.Sun) {
+    public static void SunSpawnedMove(GameContext ctx, BulletEntity sun) {
+        if (sun.typeID != BulletConst.Sun) {
             return;
         }
 
+        float distance = UnityEngine.Random.Range(sun.jumpMinDistance, sun.jumpMaxDistance);
+        float angle = UnityEngine.Random.Range(0, 2);
+        if (angle < 1) {
+            distance = -distance;
+        }
+        Vector2 pos = sun.transform.position;
+        pos.x += distance;
+
+        sun.JumpTo(pos);
+    }
+
+    static void SunMoveToText(GameContext ctx, BulletEntity sun) {
+        if (sun.typeID != BulletConst.Sun) {
+            return;
+        }
+
+
+        sun.MoveToTaget(ctx.gameEntity.textWorldPos);
+
+    }
+
+    static void addSunCount(GameContext ctx, BulletEntity bullet) {
+
+        if (bullet.typeID != BulletConst.Sun) {
+            return;
+        }
         ctx.idService.sunCount += 25;
-        bullet.TearDown();
-        ctx.bulletRepository.Remove(bullet);
+        SunMoveToText(ctx, bullet);
     }
 }

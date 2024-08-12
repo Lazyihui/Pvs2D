@@ -19,7 +19,7 @@ public class BulletEntity : MonoBehaviour {
     public Action OnClickCardHandle;
 
 
-    public void Cotr() { 
+    public void Cotr() {
 
     }
 
@@ -39,12 +39,18 @@ public class BulletEntity : MonoBehaviour {
 
     }
 
+    // 要改 TODO:
+    public void MoveToTaget(Vector2 targetPos) {
+        transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {
+            Destroy(gameObject);
+        });
+    }
+
     public void TearDown() {
         Destroy(gameObject);
     }
 
     public void OnMouseDown() {
-        Debug.Log("OnMouseDown");
         OnClickCardHandle.Invoke();
     }
 

@@ -60,7 +60,9 @@ public static class GameBusiness {
         Camera camera = ctx.camera;
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
-
+        Vector3 textPos = ctx.uiContext.panel_Goods.sunCountText.transform.position;
+        textPos.z = 0;
+        ctx.gameEntity.textWorldPos = camera.ScreenToWorldPoint(textPos);
 
 
     }
@@ -73,7 +75,7 @@ public static class GameBusiness {
         for (int i = 0; i < goodlen; i++) {
             Panel_GoodsElement good = goods[i];
             UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, good, dt);
-            
+
             if (Input.GetKeyDown(KeyCode.A)) {
                 Debug.Log(good.status);
             }
@@ -87,6 +89,12 @@ public static class GameBusiness {
             PlantDomain.SetStatus(ctx, plant, dt);
 
         }
+
+        int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+        for (int i = 0; i < bulletLen; i++) {
+            BulletEntity bullet = bullets[i];
+        }
+
 
     }
 

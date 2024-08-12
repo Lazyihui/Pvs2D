@@ -7,7 +7,7 @@ public class Panel_Goods : MonoBehaviour {
     [SerializeField] Panel_GoodsElement goodsElementPrefab;
 
     [SerializeField] Transform goodsElementGruop;
-    [SerializeField] Text sunCountText;
+    [SerializeField] public Text sunCountText;
 
 
     public void Ctor() { }

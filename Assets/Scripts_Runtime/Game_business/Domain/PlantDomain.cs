@@ -51,27 +51,17 @@ public static class PlantDomain {
         plant.spawnTimer += dt;
         if (plant.spawnTimer >= plant.spawnInterval) {
             //播动画
-            Debug.Log("11111生成阳光");
-
+            
             plant.AnimSetTrigger();
 
             // 生成阳光
-            BulletEntity sun = BulletDomain.Spawn(ctx, plant.transform.position, 1);
+            BulletEntity sun = BulletDomain.Spawn(ctx, plant.transform.position, BulletConst.Sun);
 
-            float distance = UnityEngine.Random.Range(sun.jumpMinDistance, sun.jumpMaxDistance);
-            float angle = UnityEngine.Random.Range(0, 2);
-            if (angle < 1) {
-                distance = -distance;
-            }
-
-            Vector2 pos = sun.transform.position;
-            pos.x += distance;
-
-            sun.JumpTo(pos);
+            BulletDomain.SunSpawnedMove(ctx, sun);
 
             plant.spawnTimer = 0;
 
-
+            // 
         }
 
 
