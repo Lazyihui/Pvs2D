@@ -19,8 +19,8 @@ public class Panel_Goods : MonoBehaviour {
         // goodsElement.Init(spriteLight, spriteDark);
         ele.Ctor();
 
-        ele.OnClickCardHandle = (typeID, plantCount) => {
-            ctx.uiEvent.Panel_GoodsElement_CardClick(typeID, plantCount);
+        ele.OnClickCardHandle = (id) => {
+            ctx.uiEvent.Panel_GoodsElement_CardClick(id);
         };
 
 

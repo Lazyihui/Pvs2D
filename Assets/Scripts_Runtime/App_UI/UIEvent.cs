@@ -5,11 +5,11 @@ using UnityEngine;
 
 
 public class UIEvent {
-    public Action<int, int> panel_GoodsElement_CardHandle;
+    public Action<int> panel_GoodsElement_CardHandle;
 
-    public void Panel_GoodsElement_CardClick(int typeID, int plantCount) {
+    public void Panel_GoodsElement_CardClick(int id) {
         if (panel_GoodsElement_CardHandle != null) {
-            panel_GoodsElement_CardHandle.Invoke(typeID, plantCount);
+            panel_GoodsElement_CardHandle.Invoke(id);
         }
     }
 }

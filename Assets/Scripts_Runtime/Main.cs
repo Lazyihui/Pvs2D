@@ -29,9 +29,12 @@ public class NewBehaviourScript : MonoBehaviour {
     void Binding(GameContext ctx) {
         var uiEvent = ctx.uiContext.uiEvent;
 
-        uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
+        uiEvent.panel_GoodsElement_CardHandle = (id) => {
 
-            
+
+            ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
+
+            good.status = GoodStatus.Cooling;
 
             if (ctx.gameEntity.handPlant != null) {
                 Debug.Log("已经有植物了");
@@ -41,11 +44,12 @@ public class NewBehaviourScript : MonoBehaviour {
             ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, 1); // 0x54
 
             //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
-            int plantNeedSunCount = ctx.gameEntity.handPlant.needSunCount;
 
             //2. 要进入冷却  并且 要扣除阳光
-            ctx.uiContext.idService.sunCount -= plantNeedSunCount;
-            
+            // 用卡片来记录来记录阳光
+
+            ctx.uiContext.idService.sunCount -= good.needSunCount;
+
         };
     }
 
@@ -55,13 +59,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         GameBusiness.Tick(ctx.gameContext, dt);
 
-        UIApp.Panel_GoodsUpdateSunCount(ctx.uiContext);
-
-        int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
-        for (int i = 0; i < goodlen; i++) {
-            Panel_GoodsElement good = goods[i];
-            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, good, dt);
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.Space)) {
 

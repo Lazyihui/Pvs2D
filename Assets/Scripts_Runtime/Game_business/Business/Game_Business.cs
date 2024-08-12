@@ -66,12 +66,26 @@ public static class GameBusiness {
     }
 
     static void LogicFix(GameContext ctx, float dt) {
+
+        UIApp.Panel_GoodsUpdateSunCount(ctx.uiContext);
+
+        int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
+        for (int i = 0; i < goodlen; i++) {
+            Panel_GoodsElement good = goods[i];
+            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, good, dt);
+            
+            if (Input.GetKeyDown(KeyCode.A)) {
+                Debug.Log(good.status);
+            }
+        }
+
         int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
         for (int i = 0; i < plantLen; i++) {
             PlantEntity plant = plants[i];
-            
+
             UserInterfaceDomain.UpdataHandPlantPos(ctx, plant);
             PlantDomain.SetStatus(ctx, plant, dt);
+
         }
 
     }

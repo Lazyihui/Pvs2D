@@ -18,33 +18,34 @@ public class Panel_GoodsElement : MonoBehaviour {
     public GoodStatus status;
 
 
-    public Action<int, int> OnClickCardHandle;
+    public Action<int> OnClickCardHandle;
 
     public float cdTime;
 
     public float cdTimer;
 
     // 每个卡片要的阳光数量
-    public int plantCount;
+    public int needSunCount;
 
     public void Init(Sprite spriteLight, Sprite spriteDark, int planetCount) {
         this.spriteLight.sprite = spriteLight;
         this.spriteDark.sprite = spriteDark;
-        this.plantCount = planetCount;
+        this.needSunCount = planetCount;
     }
 
     public void Ctor() {
         status = GoodStatus.Cooling;
 
         cardButton.onClick.AddListener(() => {
-            OnClickCardHandle(this.typeID, this.plantCount);
+            // status = GoodStatus.Cooling;
+            OnClickCardHandle(this.id);
         });
 
         // 不能写在这里 要用TM
         cdTime = 2;
         cdTimer = 0;
 
-        plantCount = 50;
+        needSunCount = 50;
     }
 
     //这里逻辑有点问题
@@ -67,16 +68,16 @@ public class Panel_GoodsElement : MonoBehaviour {
 
         if (cdTimer >= cdTime) {
             this.status = GoodStatus.WaitingSun;
+            cdTimer = 0;
         }
-
         spriteLight.gameObject.SetActive(false);
         spriteDark.gameObject.SetActive(true);
+        cardMask.gameObject.SetActive(true);
     }
 
     void WaitingSun(int sunCount) {
 
-        if (sunCount >= plantCount) {
-
+        if (sunCount >= needSunCount) {
             this.status = GoodStatus.Ready;
         } else {
 
@@ -93,8 +94,7 @@ public class Panel_GoodsElement : MonoBehaviour {
         spriteDark.gameObject.SetActive(false);
         cardMask.gameObject.SetActive(false);
 
-        if (sunCount >= plantCount) {
-
+        if (sunCount >= needSunCount) {
         } else {
             status = GoodStatus.WaitingSun;
         }

@@ -14,7 +14,6 @@ public class PlantEntity : MonoBehaviour {
 
     public int typeID;
 
-    public int needSunCount;
 
     public PlantStatus status; // int
 

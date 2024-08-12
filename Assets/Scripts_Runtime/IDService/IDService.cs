@@ -13,7 +13,7 @@ public class IDService {
 
 
     public IDService() {
-        sunCount = 100;
+        sunCount = 300;
 
         goodsIDRecord = 0;
         plantIDRecord = 0;
