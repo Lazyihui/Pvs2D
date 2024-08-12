@@ -40,10 +40,19 @@ public class BulletEntity : MonoBehaviour {
     }
 
     // 要改 TODO:
-    public void MoveToTaget(Vector2 targetPos) {
-        transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {
-            Destroy(gameObject);
-        });
+    public void ODMoveToTaget(Vector2 targetPos) {
+       
+    }
+
+    public void MoveToTaget(Vector2 targetPos, float dt) {
+        Vector2 pos = transform.position;
+
+        Vector2 dir = (targetPos - pos).normalized;
+        pos += dir * 5 * dt;
+
+        transform.position = pos;
+
+        
     }
 
     public void TearDown() {

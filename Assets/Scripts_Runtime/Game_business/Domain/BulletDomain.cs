@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using DG.Tweening;
 
 public static class BulletDomain {
     public static BulletEntity Spawn(GameContext ctx, Vector2 pos, int typeID) {
@@ -50,9 +50,24 @@ public static class BulletDomain {
             return;
         }
 
+        Vector2 targetPos = ctx.gameEntity.textWorldPos;
+        sun.transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {
+            ctx.bulletRepository.Remove(sun);
+            sun.TearDown();
+        });
 
-        sun.MoveToTaget(ctx.gameEntity.textWorldPos);
+    }
 
+    public static void MoveToTarget(GameContext ctx, BulletEntity sun, Vector2 targetPos, float dt) {
+        sun.MoveToTaget(targetPos, dt);
+
+        Vector2 pos = sun.transform.position;
+
+        if (pos == targetPos) {
+            ctx.bulletRepository.Remove(sun);
+            sun.TearDown();
+
+        }
     }
 
     static void addSunCount(GameContext ctx, BulletEntity bullet) {
