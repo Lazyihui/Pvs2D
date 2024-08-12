@@ -20,8 +20,24 @@ public static class BulletDomain {
         entity.jumpMaxDistance = 1.5f;
         entity.jumpMinDistance = 0.5f;
 
+        entity.OnClickCardHandle = () => {
+            addSunCount(ctx, entity);
+        };
+
         ctx.bulletRepository.Add(entity);
 
         return entity;
+    }
+
+    public static void addSunCount(GameContext ctx, BulletEntity bullet) {
+
+        // 要改
+        if (bullet.typeID != BulletConst.Sun) {
+            return;
+        }
+
+        ctx.idService.sunCount += 25;
+        bullet.TearDown();
+        ctx.bulletRepository.Remove(bullet);
     }
 }

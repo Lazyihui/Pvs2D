@@ -13,7 +13,15 @@ public class BulletEntity : MonoBehaviour {
 
     public float jumpMaxDistance;
 
-    public void Cotr() { }
+
+    // Action
+
+    public Action OnClickCardHandle;
+
+
+    public void Cotr() { 
+
+    }
 
     public void SetPos(Vector2 pos) {
         transform.position = pos;
@@ -29,6 +37,15 @@ public class BulletEntity : MonoBehaviour {
         PathType.CatmullRom).SetEase(Ease.OutQuart);
 
 
+    }
+
+    public void TearDown() {
+        Destroy(gameObject);
+    }
+
+    public void OnMouseDown() {
+        Debug.Log("OnMouseDown");
+        OnClickCardHandle.Invoke();
     }
 
 }
