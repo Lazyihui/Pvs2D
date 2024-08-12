@@ -31,6 +31,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
         uiEvent.panel_GoodsElement_CardHandle = (typeID, plantCount) => {
 
+            
+
             if (ctx.gameEntity.handPlant != null) {
                 Debug.Log("已经有植物了");
                 return;
@@ -39,11 +41,11 @@ public class NewBehaviourScript : MonoBehaviour {
             ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, 1); // 0x54
 
             //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
-
+            int plantNeedSunCount = ctx.gameEntity.handPlant.needSunCount;
 
             //2. 要进入冷却  并且 要扣除阳光
-
-
+            ctx.uiContext.idService.sunCount -= plantNeedSunCount;
+            
         };
     }
 
@@ -62,7 +64,6 @@ public class NewBehaviourScript : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            ctx.uiContext.idService.sunCount -= 60;
 
             Debug.Log("mouseWorldPos:" + ctx.moduleInput.mouseWorldPos + "mouseScreenPos:" + ctx.moduleInput.mouseScreenPos);
         }

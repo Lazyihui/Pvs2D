@@ -69,12 +69,8 @@ public class Panel_GoodsElement : MonoBehaviour {
             this.status = GoodStatus.WaitingSun;
         }
 
-
-
         spriteLight.gameObject.SetActive(false);
         spriteDark.gameObject.SetActive(true);
-
-
     }
 
     void WaitingSun(int sunCount) {
@@ -87,9 +83,7 @@ public class Panel_GoodsElement : MonoBehaviour {
             spriteLight.gameObject.SetActive(false);
             spriteDark.gameObject.SetActive(true);
             cardMask.gameObject.SetActive(false);
-
         }
-
 
     }
 

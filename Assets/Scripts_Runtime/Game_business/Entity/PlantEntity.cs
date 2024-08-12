@@ -14,6 +14,8 @@ public class PlantEntity : MonoBehaviour {
 
     public int typeID;
 
+    public int needSunCount;
+
     public PlantStatus status; // int
 
     // 时间什么的

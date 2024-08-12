@@ -21,8 +21,12 @@ public static class PlantDomain {
         plant.Ctor();
         // plant.SetPos(new Vector2(0, 0));
         plant.typeID = typeID;
+        plant.needSunCount = 50;
+
         plant.spawnInterval = 5;
         plant.spawnTimer = 0;
+
+
 
         plant.id = ctx.idService.plantIDRecord++;
         ctx.plantRepository.Add(plant);
