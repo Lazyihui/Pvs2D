@@ -9,6 +9,8 @@ public class IDService {
 
     public int cellIDRecord;
 
+    public int bulletIDRecord;
+
 
     public IDService() {
         sunCount = 100;
@@ -16,6 +18,7 @@ public class IDService {
         goodsIDRecord = 0;
         plantIDRecord = 0;
         cellIDRecord = 0;
+        bulletIDRecord = 0;
 
     }
 

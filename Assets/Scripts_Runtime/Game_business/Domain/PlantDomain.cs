@@ -24,6 +24,9 @@ public static class PlantDomain {
         plant.spawnInterval = 5;
         plant.spawnTimer = 0;
 
+        plant.sunInterval = 1;
+        plant.sunTimer = 0;
+
         plant.id = ctx.idService.plantIDRecord++;
         ctx.plantRepository.Add(plant);
         return plant; // 0x54
@@ -48,14 +51,15 @@ public static class PlantDomain {
         plant.spawnTimer += dt;
         if (plant.spawnTimer >= plant.spawnInterval) {
             //播动画
-            Debug.Log("生成阳光");
-
+            Debug.Log("11111生成阳光");
+            
             plant.AnimSetTrigger();
+
+            BulletDomain.Spawn(ctx, 1);            
             // 生成阳光
-            // SunDomain.Spawn(ctx, plant.transform.position);
-
-
             plant.spawnTimer = 0;
+
+
         }
 
 

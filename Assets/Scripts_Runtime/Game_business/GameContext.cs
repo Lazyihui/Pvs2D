@@ -9,6 +9,8 @@ public class GameContext {
     public PlantRepository plantRepository;
 
     public CellRepository cellRepository;
+
+    public BulletRepository bulletRepository;
     // inject
     public AssetsContext assetsContext;
 
@@ -28,6 +30,7 @@ public class GameContext {
 
         plantRepository = new PlantRepository();
         cellRepository = new CellRepository();
+        bulletRepository = new BulletRepository();
     }
 
     public void Inject(AssetsContext assetsContext, IDService idService,ModuleInput moduleInput,Canvas canvas,Camera camera,Transform CellGroup,UIContext uiContext) {

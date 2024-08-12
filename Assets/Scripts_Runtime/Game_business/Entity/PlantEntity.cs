@@ -22,6 +22,10 @@ public class PlantEntity : MonoBehaviour {
 
     public float spawnTimer;
 
+    public float sunTimer;
+
+    public float sunInterval;
+
     public void Ctor() {
         status = PlantStatus.Disable;
     }
