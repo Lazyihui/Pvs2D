@@ -22,9 +22,6 @@ public class PlantEntity : MonoBehaviour {
 
     public float spawnTimer;
 
-    public float sunTimer;
-
-    public float sunInterval;
 
     public void Ctor() {
         status = PlantStatus.Disable;
@@ -42,22 +39,6 @@ public class PlantEntity : MonoBehaviour {
     public void AnimSetTrigger() {
         anim.SetTrigger("IsGlowing");
     }
-
-    // public void SetStatus(PlantEntity plant) {
-    //     if (plant.status == PlantStatus.Disable) {
-    //         // plant.plantStatus = PlantStatus.Enable;
-    //         // anim.Play("PlantEntity_Enable");
-    //     } else if (plant.status == PlantStatus.Enable) {
-    //         // plant.plantStatus = PlantStatus.Disable;
-    //         // anim.Play("PlantEntity_Disable");
-    //     } else {
-
-    //     }
-    // }
-
-    // void Disable() { }
-
-    // void Enable() { }
 
 
 }
