@@ -71,6 +71,8 @@ public static class GameBusiness {
 
         UIApp.Panel_GoodsUpdateSunCount(ctx.uiContext);
 
+        GameDomain.SpawnSunTimer(ctx, dt);
+
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
         for (int i = 0; i < goodlen; i++) {
             Panel_GoodsElement good = goods[i];
@@ -85,7 +87,7 @@ public static class GameBusiness {
         for (int i = 0; i < plantLen; i++) {
             PlantEntity plant = plants[i];
 
-            UserInterfaceDomain.UpdataHandPlantPos(ctx, plant);
+            GameDomain.UpdataHandPlantPos(ctx, plant);
             PlantDomain.SetStatus(ctx, plant, dt);
 
         }
@@ -93,7 +95,15 @@ public static class GameBusiness {
         int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
         for (int i = 0; i < bulletLen; i++) {
             BulletEntity bullet = bullets[i];
+            if (bullet.typeID == BulletConst.Sun_Fall) {
+
+                float y = UnityEngine.Random.Range(-4, 2.5f);
+                BulletDomain.MoveToTarget(ctx, bullet, new Vector2(bullet.transform.position.x, y), dt);
+            }
+
             BulletDomain.MouseInBullet(ctx, bullet);
+
+
         }
 
 

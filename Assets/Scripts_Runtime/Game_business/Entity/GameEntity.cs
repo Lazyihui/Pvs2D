@@ -11,8 +11,17 @@ public class GameEntity {
 
     public Vector2 textWorldPos;
 
+    // 自动生成阳光
+
+    public float sunSpawnInterval;
+
+    public float sunSpawnTimer;
+
     public GameEntity() {
         handPlant = null;
+
+        sunSpawnInterval = 5;
+        sunSpawnTimer = 0;
     }
 
 }

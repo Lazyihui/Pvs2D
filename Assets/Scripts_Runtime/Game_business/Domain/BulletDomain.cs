@@ -48,13 +48,15 @@ public static class BulletDomain {
     public static void MoveToTarget(GameContext ctx, BulletEntity sun, Vector2 targetPos, float dt) {
         sun.MoveToTaget(targetPos, dt);
 
-        Vector2 pos = sun.transform.position;
+        // Vector2 pos = sun.transform.position;
 
-        if (pos == targetPos) {
-            ctx.bulletRepository.Remove(sun);
-            sun.TearDown();
+        
+        // if (pos == targetPos) {
+        //     ctx.bulletRepository.Remove(sun);
+        //     sun.TearDown();
+        // }
 
-        }
+
     }
 
     public static void MouseInBullet(GameContext ctx, BulletEntity bullet) {

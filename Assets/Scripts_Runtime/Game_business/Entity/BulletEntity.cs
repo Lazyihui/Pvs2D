@@ -27,7 +27,7 @@ public class BulletEntity : MonoBehaviour {
     }
     public void JumpTo(Vector2 targetPos) {
 
-        if(this == null) {
+        if (this == null) {
             return;
         }
 
@@ -46,18 +46,17 @@ public class BulletEntity : MonoBehaviour {
 
     // 要改 TODO:
     public void ODMoveToTaget(Vector2 targetPos) {
-       
+
     }
 
     public void MoveToTaget(Vector2 targetPos, float dt) {
         Vector2 pos = transform.position;
 
         Vector2 dir = (targetPos - pos).normalized;
-        pos += dir * 5 * dt;
+        pos += dir * dt;
 
         transform.position = pos;
 
-        
     }
 
     public void TearDown() {
