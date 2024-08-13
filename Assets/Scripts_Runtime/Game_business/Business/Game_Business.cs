@@ -93,7 +93,7 @@ public static class GameBusiness {
         int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
         for (int i = 0; i < bulletLen; i++) {
             BulletEntity bullet = bullets[i];
-            // BulletDomain.MoveToTarget(ctx, bullet, ctx.gameEntity.textWorldPos, dt);
+            BulletDomain.MouseInBullet(ctx, bullet);
         }
 
 

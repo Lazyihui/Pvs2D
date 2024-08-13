@@ -16,7 +16,6 @@ public class BulletEntity : MonoBehaviour {
 
     // Action
 
-    public Action OnClickCardHandle;
 
 
     public void Cotr() {
@@ -28,10 +27,16 @@ public class BulletEntity : MonoBehaviour {
     }
     public void JumpTo(Vector2 targetPos) {
 
+        if(this == null) {
+            return;
+        }
+
         Vector2 centerPos = (targetPos + (Vector2)transform.position) / 2;
         float distance = Vector2.Distance(targetPos, transform.position);
 
         centerPos.y += (distance * 0.5f);
+
+
 
         transform.DOPath(new Vector3[] { transform.position, centerPos, targetPos }, 2,
         PathType.CatmullRom).SetEase(Ease.OutQuart);
@@ -57,10 +62,6 @@ public class BulletEntity : MonoBehaviour {
 
     public void TearDown() {
         Destroy(gameObject);
-    }
-
-    public void OnMouseDown() {
-        OnClickCardHandle.Invoke();
     }
 
 }

@@ -51,11 +51,15 @@ public static class PlantDomain {
         plant.spawnTimer += dt;
         if (plant.spawnTimer >= plant.spawnInterval) {
             //播动画
-            
+
             plant.AnimSetTrigger();
 
             // 生成阳光
-            BulletEntity sun = BulletDomain.Spawn(ctx, plant.transform.position, BulletConst.Sun);
+
+            Vector2 pos = plant.transform.position;
+            pos.y = pos.y -0.5f;
+
+            BulletEntity sun = BulletDomain.Spawn(ctx, pos, BulletConst.Sun);
 
             BulletDomain.SunSpawnedMove(ctx, sun);
 

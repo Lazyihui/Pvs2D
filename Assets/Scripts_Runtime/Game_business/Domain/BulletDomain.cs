@@ -20,10 +20,6 @@ public static class BulletDomain {
         entity.jumpMaxDistance = 1.5f;
         entity.jumpMinDistance = 0.5f;
 
-        entity.OnClickCardHandle = () => {
-            addSunCount(ctx, entity);
-        };
-
         ctx.bulletRepository.Add(entity);
 
         return entity;
@@ -45,19 +41,10 @@ public static class BulletDomain {
         sun.JumpTo(pos);
     }
 
-    static void SunMoveToText(GameContext ctx, BulletEntity sun) {
-        if (sun.typeID != BulletConst.Sun) {
-            return;
-        }
 
-        Vector2 targetPos = ctx.gameEntity.textWorldPos;
-        sun.transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {
-            ctx.bulletRepository.Remove(sun);
-            sun.TearDown();
-        });
 
-    }
 
+    //第二种移动 但是有问题
     public static void MoveToTarget(GameContext ctx, BulletEntity sun, Vector2 targetPos, float dt) {
         sun.MoveToTaget(targetPos, dt);
 
@@ -70,12 +57,50 @@ public static class BulletDomain {
         }
     }
 
+    public static void MouseInBullet(GameContext ctx, BulletEntity bullet) {
+        if (bullet.typeID != BulletConst.Sun) {
+            return;
+        }
+
+        Vector2 mousePos = ctx.moduleInput.mouseWorldPos;
+        Vector2 pos = bullet.transform.position;
+
+        float distance = Vector2.Distance(mousePos, pos);
+
+
+        if (distance < 0.5f) {
+            if (Input.GetMouseButtonDown(0)) {
+
+                addSunCount(ctx, bullet);
+
+            }
+
+        }
+
+
+    }
+
+
     static void addSunCount(GameContext ctx, BulletEntity bullet) {
 
         if (bullet.typeID != BulletConst.Sun) {
             return;
         }
-        ctx.idService.sunCount += 25;
         SunMoveToText(ctx, bullet);
+    }
+
+    static void SunMoveToText(GameContext ctx, BulletEntity sun) {
+        if (sun.typeID != BulletConst.Sun) {
+            return;
+        }
+
+        Vector2 targetPos = ctx.gameEntity.textWorldPos;
+        sun.transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {
+            ctx.bulletRepository.Remove(sun);
+            sun.TearDown();
+            ctx.idService.sunCount += 25;
+
+        });
+
     }
 }
