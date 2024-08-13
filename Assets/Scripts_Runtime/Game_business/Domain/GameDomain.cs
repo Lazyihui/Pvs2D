@@ -25,9 +25,9 @@ public static class GameDomain {
             float x = UnityEngine.Random.Range(-4, 5.5f);
 
             BulletEntity sun = BulletDomain.Spawn(ctx, new Vector2(x, 6), BulletConst.Sun_Fall);
-         
+            float y = UnityEngine.Random.Range(-4, 2.5f);
 
-
+            sun.sunSpawnPosTarget = new Vector2(x, y);
         }
 
     }

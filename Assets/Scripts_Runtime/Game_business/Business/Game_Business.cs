@@ -97,8 +97,7 @@ public static class GameBusiness {
             BulletEntity bullet = bullets[i];
             if (bullet.typeID == BulletConst.Sun_Fall) {
 
-                float y = UnityEngine.Random.Range(-4, 2.5f);
-                BulletDomain.MoveToTarget(ctx, bullet, new Vector2(bullet.transform.position.x, y), dt);
+                BulletDomain.MoveToTarget(ctx, bullet, bullet.sunSpawnPosTarget, dt);
             }
 
             BulletDomain.MouseInBullet(ctx, bullet);

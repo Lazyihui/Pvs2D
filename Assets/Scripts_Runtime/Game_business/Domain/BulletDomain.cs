@@ -50,7 +50,7 @@ public static class BulletDomain {
 
         // Vector2 pos = sun.transform.position;
 
-        
+
         // if (pos == targetPos) {
         //     ctx.bulletRepository.Remove(sun);
         //     sun.TearDown();
@@ -60,23 +60,22 @@ public static class BulletDomain {
     }
 
     public static void MouseInBullet(GameContext ctx, BulletEntity bullet) {
-        if (bullet.typeID != BulletConst.Sun) {
-            return;
-        }
+        if (bullet.typeID == BulletConst.Sun || bullet.typeID == BulletConst.Sun_Fall) {
 
-        Vector2 mousePos = ctx.moduleInput.mouseWorldPos;
-        Vector2 pos = bullet.transform.position;
+            Vector2 mousePos = ctx.moduleInput.mouseWorldPos;
+            Vector2 pos = bullet.transform.position;
 
-        float distance = Vector2.Distance(mousePos, pos);
+            float distance = Vector2.Distance(mousePos, pos);
 
 
-        if (distance < 0.5f) {
-            if (Input.GetMouseButtonDown(0)) {
+            if (distance < 0.5f) {
+                if (Input.GetMouseButtonDown(0)) {
 
-                addSunCount(ctx, bullet);
+                    addSunCount(ctx, bullet);
+
+                }
 
             }
-
         }
 
 
@@ -85,16 +84,10 @@ public static class BulletDomain {
 
     static void addSunCount(GameContext ctx, BulletEntity bullet) {
 
-        if (bullet.typeID != BulletConst.Sun) {
-            return;
-        }
         SunMoveToText(ctx, bullet);
     }
 
     static void SunMoveToText(GameContext ctx, BulletEntity sun) {
-        if (sun.typeID != BulletConst.Sun) {
-            return;
-        }
 
         Vector2 targetPos = ctx.gameEntity.textWorldPos;
         sun.transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {

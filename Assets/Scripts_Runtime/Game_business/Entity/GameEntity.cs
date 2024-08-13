@@ -22,6 +22,7 @@ public class GameEntity {
 
         sunSpawnInterval = 5;
         sunSpawnTimer = 0;
+
     }
 
 }

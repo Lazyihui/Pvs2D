@@ -13,6 +13,8 @@ public class BulletEntity : MonoBehaviour {
 
     public float jumpMaxDistance;
 
+    public Vector2 sunSpawnPosTarget;
+
 
     // Action
 
@@ -50,12 +52,15 @@ public class BulletEntity : MonoBehaviour {
     }
 
     public void MoveToTaget(Vector2 targetPos, float dt) {
+
+
         Vector2 pos = transform.position;
 
         Vector2 dir = (targetPos - pos).normalized;
         pos += dir * dt;
 
         transform.position = pos;
+
 
     }
 
