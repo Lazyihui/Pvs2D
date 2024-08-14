@@ -90,7 +90,7 @@ public static class BulletDomain {
     static void SunMoveToText(GameContext ctx, BulletEntity sun) {
 
         Vector2 targetPos = ctx.gameEntity.textWorldPos;
-        sun.transform.DOMove(targetPos, 1).SetEase(Ease.OutQuart).OnComplete(() => {
+        sun.transform.DOMove(targetPos, 0.5f).SetEase(Ease.OutQuart).OnComplete(() => {
             ctx.bulletRepository.Remove(sun);
             sun.TearDown();
             ctx.idService.sunCount += 25;
