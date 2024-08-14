@@ -11,12 +11,13 @@ public class CardTM : ScriptableObject {
     public int typeID;
 
 
-    public int planetCount;
 
     public int needSunCount;
 
     [Header("Sprites")]
     public Sprite spriteLight;
+
+    public Sprite spriteDark;
 
     
 

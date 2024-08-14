@@ -14,6 +14,8 @@ public class UIContext {
     // inject
     public AssetsContext assetsContext;
 
+    public TemplateContext templateContext;
+
     public IDService idService;
     public Canvas canvas;
     public UIContext() {
@@ -21,10 +23,11 @@ public class UIContext {
         uiEvent = new UIEvent();
     }
 
-    public void Inject(AssetsContext assetsContext, Canvas canvas, IDService idService) {
+    public void Inject(AssetsContext assetsContext, Canvas canvas, IDService idService,TemplateContext templateContext) {
         this.assetsContext = assetsContext;
         this.canvas = canvas;
         this.idService = idService;
+        this.templateContext = templateContext;
     }
 
 }

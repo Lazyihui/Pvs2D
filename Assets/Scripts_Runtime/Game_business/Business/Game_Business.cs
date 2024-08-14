@@ -12,6 +12,7 @@ public static class GameBusiness {
         //UIApp
         UIApp.Panel_Goods_Open(ctx.uiContext);
 
+        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 0);
         UIApp.Panel_GoodsElementAdd(ctx.uiContext, 1);
 
         // cell 

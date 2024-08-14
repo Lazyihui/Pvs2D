@@ -35,7 +35,7 @@ public class MainContext {
         this.canvas = canvas;
         this.camera = camera;
         this.CellGroup = CellGroup;
-        uiContext.Inject(assetsContext, canvas, idService);
+        uiContext.Inject(assetsContext, canvas, idService,templateContext);
         gameContext.Inject(assetsContext, idService, moduleInput, canvas, camera, CellGroup,uiContext,templateContext);
     }
 }

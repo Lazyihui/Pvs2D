@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantTM 0_Sunflower
   m_EditorClassIdentifier: 
   typeID: 0
-  spawnBulletInterval: 2
+  spawnBulletInterval: 10
   spawnBulletTimer: 0
   sprite: {fileID: 21300000, guid: 020960385ebb5014db0fa7ac7469483b, type: 3}
   animator: {fileID: 9100000, guid: e29e8fe85ead44c44a6afc6a21753f70, type: 2}
