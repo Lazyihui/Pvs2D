@@ -13,4 +13,10 @@ public class PlantTM : ScriptableObject {
 
     public int spawnBulletTimer;
 
+    [Header("Sprites")]
+
+    public Sprite sprite;
+
+    public RuntimeAnimatorController animator;
+
 }

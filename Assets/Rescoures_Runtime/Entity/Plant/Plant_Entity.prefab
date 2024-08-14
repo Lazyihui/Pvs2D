@@ -187,6 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 623555815685843690}
+  sprite: {fileID: 9133471427966157648}
   id: 0
   typeID: 0
-  plantStatus: 0
+  status: 0
+  spawnBulletInterval: 0
+  spawnBulletTimer: 0

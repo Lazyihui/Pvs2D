@@ -18,6 +18,7 @@ public class Panel_GoodsElement : MonoBehaviour {
     public GoodStatus status;
 
 
+
     public Action<int> OnClickCardHandle;
 
     public float cdTime;

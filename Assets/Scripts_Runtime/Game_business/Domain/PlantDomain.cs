@@ -19,9 +19,9 @@ public static class PlantDomain {
         GameObject go = GameObject.Instantiate(prefab);
         PlantEntity plant = go.GetComponent<PlantEntity>();
         plant.Ctor();
-        // plant.SetPos(new Vector2(0, 0));
         plant.typeID = tm.typeID;
 
+        plant.SetAnim(tm.animator, tm.sprite);
         plant.spawnBulletInterval = tm.spawnBulletInterval;
         plant.spawnBulletTimer = tm.spawnBulletTimer;
 
@@ -47,6 +47,11 @@ public static class PlantDomain {
     }
 
     static void spawnSunflower(GameContext ctx, PlantEntity plant, float dt) {
+
+        if(plant.typeID != PlantConst.SunFlower) {
+            return;
+        }
+
         // 生成阳光
         plant.spawnBulletTimer += dt;
         if (plant.spawnBulletTimer >= plant.spawnBulletInterval) {

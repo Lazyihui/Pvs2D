@@ -10,6 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23a5597c8c1c54046b7ce4830e5b46a2, type: 3}
-  m_Name: PlantTM 1
+  m_Name: PlantTM 0_Sunflower
   m_EditorClassIdentifier: 
-  typeID: 1
+  typeID: 0
+  spawnBulletInterval: 2
+  spawnBulletTimer: 0
+  sprite: {fileID: 21300000, guid: 020960385ebb5014db0fa7ac7469483b, type: 3}
+  animator: {fileID: 9100000, guid: e29e8fe85ead44c44a6afc6a21753f70, type: 2}

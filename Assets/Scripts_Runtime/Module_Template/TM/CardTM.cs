@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -9,14 +10,14 @@ public class CardTM : ScriptableObject {
 
     public int typeID;
 
-    public Sprite spriteLight;
-
-    public Sprite spriteDark;
 
     public int planetCount;
 
     public int needSunCount;
 
+    [Header("Sprites")]
+    public Sprite spriteLight;
 
+    
 
 }

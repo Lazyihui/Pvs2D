@@ -8,8 +8,7 @@ public class PlantEntity : MonoBehaviour {
 
     [SerializeField] Animator anim; // ulong
 
-
-
+    [SerializeField] SpriteRenderer sprite; // ulong
     public int id;
 
     public int typeID;
@@ -28,8 +27,9 @@ public class PlantEntity : MonoBehaviour {
         status = PlantStatus.Disable;
     }
 
-    public void SetAnim(Animator animator) {
-        anim = animator;
+    public void SetAnim(RuntimeAnimatorController animator, Sprite sprite) {
+        anim.runtimeAnimatorController = animator;
+        this.sprite.sprite = sprite;
     }
 
     public void SetPos(Vector2 pos) {
