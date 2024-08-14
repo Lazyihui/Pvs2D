@@ -12,6 +12,8 @@ public static class GameBusiness {
         //UIApp
         UIApp.Panel_Goods_Open(ctx.uiContext);
 
+        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 1);
+
         // cell 
         // TODO: 45 要改的根据不同的地图有不同的值
         for (int i = 0; i < 45; i++) {

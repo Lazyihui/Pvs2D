@@ -19,9 +19,9 @@ public class PlantEntity : MonoBehaviour {
 
     // 时间什么的
 
-    public float spawnInterval;
+    public float spawnBulletInterval;
 
-    public float spawnTimer;
+    public float spawnBulletTimer;
 
 
     public void Ctor() {

@@ -18,6 +18,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         // === Load ===
         ModuleAssets.Load(ctx.assetsContext);
+        TemplateInfra.Load(ctx.templateContext);
 
         Binding(ctx.gameContext);
 
@@ -84,5 +85,6 @@ public class NewBehaviourScript : MonoBehaviour {
         isTearDown = true;
         // === Unload===
         ModuleAssets.Unload(ctx.assetsContext);
+        TemplateInfra.Unload(ctx.templateContext);
     }
 }

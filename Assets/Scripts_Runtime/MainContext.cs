@@ -11,6 +11,8 @@ public class MainContext {
 
     public GameContext gameContext;
 
+    public TemplateContext templateContext;
+
     public ModuleInput moduleInput;
 
 
@@ -24,6 +26,7 @@ public class MainContext {
         uiContext = new UIContext();
         idService = new IDService();
         gameContext = new GameContext();
+        templateContext = new TemplateContext();
         moduleInput = new ModuleInput();
     }
 
@@ -33,6 +36,6 @@ public class MainContext {
         this.camera = camera;
         this.CellGroup = CellGroup;
         uiContext.Inject(assetsContext, canvas, idService);
-        gameContext.Inject(assetsContext, idService, moduleInput, canvas, camera, CellGroup,uiContext);
+        gameContext.Inject(assetsContext, idService, moduleInput, canvas, camera, CellGroup,uiContext,templateContext);
     }
 }

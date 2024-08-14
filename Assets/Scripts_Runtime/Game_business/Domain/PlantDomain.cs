@@ -10,20 +10,20 @@ public static class PlantDomain {
 
     public static PlantEntity Spawn(GameContext ctx, int typeID) {
 
-        bool has = ctx.assetsContext.TryGetEntity("Plant_Entity", out GameObject prefab);
-        if (!has) {
-            Debug.LogError("PlantEntity prefab not found");
-            return null;
-        }
+        bool has = ctx.templateContext.plants.TryGetValue(typeID, out PlantTM tm);
+
+
+
+        ctx.assetsContext.TryGetEntity("Plant_Entity", out GameObject prefab);
 
         GameObject go = GameObject.Instantiate(prefab);
         PlantEntity plant = go.GetComponent<PlantEntity>();
         plant.Ctor();
         // plant.SetPos(new Vector2(0, 0));
-        plant.typeID = typeID;
+        plant.typeID = tm.typeID;
 
-        plant.spawnInterval = 5;
-        plant.spawnTimer = 0;
+        plant.spawnBulletInterval = tm.spawnBulletInterval;
+        plant.spawnBulletTimer = tm.spawnBulletTimer;
 
 
 
@@ -48,8 +48,8 @@ public static class PlantDomain {
 
     static void spawnSunflower(GameContext ctx, PlantEntity plant, float dt) {
         // 生成阳光
-        plant.spawnTimer += dt;
-        if (plant.spawnTimer >= plant.spawnInterval) {
+        plant.spawnBulletTimer += dt;
+        if (plant.spawnBulletTimer >= plant.spawnBulletInterval) {
             //播动画
 
             plant.AnimSetTrigger();
@@ -57,13 +57,13 @@ public static class PlantDomain {
             // 生成阳光
 
             Vector2 pos = plant.transform.position;
-            pos.y = pos.y -0.5f;
+            pos.y = pos.y - 0.5f;
 
             BulletEntity sun = BulletDomain.Spawn(ctx, pos, BulletConst.Sun);
 
             BulletDomain.SunSpawnedMove(ctx, sun);
 
-            plant.spawnTimer = 0;
+            plant.spawnBulletTimer = 0;
 
             // 
         }

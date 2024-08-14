@@ -17,7 +17,6 @@ public static class UIApp {
                 return;
             }
             panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Goods>();
-            panel.AddGoodsElement(ctx);
             panel.Ctor();
             ctx.panel_Goods = panel;
         }
@@ -25,6 +24,12 @@ public static class UIApp {
 
         panel.Show();
 
+    }
+
+
+    public static void Panel_GoodsElementAdd(UIContext ctx, int typeID) {
+        Panel_Goods panel = ctx.panel_Goods;
+        panel.AddGoodsElement(ctx, typeID);
     }
 
     public static void Panel_GoodsUpdateSunCount(UIContext ctx) {

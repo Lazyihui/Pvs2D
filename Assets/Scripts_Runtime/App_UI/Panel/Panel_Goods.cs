@@ -13,7 +13,7 @@ public class Panel_Goods : MonoBehaviour {
     public void Ctor() { }
 
 
-    public void AddGoodsElement(UIContext ctx) {
+    public void AddGoodsElement(UIContext ctx,int typeID) {
         Panel_GoodsElement ele = Instantiate(goodsElementPrefab, goodsElementGruop);
 
         // goodsElement.Init(spriteLight, spriteDark);

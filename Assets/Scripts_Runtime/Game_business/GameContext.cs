@@ -11,6 +11,7 @@ public class GameContext {
     public CellRepository cellRepository;
 
     public BulletRepository bulletRepository;
+
     // inject
     public AssetsContext assetsContext;
 
@@ -18,13 +19,15 @@ public class GameContext {
 
     public ModuleInput moduleInput;
 
-    public Canvas canvas;   
+    public Canvas canvas;
 
     public Camera camera;
 
     public Transform CellGroup;
 
     public UIContext uiContext;
+
+    public TemplateContext templateContext;
     public GameContext() {
         gameEntity = new GameEntity();
 
@@ -33,7 +36,8 @@ public class GameContext {
         bulletRepository = new BulletRepository();
     }
 
-    public void Inject(AssetsContext assetsContext, IDService idService,ModuleInput moduleInput,Canvas canvas,Camera camera,Transform CellGroup,UIContext uiContext) {
+    public void Inject(AssetsContext assetsContext, IDService idService, ModuleInput moduleInput, Canvas canvas,
+    Camera camera, Transform CellGroup, UIContext uiContext,TemplateContext templateContext) {
         this.assetsContext = assetsContext;
         this.idService = idService;
         this.moduleInput = moduleInput;
@@ -41,6 +45,7 @@ public class GameContext {
         this.camera = camera;
         this.CellGroup = CellGroup;
         this.uiContext = uiContext;
+        this.templateContext = templateContext;
     }
 
 
