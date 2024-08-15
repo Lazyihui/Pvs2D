@@ -4,11 +4,18 @@ using DG.Tweening;
 
 public static class BulletDomain {
     public static BulletEntity Spawn(GameContext ctx, Vector2 pos, int typeID) {
-        bool has = ctx.assetsContext.TryGetEntity("Bullet_Entity", out GameObject prefab);
+
+        bool has = ctx.templateContext.bullets.TryGetValue(typeID, out BulletTM tm);
         if (!has) {
-            Debug.LogError("Bullet_Entity prefab not found");
+            Debug.LogError("没有这个预制体");
             return null;
         }
+
+
+
+        ctx.assetsContext.TryGetEntity("Bullet_Entity", out GameObject prefab);
+
+
 
         GameObject go = GameObject.Instantiate(prefab);
         BulletEntity entity = go.GetComponent<BulletEntity>();
@@ -17,6 +24,9 @@ public static class BulletDomain {
         entity.typeID = typeID;
         entity.Cotr();
         entity.SetPos(pos);
+
+        entity.SetAnim(tm.animator);
+
         entity.jumpMaxDistance = 1.5f;
         entity.jumpMinDistance = 0.5f;
 

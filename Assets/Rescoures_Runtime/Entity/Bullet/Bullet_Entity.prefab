@@ -78,10 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1478c3de15da0428ab07f7b8c26ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 8438568840750327720}
   id: 0
   typeID: 0
   jumpMinDistance: 0
   jumpMaxDistance: 0
+  sunSpawnPosTarget: {x: 0, y: 0}
 --- !u!58 &-8126986419581011489
 CircleCollider2D:
   m_ObjectHideFlags: 0

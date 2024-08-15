@@ -32,6 +32,16 @@ public class TemplateInfra {
             }
             ctx.plantPtr = ptr;
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "BulletTM";
+            var ptr = Addressables.LoadAssetsAsync<BulletTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.bullets.Add(go.typeID, go);
+            }
+            ctx.bulletPtr = ptr;
+        }
 
     }
 
@@ -43,6 +53,8 @@ public class TemplateInfra {
         if (ctx.plantPtr.IsValid()) {
             Addressables.Release(ctx.plantPtr);
         }
-
+        if (ctx.bulletPtr.IsValid()) {
+            Addressables.Release(ctx.bulletPtr);
+        }
     }
 }

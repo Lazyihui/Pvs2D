@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 76b26658488257642bff9064f406a51a
   m_currentHash:
     serializedVersion: 2
-    Hash: 97e754e52221177fe0e1fc438b0eda11
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
     - Entity
     - CardTM
     - PlantTM
+    - BulletTM
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 03343b598c43d4d46a0da00250a94613, type: 2}

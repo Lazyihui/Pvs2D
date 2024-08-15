@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class BulletEntity : MonoBehaviour {
+
+    [SerializeField] Animator anim;
 
     public int id;
 
@@ -19,13 +22,16 @@ public class BulletEntity : MonoBehaviour {
     // Action
 
 
-
     public void Cotr() {
 
     }
 
     public void SetPos(Vector2 pos) {
         transform.position = pos;
+    }
+
+    public void SetAnim(RuntimeAnimatorController animator) {
+        anim.runtimeAnimatorController = animator;
     }
     public void JumpTo(Vector2 targetPos) {
 

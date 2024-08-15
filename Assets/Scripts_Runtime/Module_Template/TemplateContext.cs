@@ -19,8 +19,13 @@ public class TemplateContext {
 
     public AsyncOperationHandle plantPtr;
 
+    public Dictionary<int, BulletTM> bullets;
+
+    public AsyncOperationHandle bulletPtr;
+
     public TemplateContext() {
         cards = new Dictionary<int, CardTM>();
         plants = new Dictionary<int, PlantTM>();
+        bullets = new Dictionary<int, BulletTM>();
     }
 }

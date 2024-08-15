@@ -47,6 +47,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - CardTM
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 046acf66f4be4834b973ea29f5768adf
+    m_Address: BulletTM 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BulletTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 876bdad0df2355c4c81a21cc779afe04
+    m_Address: BulletTM 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BulletTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2aae512de3fd364283a572077c3608e
+    m_Address: BulletTM 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - BulletTM
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9414da8affcaeb344b6d5e834d8b1f12, type: 2}
   m_SchemaSet:
