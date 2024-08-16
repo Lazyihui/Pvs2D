@@ -20,6 +20,8 @@ public static class GameBusiness {
         for (int i = 0; i < 45; i++) {
             CellDomain.Spawn(ctx);
         }
+
+        ZembieDomain.Spawn(ctx, 0);
     }
 
     public static void Load() {
