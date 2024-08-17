@@ -11,11 +11,7 @@ public static class BulletDomain {
             return null;
         }
 
-
-
         ctx.assetsContext.TryGetEntity("Bullet_Entity", out GameObject prefab);
-
-
 
         GameObject go = GameObject.Instantiate(prefab);
         BulletEntity entity = go.GetComponent<BulletEntity>();
@@ -30,9 +26,40 @@ public static class BulletDomain {
         entity.jumpMaxDistance = 1.5f;
         entity.jumpMinDistance = 0.5f;
 
+        entity.atkValue = tm.atkValue;
+
         ctx.bulletRepository.Add(entity);
 
         return entity;
+    }
+
+
+    public static void AttackingZembie(GameContext ctx, BulletEntity bullet) {
+
+        if (bullet.typeID == BulletConst.Sun || bullet.typeID == BulletConst.Sun_Fall) {
+            return;
+        }
+
+        int zemlen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
+        for (int i = 0; i < zemlen; i++) {
+            ZembieEntity zembie = zembies[i];
+
+            float distance = Vector2.SqrMagnitude(zembie.transform.position - bullet.transform.position);
+            if (distance < 0.1f) {
+
+                ZembieDomain.TakeDamage(ctx, zembie, bullet.atkValue);
+
+                BulletDomain.UnSpawn(ctx, bullet);
+            }
+        }
+
+    }
+
+
+
+    public static void UnSpawn(GameContext ctx, BulletEntity bullet) {
+        ctx.bulletRepository.Remove(bullet);
+        bullet.TearDown();
     }
 
     public static void SunSpawnedMove(GameContext ctx, BulletEntity sun) {
@@ -57,14 +84,6 @@ public static class BulletDomain {
     //第二种移动 但是有问题
     public static void MoveToTarget(GameContext ctx, BulletEntity sun, Vector2 targetPos, float dt) {
         sun.MoveToTaget(targetPos, dt);
-
-        // Vector2 pos = sun.transform.position;
-
-
-        // if (pos == targetPos) {
-        //     ctx.bulletRepository.Remove(sun);
-        //     sun.TearDown();
-        // }
 
 
     }

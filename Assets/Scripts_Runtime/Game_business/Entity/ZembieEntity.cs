@@ -16,9 +16,9 @@ public class ZembieEntity : MonoBehaviour {
 
     public int typeID;
 
-    public int hp;
+    public float hp;
 
-    public int hpMax;
+    public float hpMax;
 
 
     public int atkValue;
@@ -42,6 +42,10 @@ public class ZembieEntity : MonoBehaviour {
         var velo = rb.velocity;
         velo.x = Vector2.left.x * 0.2f;
         rb.velocity = velo;
+    }
+
+    public void TearDown() {
+        Destroy(gameObject,1);
     }
 
     void OnCollisionEnter2D(Collision2D other) {

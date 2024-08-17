@@ -44,6 +44,26 @@ public static class ZembieDomain {
     }
 
 
+    public static void TakeDamage(GameContext ctx, ZembieEntity entity, float damage) {
+        if (entity.status == ZembieStatus.Die) {
+            return;
+        }
+
+        entity.hp -= damage;
+        float hpPercent = entity.hp / entity.hpMax;
+        entity.anim.SetFloat("HpPercent", hpPercent);
+
+        if (entity.hp <= 0) {
+            entity.status = ZembieStatus.Die;
+            entity.GetComponent<Collider2D>().enabled = false;
+
+            //应该会出错
+            ctx.zembieRepository.Remove(entity);
+            entity.TearDown();
+        }
+    }
+
+
     public static void AttackingPlant(GameContext ctx, ZembieEntity zem, float dt) {
         if (zem.targetPlant == null) {
             return;

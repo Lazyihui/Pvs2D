@@ -10,6 +10,8 @@ public class BulletTM : ScriptableObject {
 
     public int typeID;
 
+    public float atkValue;
+
 
     [Header("Sprites")]
     public Sprite sprite;

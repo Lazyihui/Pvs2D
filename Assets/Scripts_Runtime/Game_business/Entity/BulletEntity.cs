@@ -19,8 +19,7 @@ public class BulletEntity : MonoBehaviour {
     public Vector2 sunSpawnPosTarget;
 
 
-    // Action
-
+    public float atkValue;
 
     public void Cotr() {
 
@@ -52,11 +51,6 @@ public class BulletEntity : MonoBehaviour {
 
     }
 
-    // 要改 TODO:
-    public void ODMoveToTaget(Vector2 targetPos) {
-
-    }
-
     public void MoveToTaget(Vector2 targetPos, float dt) {
 
 
@@ -69,7 +63,6 @@ public class BulletEntity : MonoBehaviour {
 
 
     }
-
     public void TearDown() {
         Destroy(gameObject);
     }
