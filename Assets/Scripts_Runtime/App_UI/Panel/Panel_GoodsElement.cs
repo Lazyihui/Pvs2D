@@ -21,7 +21,7 @@ public class Panel_GoodsElement : MonoBehaviour {
 
     public Action<int> OnClickCardHandle;
 
-    public float cdTime;
+    public float cdInterval;
 
     public float cdTimer;
 
@@ -43,10 +43,7 @@ public class Panel_GoodsElement : MonoBehaviour {
         });
 
         // 不能写在这里 要用TM
-        cdTime = 1;
-        cdTimer = 0;
-
-        needSunCount = 50;
+       
     }
 
     //这里逻辑有点问题
@@ -65,9 +62,9 @@ public class Panel_GoodsElement : MonoBehaviour {
     void Cooling(float dt, int sunCount) {
         // 冷却
         cdTimer += dt;
-        cardMask.fillAmount = (cdTime - cdTimer) / cdTime;
+        cardMask.fillAmount = (cdInterval - cdTimer) / cdInterval;
 
-        if (cdTimer >= cdTime) {
+        if (cdTimer >= cdInterval) {
             this.status = GoodStatus.WaitingSun;
             cdTimer = 0;
         }

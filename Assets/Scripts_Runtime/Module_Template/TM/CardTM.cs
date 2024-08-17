@@ -10,7 +10,7 @@ public class CardTM : ScriptableObject {
 
     public int typeID;
 
-
+    public float cdInterval;
 
     public int needSunCount;
 

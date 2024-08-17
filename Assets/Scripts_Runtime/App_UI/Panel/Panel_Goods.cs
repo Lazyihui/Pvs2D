@@ -17,7 +17,7 @@ public class Panel_Goods : MonoBehaviour {
 
         bool has = ctx.templateContext.cards.TryGetValue(typeID, out CardTM tm);
 
-        if (!has) { 
+        if (!has) {
             Debug.LogError("没有这个卡片");
             return;
         }
@@ -33,7 +33,10 @@ public class Panel_Goods : MonoBehaviour {
             ctx.uiEvent.Panel_GoodsElement_CardClick(id);
         };
 
-
+        ele.cdTimer = 0;
+        
+        ele.cdInterval = tm.cdInterval;
+        ele.needSunCount = tm.needSunCount;
 
 
         ele.id = ctx.idService.goodsIDRecord++;

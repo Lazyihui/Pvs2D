@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CardTM 1
   m_EditorClassIdentifier: 
   typeID: 1
+  cdInterval: 1
   needSunCount: 100
   spriteLight: {fileID: 21300000, guid: bea4cbe66fef17b44aeffff46d275d78, type: 3}
   spriteDark: {fileID: 21300000, guid: 662cbcb123148fd4a9f676b5c7a303a7, type: 3}
