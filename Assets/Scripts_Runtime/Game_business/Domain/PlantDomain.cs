@@ -17,7 +17,7 @@ public static class PlantDomain {
         ctx.assetsContext.TryGetEntity("Plant_Entity", out GameObject prefab);
 
         GameObject go = GameObject.Instantiate(prefab);
-        // go.GetComponent<Collider2D>().enabled = false;
+        go.GetComponent<Collider2D>().enabled = false;
         PlantEntity plant = go.GetComponent<PlantEntity>();
 
         plant.Ctor();

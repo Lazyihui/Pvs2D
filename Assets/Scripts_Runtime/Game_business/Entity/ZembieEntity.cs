@@ -7,6 +7,8 @@ using UnityEngine;
 public class ZembieEntity : MonoBehaviour {
 
 
+    [SerializeField] public Animator anim;
+
     [SerializeField] Rigidbody2D rb;
     public int id;
 
@@ -18,9 +20,9 @@ public class ZembieEntity : MonoBehaviour {
 
     public bool isAttack;
 
-    public Action<ZembieEntity, Collider2D> OntriggerEnter2DHandle;
+    public Action<ZembieEntity, Collision2D> OnCollisionEnter2DHandle;
 
-    public Action<ZembieEntity, Collider2D> OntriggerExit2DHandle;
+    public Action<ZembieEntity, Collision2D> OnCollisionExit2DHandle;
     public void Ctor() { }
 
 
@@ -33,17 +35,13 @@ public class ZembieEntity : MonoBehaviour {
         rb.velocity = velo;
     }
 
-
-    void OntriggerEnter2D(Collider2D other) {
-
-        Debug.Log("ZembieEntity OntriggerEnter2D");
-
-        OntriggerEnter2DHandle?.Invoke(this, other);
+    void OnCollisionEnter2D(Collision2D other) {
+        OnCollisionEnter2DHandle.Invoke(this, other);
     }
-    void OntriggerExit2D(Collider2D other) {
 
-        Debug.Log("ZembieEntity OntriggerExit2D");
-        OntriggerExit2DHandle?.Invoke(this, other);
+    void OnCollisionExit2D(Collision2D other) {
+        OnCollisionExit2DHandle.Invoke(this, other);
     }
+
 
 }

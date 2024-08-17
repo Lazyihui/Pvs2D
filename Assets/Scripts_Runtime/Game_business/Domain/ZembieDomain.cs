@@ -18,11 +18,11 @@ public static class ZembieDomain {
         entity.typeID = typeID;
         entity.Ctor();
 
-        entity.OntriggerEnter2DHandle = (entity, other) => {
+        entity.OnCollisionEnter2DHandle = (entity, other) => {
             OnTouchEnter(ctx, entity, other);
         };
 
-        entity.OntriggerExit2DHandle = (entity, other) => {
+        entity.OnCollisionExit2DHandle = (entity, other) => {
             OnTouchExit(ctx, entity, other);
         };
 
@@ -40,18 +40,50 @@ public static class ZembieDomain {
     }
 
 
-    static void OnTouchEnter(GameContext ctx, ZembieEntity entity, Collider2D other) {
+    static void OnTouchEnter(GameContext ctx, ZembieEntity entity, Collision2D other) {
         // 用标签判断是否有植物
-        if (other.CompareTag("Plant")) {
-            entity.isAttack = true;
+        if (other.gameObject.tag == "Plant") {
+            PlantEntity plant = other.gameObject.GetComponent<PlantEntity>();
+            if (plant == null) {
+                return;
+            }
+
             Debug.Log("ZembieEntity OnTouchEnter");
+            entity.isAttack = true;
+
+            entity.anim.SetBool("IsAttacking", true);
+
+
+            // if (plant.status == PlantStatus.Disable) {
+            //     return;
+            // }
+
+            // entity.isAttack = true;
+            // plant.hp -= 10;
+            // if (plant.hp <= 0) {
+            //     plant.status = PlantStatus.Disable;
+            //     plant.hp = 0;
+            //     plant.GetComponent<Collider2D>().enabled = false;
+            // }
         }
+
     }
 
 
 
-    static void OnTouchExit(GameContext ctx, ZembieEntity entity, Collider2D other) {
-        Debug.Log("ZembieEntity OnTouchExit");
+    static void OnTouchExit(GameContext ctx, ZembieEntity entity, Collision2D other) {
+    
+        if (other.gameObject.tag == "Plant") {
+            PlantEntity plant = other.gameObject.GetComponent<PlantEntity>();
+            if (plant == null) {
+                return;
+            }
+
+            Debug.Log("ZembieEntity OnTouchExit");
+            entity.isAttack = false;
+            entity.anim.SetBool("IsAttacking", false);
+        }
+    
     }
     public static void Move(GameContext ctx, ZembieEntity entity) {
         if (entity.isAttack) {

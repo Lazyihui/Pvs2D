@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlantEntity : MonoBehaviour {
 
-    [SerializeField] Animator anim; // ulong
+    [SerializeField] public Animator anim; // ulong
 
     [SerializeField] SpriteRenderer sprite; // ulong
     public int id;
