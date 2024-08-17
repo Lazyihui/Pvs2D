@@ -84,6 +84,7 @@ MonoBehaviour:
   jumpMinDistance: 0
   jumpMaxDistance: 0
   sunSpawnPosTarget: {x: 0, y: 0}
+  atkValue: 0
 --- !u!58 &-8126986419581011489
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -217,7 +218,7 @@ Animator:
   m_GameObject: {fileID: 4009756343388435757}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 591d541e222fff142aac9057152c8ddf, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

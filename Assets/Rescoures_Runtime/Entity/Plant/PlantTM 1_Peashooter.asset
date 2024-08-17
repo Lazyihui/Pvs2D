@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlantTM 1_Peashooter
   m_EditorClassIdentifier: 
   typeID: 1
-  spawnBulletInterval: 0
+  spawnBulletInterval: 2
   spawnBulletTimer: 0
   hp: 100
   hpMax: 100

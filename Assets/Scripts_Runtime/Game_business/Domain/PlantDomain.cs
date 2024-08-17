@@ -47,6 +47,7 @@ public static class PlantDomain {
 
         if (plant.status == PlantStatus.Enable) {
             spawnSunflower(ctx, plant, dt);
+            SpawnBullet(ctx, plant, dt);
         }
 
     }
@@ -91,5 +92,18 @@ public static class PlantDomain {
     }
 
 
+    public static void SpawnBullet(GameContext ctx, PlantEntity plant, float dt) {
 
+        if (plant.typeID == PlantConst.SunFlower) {
+            return;
+        }
+
+        plant.spawnBulletTimer += dt;
+        if (plant.spawnBulletTimer >= plant.spawnBulletInterval) {
+            plant.spawnBulletTimer = 0;
+
+            BulletEntity bullet = BulletDomain.Spawn(ctx, plant.transform.position, BulletConst.shooter);
+            Debug.Log("SpawnBullet");
+        }
+    }
 }

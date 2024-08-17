@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a5597c8c1c54046b7ce4830e5b46a2, type: 3}
   m_Name: PlantTM 2
   m_EditorClassIdentifier: 
-  typeID: 2
+  typeID: 6
+  spawnBulletInterval: 0
+  spawnBulletTimer: 0
+  hp: 0
+  hpMax: 0
+  sprite: {fileID: 0}
+  animator: {fileID: 0}

@@ -101,11 +101,11 @@ public static class GameBusiness {
         for (int i = 0; i < bulletLen; i++) {
             BulletEntity bullet = bullets[i];
             if (bullet.typeID == BulletConst.Sun_Fall) {
-
                 BulletDomain.MoveToTarget(ctx, bullet, bullet.sunSpawnPosTarget, dt);
             }
 
             BulletDomain.MouseInBullet(ctx, bullet);
+            BulletDomain.MoveLeft(ctx, bullet, dt);
 
 
         }
