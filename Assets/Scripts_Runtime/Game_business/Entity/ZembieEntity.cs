@@ -10,6 +10,8 @@ public class ZembieEntity : MonoBehaviour {
     [SerializeField] public Animator anim;
 
     [SerializeField] Rigidbody2D rb;
+
+    public ZembieStatus status;
     public int id;
 
     public int typeID;
@@ -18,7 +20,14 @@ public class ZembieEntity : MonoBehaviour {
 
     public int hpMax;
 
-    public bool isAttack;
+
+    public int atkValue;
+
+    public float atkDuration;
+
+    public float atkTimer;
+
+    public PlantEntity targetPlant;  //只用于记录攻击的植物
 
     public Action<ZembieEntity, Collision2D> OnCollisionEnter2DHandle;
 

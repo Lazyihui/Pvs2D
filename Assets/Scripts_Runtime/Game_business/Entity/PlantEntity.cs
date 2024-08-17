@@ -16,6 +16,12 @@ public class PlantEntity : MonoBehaviour {
 
     public PlantStatus status; // int
 
+    // 
+    public int hp;
+
+    public int hpMax;
+
+
     // 时间什么的
 
     public float spawnBulletInterval;
@@ -25,6 +31,14 @@ public class PlantEntity : MonoBehaviour {
 
     public void Ctor() {
         status = PlantStatus.Disable;
+    }
+
+    public void TakeDamage(int damage) {
+       
+    }
+
+    public void TearDown() {
+        Destroy(gameObject);
     }
 
     public void SetAnim(RuntimeAnimatorController animator, Sprite sprite) {

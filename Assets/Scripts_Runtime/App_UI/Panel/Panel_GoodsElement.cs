@@ -43,7 +43,7 @@ public class Panel_GoodsElement : MonoBehaviour {
         });
 
         // 不能写在这里 要用TM
-        cdTime = 2;
+        cdTime = 1;
         cdTimer = 0;
 
         needSunCount = 50;

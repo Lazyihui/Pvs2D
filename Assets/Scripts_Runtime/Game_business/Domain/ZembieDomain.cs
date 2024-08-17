@@ -17,6 +17,12 @@ public static class ZembieDomain {
         entity.id = ctx.idService.zembieRecordID++;
         entity.typeID = typeID;
         entity.Ctor();
+        entity.status = ZembieStatus.Move;
+        entity.targetPlant = null;
+
+        entity.atkValue = 30;
+        entity.atkDuration = 2;
+        entity.atkTimer = 0;
 
         entity.OnCollisionEnter2DHandle = (entity, other) => {
             OnTouchEnter(ctx, entity, other);
@@ -31,8 +37,6 @@ public static class ZembieDomain {
 
 
 
-        entity.isAttack = false;
-
         ctx.zembieRepository.Add(entity);
 
         return entity;
@@ -40,31 +44,40 @@ public static class ZembieDomain {
     }
 
 
+    public static void AttackingPlant(GameContext ctx, ZembieEntity zem, float dt) {
+        if (zem.targetPlant == null) {
+            return;
+        }
+
+        if (zem.targetPlant.hp <= 0) {
+            zem.targetPlant = null;
+            return;
+        }
+        zem.atkTimer += dt;
+        Debug.Log(zem.atkTimer);
+        if (zem.atkTimer >= zem.atkDuration) {
+            PlantDomain.TakeDamage(ctx, zem.targetPlant, zem.atkValue);
+            zem.atkTimer = 0;
+
+        }
+
+    }
+
     static void OnTouchEnter(GameContext ctx, ZembieEntity entity, Collision2D other) {
         // 用标签判断是否有植物
         if (other.gameObject.tag == "Plant") {
-            PlantEntity plant = other.gameObject.GetComponent<PlantEntity>();
-            if (plant == null) {
+            entity.targetPlant = other.gameObject.GetComponent<PlantEntity>();
+            if (entity.targetPlant == null) {
                 return;
             }
 
-            Debug.Log("ZembieEntity OnTouchEnter");
-            entity.isAttack = true;
 
             entity.anim.SetBool("IsAttacking", true);
 
+            entity.status = ZembieStatus.Eat;
 
-            // if (plant.status == PlantStatus.Disable) {
-            //     return;
-            // }
+            // 扣血
 
-            // entity.isAttack = true;
-            // plant.hp -= 10;
-            // if (plant.hp <= 0) {
-            //     plant.status = PlantStatus.Disable;
-            //     plant.hp = 0;
-            //     plant.GetComponent<Collider2D>().enabled = false;
-            // }
         }
 
     }
@@ -72,7 +85,7 @@ public static class ZembieDomain {
 
 
     static void OnTouchExit(GameContext ctx, ZembieEntity entity, Collision2D other) {
-    
+
         if (other.gameObject.tag == "Plant") {
             PlantEntity plant = other.gameObject.GetComponent<PlantEntity>();
             if (plant == null) {
@@ -80,15 +93,13 @@ public static class ZembieDomain {
             }
 
             Debug.Log("ZembieEntity OnTouchExit");
-            entity.isAttack = false;
             entity.anim.SetBool("IsAttacking", false);
+            entity.status = ZembieStatus.Move;
+            entity.atkTimer = 0;
         }
-    
+
     }
     public static void Move(GameContext ctx, ZembieEntity entity) {
-        if (entity.isAttack) {
-            return;
-        }
 
         entity.move();
 

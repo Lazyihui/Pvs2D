@@ -113,7 +113,13 @@ public static class GameBusiness {
         int zembieLen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
         for (int i = 0; i < zembieLen; i++) {
             ZembieEntity zembie = zembies[i];
-            ZembieDomain.Move(ctx, zembie);
+
+            if (zembie.status == ZembieStatus.Move) {
+                ZembieDomain.Move(ctx, zembie);
+            } else if (zembie.status == ZembieStatus.Eat) {
+                ZembieDomain.AttackingPlant(ctx, zembie, dt);
+            }
+
         }
 
 

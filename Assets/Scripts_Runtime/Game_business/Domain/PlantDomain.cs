@@ -27,6 +27,9 @@ public static class PlantDomain {
         plant.spawnBulletInterval = tm.spawnBulletInterval;
         plant.spawnBulletTimer = tm.spawnBulletTimer;
 
+        plant.hp = tm.hp;
+        plant.hpMax = tm.hpMax;
+
 
 
         plant.id = ctx.idService.plantIDRecord++;
@@ -75,7 +78,16 @@ public static class PlantDomain {
             // 
         }
 
+    }
 
+    public static void TakeDamage(GameContext ctx, PlantEntity plant, int damage) {
+
+        plant.hp -= damage;
+        if (plant.hp <= 0) {
+            plant.status = PlantStatus.Disable;
+            ctx.plantRepository.Remove(plant);
+            plant.TearDown();
+        }
     }
 
 
