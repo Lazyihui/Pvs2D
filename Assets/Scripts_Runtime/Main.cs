@@ -43,7 +43,7 @@ public class NewBehaviourScript : MonoBehaviour {
             }
 
             ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, good.typeID); // 0x54
-
+            ctx.gameEntity.handPlant.GetComponent<Collider2D>().enabled = false;
             //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
 
             //2. 要进入冷却  并且 要扣除阳光
@@ -63,7 +63,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            
+
             Debug.Log("mouseWorldPos:" + ctx.moduleInput.mouseWorldPos + "mouseScreenPos:" + ctx.moduleInput.mouseScreenPos);
         }
 

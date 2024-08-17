@@ -16,6 +16,11 @@ public class ZembieEntity : MonoBehaviour {
 
     public int hpMax;
 
+    public bool isAttack;
+
+    public Action<ZembieEntity, Collider2D> OntriggerEnter2DHandle;
+
+    public Action<ZembieEntity, Collider2D> OntriggerExit2DHandle;
     public void Ctor() { }
 
 
@@ -23,10 +28,22 @@ public class ZembieEntity : MonoBehaviour {
         //  var velo = rb.velocity;
         //     velo = dir * moveSpeed;
         //     rb.velocity = velo;
-
-
         var velo = rb.velocity;
-        velo.x = Vector2.left.x * 2;
+        velo.x = Vector2.left.x * 0.2f;
         rb.velocity = velo;
     }
+
+
+    void OntriggerEnter2D(Collider2D other) {
+
+        Debug.Log("ZembieEntity OntriggerEnter2D");
+
+        OntriggerEnter2DHandle?.Invoke(this, other);
+    }
+    void OntriggerExit2D(Collider2D other) {
+
+        Debug.Log("ZembieEntity OntriggerExit2D");
+        OntriggerExit2DHandle?.Invoke(this, other);
+    }
+
 }

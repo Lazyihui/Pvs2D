@@ -110,6 +110,12 @@ public static class GameBusiness {
 
         }
 
+        int zembieLen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
+        for (int i = 0; i < zembieLen; i++) {
+            ZembieEntity zembie = zembies[i];
+            ZembieDomain.Move(ctx, zembie);
+        }
+
 
     }
 
