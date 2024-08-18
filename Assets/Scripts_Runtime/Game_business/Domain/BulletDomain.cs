@@ -84,7 +84,6 @@ public static class BulletDomain {
         if (bullet.typeID == BulletConst.Sun || bullet.typeID == BulletConst.Sun_Fall) {
             return;
         }
-        Debug.Log("MoveRight");
         Vector2 pos = bullet.transform.position;
         pos -= dt * Vector2.left * bullet.moveSpeed;
         bullet.transform.position = pos;

@@ -52,6 +52,9 @@ public static class ZembieDomain {
 
         entity.hp -= damage;
         float hpPercent = entity.hp / entity.hpMax;
+
+        Debug.Log(hpPercent);
+
         entity.anim.SetFloat("HpPercent", hpPercent);
 
         if (entity.hp <= 0) {
@@ -63,23 +66,19 @@ public static class ZembieDomain {
             entity.TearDown();
         }
 
-        if (hpPercent < 0.3f) {
-            entity.haveHead = false;
+
+
+        if (hpPercent < 0.3f && entity.haveHead == true) {
+            ZembieLostHead(ctx, entity);
         }
-        ZembieLostHead(ctx, entity);
     }
 
     static void ZembieLostHead(GameContext ctx, ZembieEntity zembie) {
 
-        
-        if (zembie.haveHead == false) {
-            return;
-        }
+        ZembieHeadEntity go = ZembieHeadDomain.Spawn(ctx, 0, zembie.transform.position);
 
-        // ZembieHeadEntity go = ZembieHeadDomain.Spawn(ctx, 0, zembie.transform.position);
-
-        // ZembieHeadDomain.UnSpawn(ctx, go);
-
+        ZembieHeadDomain.UnSpawn(ctx, go);
+        zembie.haveHead = false;
 
     }
 

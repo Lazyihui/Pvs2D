@@ -103,7 +103,6 @@ public static class PlantDomain {
             plant.spawnBulletTimer = 0;
             Vector2 pos = new Vector2(plant.transform.position.x + 0.5f, plant.transform.position.y + 0.3f);
             BulletEntity bullet = BulletDomain.Spawn(ctx, pos, BulletConst.shooter);
-            Debug.Log("SpawnBullet");
         }
     }
 }
