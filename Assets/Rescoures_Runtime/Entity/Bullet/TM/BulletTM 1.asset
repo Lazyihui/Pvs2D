@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: BulletTM 1
   m_EditorClassIdentifier: 
   typeID: 1
+  atkValue: 0
+  moveSpeed: 1
   sprite: {fileID: 21300000, guid: 4c70e1a01ae443b49b6c3b47f9363060, type: 3}
   animator: {fileID: 9100000, guid: 591d541e222fff142aac9057152c8ddf, type: 2}

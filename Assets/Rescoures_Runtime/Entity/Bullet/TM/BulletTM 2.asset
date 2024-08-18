@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeID: 2
   atkValue: 30
+  moveSpeed: 2
   sprite: {fileID: -1692899334, guid: a6bcf531695bd3249a2409696f1cc364, type: 3}
   animator: {fileID: 9100000, guid: 85dd84f1f68761c47abe66df419cbcd3, type: 2}

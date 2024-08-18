@@ -27,7 +27,7 @@ public static class BulletDomain {
         entity.jumpMinDistance = 0.5f;
 
         entity.atkValue = tm.atkValue;
-
+        entity.moveSpeed = tm.moveSpeed;
         ctx.bulletRepository.Add(entity);
 
         return entity;
@@ -84,7 +84,7 @@ public static class BulletDomain {
         }
         Debug.Log("MoveRight");
         Vector2 pos = bullet.transform.position;
-        pos -= dt * Vector2.left;
+        pos -= dt * Vector2.left*bullet.moveSpeed;
         bullet.transform.position = pos;
     }
 

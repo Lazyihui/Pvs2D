@@ -12,6 +12,7 @@ public class BulletTM : ScriptableObject {
 
     public float atkValue;
 
+    public float moveSpeed;
 
     [Header("Sprites")]
     public Sprite sprite;

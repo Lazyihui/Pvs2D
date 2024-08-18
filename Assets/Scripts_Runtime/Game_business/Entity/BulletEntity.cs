@@ -21,6 +21,8 @@ public class BulletEntity : MonoBehaviour {
 
     public float atkValue;
 
+    public float moveSpeed;
+
     public void Cotr() {
 
     }
@@ -57,7 +59,7 @@ public class BulletEntity : MonoBehaviour {
         Vector2 pos = transform.position;
 
         Vector2 dir = (targetPos - pos).normalized;
-        pos += dir * dt;
+        pos += dir * dt* moveSpeed;
 
         transform.position = pos;
 
