@@ -66,7 +66,7 @@ public class BulletEntity : MonoBehaviour {
 
     }
     public void TearDown() {
-        Destroy(gameObject,0.2f);
+        Destroy(gameObject,0.19f);
     }
 
 }

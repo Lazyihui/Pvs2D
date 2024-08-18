@@ -58,7 +58,7 @@ public static class BulletDomain {
 
 
     public static void UnSpawn(GameContext ctx, BulletEntity bullet) {
-        // bullet.anim.Play("PeaBullet_Boom1");
+        bullet.anim.Play("PeaBullet_HitBoom");
 
         ctx.bulletRepository.Remove(bullet);
         bullet.TearDown();

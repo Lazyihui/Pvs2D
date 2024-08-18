@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2938440994583616034}
   - component: {fileID: 306702660259217944}
   - component: {fileID: -8126986419581011489}
+  - component: {fileID: 5045363446917919524}
   m_Layer: 0
   m_Name: Bullet_Entity
   m_TagString: Untagged
@@ -85,6 +86,7 @@ MonoBehaviour:
   jumpMaxDistance: 0
   sunSpawnPosTarget: {x: 0, y: 0}
   atkValue: 0
+  moveSpeed: 0
 --- !u!58 &-8126986419581011489
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -121,6 +123,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.022063285, y: 0}
   m_Radius: 0.3959885
+--- !u!95 &5045363446917919524
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612345373871397951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 728a2daa4901d8f4eb4e5c9f11b8c081, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4009756343388435757
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +242,7 @@ Animator:
   m_GameObject: {fileID: 4009756343388435757}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e61678f194602f408b5ddf851dc9348, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
