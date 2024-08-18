@@ -159,11 +159,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4299836767076159353}
   rb: {fileID: 1278866952966165966}
+  ZembieHead: {fileID: 7845834822393124099, guid: 451c999927f01474b9b2ca33958ce93e, type: 3}
+  haveHead: 0
+  status: 0
   id: 0
   typeID: 0
   hp: 0
   hpMax: 0
-  isAttack: 0
+  atkValue: 0
+  atkDuration: 0
+  atkTimer: 0
+  targetPlant: {fileID: 0}
 --- !u!61 &8115636231771521945
 BoxCollider2D:
   m_ObjectHideFlags: 0

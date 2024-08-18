@@ -12,6 +12,7 @@ public class IDService {
     public int bulletIDRecord;
 
     public int zembieRecordID;
+    public int zembieHeadRecordID;
 
 
     public IDService() {
@@ -22,6 +23,7 @@ public class IDService {
         cellIDRecord = 0;
         bulletIDRecord = 0;
         zembieRecordID = 0;
+        zembieHeadRecordID=0;
     }
 
 }

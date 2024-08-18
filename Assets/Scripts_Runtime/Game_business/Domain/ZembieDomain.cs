@@ -19,6 +19,7 @@ public static class ZembieDomain {
         entity.Ctor();
         entity.status = ZembieStatus.Move;
         entity.targetPlant = null;
+        entity.haveHead = true;
 
         entity.atkValue = 30;
         entity.atkDuration = 2;
@@ -61,6 +62,25 @@ public static class ZembieDomain {
             ctx.zembieRepository.Remove(entity);
             entity.TearDown();
         }
+
+        if (hpPercent < 0.3f) {
+            entity.haveHead = false;
+        }
+        ZembieLostHead(ctx, entity);
+    }
+
+    static void ZembieLostHead(GameContext ctx, ZembieEntity zembie) {
+
+        
+        if (zembie.haveHead == false) {
+            return;
+        }
+
+        // ZembieHeadEntity go = ZembieHeadDomain.Spawn(ctx, 0, zembie.transform.position);
+
+        // ZembieHeadDomain.UnSpawn(ctx, go);
+
+
     }
 
 

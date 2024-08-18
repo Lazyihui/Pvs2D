@@ -14,6 +14,8 @@ public class GameContext {
 
 
     public ZembieRepository zembieRepository;
+
+    public ZembieHeadRepository zembieHeadRepository;
     // inject
     public AssetsContext assetsContext;
 
@@ -37,6 +39,7 @@ public class GameContext {
         cellRepository = new CellRepository();
         bulletRepository = new BulletRepository();
         zembieRepository = new ZembieRepository();
+        zembieHeadRepository = new ZembieHeadRepository();
     }
 
     public void Inject(AssetsContext assetsContext, IDService idService, ModuleInput moduleInput, Canvas canvas,

@@ -11,6 +11,7 @@ public class ZembieEntity : MonoBehaviour {
 
     [SerializeField] Rigidbody2D rb;
 
+    public bool haveHead;
     public ZembieStatus status;
     public int id;
 
@@ -45,8 +46,9 @@ public class ZembieEntity : MonoBehaviour {
     }
 
     public void TearDown() {
-        Destroy(gameObject,1);
+        Destroy(gameObject, 1);
     }
+
 
     void OnCollisionEnter2D(Collision2D other) {
         OnCollisionEnter2DHandle.Invoke(this, other);

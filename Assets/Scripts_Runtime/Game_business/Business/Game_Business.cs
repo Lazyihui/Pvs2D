@@ -22,6 +22,8 @@ public static class GameBusiness {
         }
 
         ZembieDomain.Spawn(ctx, 0);
+
+        ZembieHeadDomain.Spawn(ctx, 0, new Vector3(2, 2, 0));
     }
 
     public static void Load() {
