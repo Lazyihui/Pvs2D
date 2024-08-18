@@ -58,6 +58,8 @@ public static class BulletDomain {
 
 
     public static void UnSpawn(GameContext ctx, BulletEntity bullet) {
+        // bullet.anim.Play("PeaBullet_Boom1");
+
         ctx.bulletRepository.Remove(bullet);
         bullet.TearDown();
     }
@@ -84,7 +86,7 @@ public static class BulletDomain {
         }
         Debug.Log("MoveRight");
         Vector2 pos = bullet.transform.position;
-        pos -= dt * Vector2.left*bullet.moveSpeed;
+        pos -= dt * Vector2.left * bullet.moveSpeed;
         bullet.transform.position = pos;
     }
 

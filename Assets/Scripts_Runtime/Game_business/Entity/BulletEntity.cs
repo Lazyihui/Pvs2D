@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class BulletEntity : MonoBehaviour {
 
-    [SerializeField] Animator anim;
+    [SerializeField] public  Animator anim;
 
     public int id;
 
@@ -66,7 +66,7 @@ public class BulletEntity : MonoBehaviour {
 
     }
     public void TearDown() {
-        Destroy(gameObject);
+        Destroy(gameObject,0.2f);
     }
 
 }

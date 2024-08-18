@@ -107,6 +107,8 @@ public static class GameBusiness {
             BulletDomain.MouseInBullet(ctx, bullet);
             BulletDomain.MoveLeft(ctx, bullet, dt);
 
+            BulletDomain.AttackingZembie(ctx, bullet);
+
 
         }
 
