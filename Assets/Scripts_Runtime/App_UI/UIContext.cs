@@ -8,6 +8,8 @@ public class UIContext {
     // panel
     public Panel_Goods panel_Goods;
 
+    public Panel_Prepare panel_Prepare;
+
     // repo
     public GoodsRespository goodsRespository;
 
