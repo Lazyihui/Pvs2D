@@ -285,3 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765dd08d2b18fc94a88b949ed58717a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start: {fileID: 3458359955053062793}
+  place: {fileID: 3976960179519250444}
+  plant: {fileID: 2507390134504146132}
+  startTimer: 0
+  placeTimer: 0
+  plantTimer: 0
+  isFinish: 0

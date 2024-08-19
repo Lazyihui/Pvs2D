@@ -47,6 +47,8 @@ public static class UIApp {
         Panel_Prepare panel = ctx.panel_Prepare;
 
         if (panel == null) {
+            Debug.Log("Panel_Prepare_Open");
+
             bool has = ctx.assetsContext.TryGetPanel("Panel_Prepare", out GameObject prefab);
             if (!has) {
                 Debug.LogError("Panel_Prepare not found");
@@ -55,6 +57,20 @@ public static class UIApp {
             panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Prepare>();
             panel.Ctor();
             ctx.panel_Prepare = panel;
+        }
+    }
+    public static void Panel_Prepare_Update(UIContext ctx, float dt) {
+
+        Panel_Prepare panel = ctx.panel_Prepare;
+        panel.Panel_Update(dt);
+    }
+
+    public static void Panel_Prepare_Close(UIContext ctx) {
+        Panel_Prepare panel = ctx.panel_Prepare;
+        if (panel == null) { return; }
+
+        if (panel.isFinish) {
+            panel.TearDown();
         }
     }
 }

@@ -48,11 +48,19 @@ public static class LoginBusiness {
 
         if (ctx.moduleCamera.isAchieveRight && ctx.moduleCamera.isAchieveLeft) {
             UIApp.Panel_Prepare_Open(ctx.uiContext);
+            UIApp.Panel_Prepare_Update(ctx.uiContext, dt);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+        
+            UIApp.Panel_Prepare_Close(ctx.uiContext);
         }
 
     }
 
     private static void LogicFix(GameContext ctx, float dt) {
+
+        
     }
 
     private static void LateTick(GameContext ctx, float dt) {

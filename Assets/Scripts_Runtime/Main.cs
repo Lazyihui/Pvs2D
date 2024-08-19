@@ -72,7 +72,6 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space)) {
 
-            Debug.Log("mouseWorldPos:" + ctx.moduleInput.mouseWorldPos + "mouseScreenPos:" + ctx.moduleInput.mouseScreenPos);
         }
 
 
