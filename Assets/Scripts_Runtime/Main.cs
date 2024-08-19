@@ -59,7 +59,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         GameBusiness.Tick(ctx.gameContext, dt);
 
-
+        LoginBusiness.Tick(ctx.gameContext, dt);
 
         if (Input.GetKeyDown(KeyCode.Space)) {
 

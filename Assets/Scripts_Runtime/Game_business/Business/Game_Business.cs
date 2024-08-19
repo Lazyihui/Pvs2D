@@ -9,6 +9,7 @@ public static class GameBusiness {
 
     public static void Enter(GameContext ctx) {
 
+
         //UIApp
         UIApp.Panel_Goods_Open(ctx.uiContext);
 
@@ -62,7 +63,8 @@ public static class GameBusiness {
         ModuleInput input = ctx.moduleInput;
         input.mouseScreenPos = Input.mousePosition;
 
-        Camera camera = ctx.camera;
+        Camera camera = ctx.moduleCamera.camera;
+
         input.mouseWorldPos = camera.ScreenToWorldPoint(input.mouseScreenPos);
 
         Vector3 textPos = ctx.uiContext.panel_Goods.sunCountText.transform.position;
@@ -72,7 +74,7 @@ public static class GameBusiness {
         // 生成zembie
         // 第一波僵尸  5个 间隔 5s
         GameDomain.SpawnZembieTimer(ctx, dt);
-        
+
 
 
     }
