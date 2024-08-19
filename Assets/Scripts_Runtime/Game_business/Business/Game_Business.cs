@@ -21,7 +21,6 @@ public static class GameBusiness {
             CellDomain.Spawn(ctx);
         }
 
-        ZembieDomain.Spawn(ctx, 0);
 
     }
 
@@ -69,6 +68,11 @@ public static class GameBusiness {
         Vector3 textPos = ctx.uiContext.panel_Goods.sunCountText.transform.position;
         textPos.z = 0;
         ctx.gameEntity.textWorldPos = camera.ScreenToWorldPoint(textPos);
+
+        // 生成zembie
+        // 第一波僵尸  5个 间隔 5s
+        GameDomain.SpawnZembieTimer(ctx, dt);
+        
 
 
     }

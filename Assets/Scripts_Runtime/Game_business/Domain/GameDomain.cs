@@ -32,6 +32,18 @@ public static class GameDomain {
 
     }
 
+    public static void SpawnZembieTimer(GameContext ctx, float dt) {
+
+        ctx.gameEntity.zembieSpawnTimer += dt;
+
+        if (ctx.gameEntity.zembieSpawnTimer >= 2) {
+            ctx.gameEntity.zembieSpawnTimer = 0;
+            int index = UnityEngine.Random.Range(0, ctx.gameEntity.zembieSpawnPos.Length);
+            Vector2 pos = ctx.gameEntity.zembieSpawnPos[index];
+            ZembieEntity zembie = ZembieDomain.Spawn(ctx, pos, 0);
+        }
+    }
+
 
 
 }

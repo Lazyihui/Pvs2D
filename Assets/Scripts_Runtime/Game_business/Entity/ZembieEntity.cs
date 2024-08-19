@@ -35,6 +35,9 @@ public class ZembieEntity : MonoBehaviour {
     public Action<ZembieEntity, Collision2D> OnCollisionExit2DHandle;
     public void Ctor() { }
 
+    public void SetPos(Vector2 pos) {
+        transform.position = pos;
+    }
 
     public void move() {
         //  var velo = rb.velocity;
@@ -44,6 +47,8 @@ public class ZembieEntity : MonoBehaviour {
         velo.x = Vector2.left.x * 0.2f;
         rb.velocity = velo;
     }
+
+
 
     public void TearDown() {
         Destroy(gameObject, 1);
