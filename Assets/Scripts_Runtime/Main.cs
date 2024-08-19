@@ -22,9 +22,12 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Binding(ctx.gameContext);
 
+        if (ctx.gameContext.gameEntity.gameStatus == GameStatus.LoginBusiness) {
+            LoginBusiness.Enter(ctx.gameContext);
+        } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.GameBusiness) {
+            GameBusiness.Enter(ctx.gameContext);
+        }
 
-
-        GameBusiness.Enter(ctx.gameContext);
     }
 
     void Binding(GameContext ctx) {
@@ -57,9 +60,15 @@ public class NewBehaviourScript : MonoBehaviour {
     void Update() {
         float dt = Time.deltaTime;
 
-        GameBusiness.Tick(ctx.gameContext, dt);
 
-        LoginBusiness.Tick(ctx.gameContext, dt);
+
+        if (ctx.gameContext.gameEntity.gameStatus == GameStatus.LoginBusiness) {
+            LoginBusiness.Tick(ctx.gameContext, dt);
+        } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.GameBusiness) {
+            GameBusiness.Tick(ctx.gameContext, dt);
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.Space)) {
 

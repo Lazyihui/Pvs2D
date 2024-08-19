@@ -6,7 +6,12 @@ public static class LoginBusiness {
 
 
     public static void Enter(GameContext ctx) {
-        // UIApp.Panel_Login_Open(ctx.uiContext);
+
+        //UIApp
+        UIApp.Panel_Goods_Open(ctx.uiContext);
+
+        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 0);
+        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 1);
     }
 
 

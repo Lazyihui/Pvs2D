@@ -10,11 +10,7 @@ public static class GameBusiness {
     public static void Enter(GameContext ctx) {
 
 
-        //UIApp
-        UIApp.Panel_Goods_Open(ctx.uiContext);
-
-        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 0);
-        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 1);
+   
 
         // cell 
         // TODO: 45 要改的根据不同的地图有不同的值

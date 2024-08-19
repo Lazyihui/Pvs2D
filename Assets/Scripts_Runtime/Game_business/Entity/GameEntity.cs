@@ -4,6 +4,8 @@ using UnityEngine;
 public class GameEntity {
     public float restFixTime;
 
+
+    public GameStatus gameStatus;
     // 手上是否有植物
 
     public PlantEntity handPlant; // null
@@ -24,6 +26,10 @@ public class GameEntity {
 
 
     public GameEntity() {
+
+        // 应该是GameStatus.Login 我还没写
+        gameStatus = GameStatus.LoginBusiness;
+
         handPlant = null;
 
         sunSpawnInterval = 5;
