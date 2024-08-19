@@ -62,5 +62,11 @@ public class Panel_Prepare : MonoBehaviour {
         GameObject.Destroy(this.gameObject);
     }
 
+    public void Show() {
+        gameObject.SetActive(true);
+    }
 
+    public void Hide() {
+        gameObject.SetActive(false);
+    }
 }

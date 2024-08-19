@@ -51,16 +51,18 @@ public static class LoginBusiness {
             UIApp.Panel_Prepare_Update(ctx.uiContext, dt);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-        
-            UIApp.Panel_Prepare_Close(ctx.uiContext);
+
+        bool has = UIApp.Panel_Prepare_Close(ctx.uiContext);
+
+        if (has) {
+            ctx.gameEntity.gameStatus = GameStatus.GameBusiness;
         }
 
     }
 
     private static void LogicFix(GameContext ctx, float dt) {
 
-        
+
     }
 
     private static void LateTick(GameContext ctx, float dt) {

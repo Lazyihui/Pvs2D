@@ -58,6 +58,8 @@ public static class UIApp {
             panel.Ctor();
             ctx.panel_Prepare = panel;
         }
+
+        panel.Show();
     }
     public static void Panel_Prepare_Update(UIContext ctx, float dt) {
 
@@ -65,12 +67,17 @@ public static class UIApp {
         panel.Panel_Update(dt);
     }
 
-    public static void Panel_Prepare_Close(UIContext ctx) {
+    public static bool Panel_Prepare_Close(UIContext ctx) {
         Panel_Prepare panel = ctx.panel_Prepare;
-        if (panel == null) { return; }
-
-        if (panel.isFinish) {
-            panel.TearDown();
+        if (panel == null) {
+            return false;
+        } else if (panel.isFinish) {
+            panel.Hide();
+            return true;
+        } else {
+            return false;
         }
+
+
     }
 }
