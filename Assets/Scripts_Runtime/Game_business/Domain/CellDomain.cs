@@ -28,8 +28,12 @@ public static class CellDomain {
 
     public static void Plant(GameContext ctx, CellEntity cell) {
         if (ctx.gameEntity.handPlant == null || cell.isHavsPlant) {
+            Debug.Log("手上没有植物或者已经有植物了");
             return;
         }
+
+
+        Debug.Log("种植植物");
 
         cell.isHavsPlant = true;
 

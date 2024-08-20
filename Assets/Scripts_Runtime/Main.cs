@@ -22,11 +22,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Binding(ctx.gameContext);
 
-        if (ctx.gameContext.gameEntity.gameStatus == GameStatus.LoginBusiness) {
-            LoginBusiness.Enter(ctx.gameContext);
-        } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.GameBusiness) {
-            GameBusiness.Enter(ctx.gameContext);
-        }
+        LoginBusiness.Enter(ctx.gameContext);
+
 
     }
 
@@ -69,10 +66,6 @@ public class NewBehaviourScript : MonoBehaviour {
         }
 
 
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-
-        }
 
 
     }

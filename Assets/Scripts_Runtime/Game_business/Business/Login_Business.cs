@@ -55,6 +55,7 @@ public static class LoginBusiness {
         bool has = UIApp.Panel_Prepare_Close(ctx.uiContext);
 
         if (has) {
+            GameBusiness.Enter(ctx);
             ctx.gameEntity.gameStatus = GameStatus.GameBusiness;
         }
 
