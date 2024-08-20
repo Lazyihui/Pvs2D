@@ -40,6 +40,9 @@ public static class BulletDomain {
             return;
         }
 
+        Debug.Log(bullet.id);
+
+
         int zemlen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
         for (int i = 0; i < zemlen; i++) {
             ZembieEntity zembie = zembies[i];
@@ -56,12 +59,22 @@ public static class BulletDomain {
     }
 
 
+    public static void Peashooterdisapper(GameContext ctx, BulletEntity bullet) {
+        if (bullet.typeID == BulletConst.Sun || bullet.typeID == BulletConst.Sun_Fall) {
+            return;
+        }
 
-    public static void UnSpawn(GameContext ctx, BulletEntity bullet) {
+        if (bullet.transform.position.x < -5) {
+            ctx.bulletRepository.Remove(bullet);
+            bullet.TearDown(0);
+        }
+    }
+
+    static void UnSpawn(GameContext ctx, BulletEntity bullet) {
         bullet.anim.Play("PeaBullet_HitBoom");
 
         ctx.bulletRepository.Remove(bullet);
-        bullet.TearDown();
+        bullet.TearDown(0.19f);
     }
 
     public static void SunSpawnedMove(GameContext ctx, BulletEntity sun) {
@@ -130,7 +143,7 @@ public static class BulletDomain {
         Vector2 targetPos = ctx.gameEntity.textWorldPos;
         sun.transform.DOMove(targetPos, 0.5f).SetEase(Ease.OutQuart).OnComplete(() => {
             ctx.bulletRepository.Remove(sun);
-            sun.TearDown();
+            sun.TearDown(0);
             ctx.idService.sunCount += 25;
 
         });

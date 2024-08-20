@@ -111,7 +111,7 @@ public static class GameBusiness {
             BulletDomain.MoveLeft(ctx, bullet, dt);
 
             BulletDomain.AttackingZembie(ctx, bullet);
-
+            BulletDomain.Peashooterdisapper(ctx, bullet);
 
         }
 
