@@ -45,5 +45,22 @@ public static class GameDomain {
     }
 
 
+    public static void EnterGameOver(GameContext ctx) {
+        int mstlen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
+        for (int i = 0; i < mstlen; i++) {
+            ZembieEntity zembie = zembies[i];
+
+
+            // 如果有必要这里可以改成用BoxCollider2D来判断
+            if (zembie.transform.position.x < -5.9f) {
+                UIApp.Panel_Over_Open(ctx.uiContext);
+                ctx.gameEntity.gameStatus = GameStatus.GameOver;
+                break;
+            }
+
+        }
+
+    }
+
 
 }

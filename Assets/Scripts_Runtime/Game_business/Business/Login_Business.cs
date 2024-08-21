@@ -56,6 +56,7 @@ public static class LoginBusiness {
 
         if (has) {
             GameBusiness.Enter(ctx);
+            
             ctx.gameEntity.gameStatus = GameStatus.GameBusiness;
         }
 

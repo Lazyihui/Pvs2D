@@ -10,15 +10,13 @@ public static class GameBusiness {
     public static void Enter(GameContext ctx) {
 
 
-   
+
 
         // cell 
         // TODO: 45 要改的根据不同的地图有不同的值
         for (int i = 0; i < 45; i++) {
             CellDomain.Spawn(ctx);
         }
-
-        UIApp.Panel_Over_Open(ctx.uiContext);
 
 
     }
@@ -133,6 +131,9 @@ public static class GameBusiness {
     }
 
     static void LateTick(GameContext ctx, float dt) {
+
+        GameDomain.EnterGameOver(ctx);
+
 
     }
 }
