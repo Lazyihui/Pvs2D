@@ -10,6 +10,8 @@ public class UIContext {
 
     public Panel_Prepare panel_Prepare;
 
+    public Panel_Over panel_Over;
+
     // repo
     public GoodsRespository goodsRespository;
 

@@ -18,6 +18,8 @@ public static class GameBusiness {
             CellDomain.Spawn(ctx);
         }
 
+        UIApp.Panel_Over_Open(ctx.uiContext);
+
 
     }
 
