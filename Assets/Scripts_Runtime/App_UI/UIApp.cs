@@ -47,7 +47,6 @@ public static class UIApp {
         Panel_Prepare panel = ctx.panel_Prepare;
 
         if (panel == null) {
-            Debug.Log("Panel_Prepare_Open");
 
             bool has = ctx.assetsContext.TryGetPanel("Panel_Prepare", out GameObject prefab);
             if (!has) {

@@ -121,7 +121,6 @@ public static class GameBusiness {
 
             if (zembie.status == ZembieStatus.Move) {
 
-                Debug.Log("ZembieEntity Move");
                 ZembieDomain.Move(ctx, zembie); 
 
             } else if (zembie.status == ZembieStatus.Eat) {

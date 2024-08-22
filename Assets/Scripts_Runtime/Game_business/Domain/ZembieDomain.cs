@@ -141,7 +141,6 @@ public static class ZembieDomain {
 
     }
     public static void Move(GameContext ctx, ZembieEntity entity) {
-        Debug.Log("ZembieDomain Move");
         entity.move();
 
     }

@@ -9,6 +9,8 @@ public class ZembieEntity : MonoBehaviour {
 
     [SerializeField] public Animator anim;
 
+    [SerializeField] public Animation attackAnim;
+
     [SerializeField] Rigidbody2D rb;
 
     public bool haveHead;
@@ -43,7 +45,6 @@ public class ZembieEntity : MonoBehaviour {
         var velo = rb.velocity;
         velo.x = Vector2.left.x * 0.2f;
         rb.velocity = velo;
-        Debug.Log("move");
     }
 
     public void ClearVelocity() {
