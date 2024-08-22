@@ -105,4 +105,10 @@ public static class PlantDomain {
             BulletEntity bullet = BulletDomain.Spawn(ctx, pos, BulletConst.shooter);
         }
     }
+
+    public static void Clear(GameContext ctx, PlantEntity plant) {
+
+        plant.anim.speed = 0;
+
+    }
 }

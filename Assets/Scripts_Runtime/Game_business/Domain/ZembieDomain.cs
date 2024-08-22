@@ -148,6 +148,7 @@ public static class ZembieDomain {
 
     public static void Clear(GameContext ctx, ZembieEntity zembie) {
         zembie.ClearVelocity();
+        zembie.anim.speed = 0;
     }
 
 }

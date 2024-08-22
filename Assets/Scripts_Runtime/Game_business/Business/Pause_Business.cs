@@ -39,6 +39,21 @@ public static class Pause_Business {
             ZembieDomain.Clear(ctx, zembie);
         }
 
+        int bulletLen = ctx.bulletRepository.TakeAll(out BulletEntity[] bullets);
+        for (int i = 0; i < bulletLen; i++) {
+            BulletEntity bullet = bullets[i];
+
+            BulletDomain.Clear(ctx, bullet);
+        
+        }
+
+        int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
+        for (int i = 0; i < plantLen; i++) {
+            PlantEntity plant = plants[i];
+
+            PlantDomain.Clear(ctx, plant);
+        }
+
     }
 
     static void LateTick(GameContext ctx, float dt) {

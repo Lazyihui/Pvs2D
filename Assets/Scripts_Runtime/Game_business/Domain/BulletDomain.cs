@@ -149,4 +149,8 @@ public static class BulletDomain {
         });
 
     }
+
+    public static void Clear(GameContext ctx, BulletEntity bullet) {
+        bullet.anim.speed = 0;
+    }
 }
