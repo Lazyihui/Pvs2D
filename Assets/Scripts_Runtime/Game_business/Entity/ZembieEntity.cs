@@ -40,14 +40,15 @@ public class ZembieEntity : MonoBehaviour {
     }
 
     public void move() {
-        //  var velo = rb.velocity;
-        //     velo = dir * moveSpeed;
-        //     rb.velocity = velo;
         var velo = rb.velocity;
         velo.x = Vector2.left.x * 0.2f;
         rb.velocity = velo;
+        Debug.Log("move");
     }
 
+    public void ClearVelocity() {
+        rb.velocity = Vector2.zero;
+    }
 
 
     public void TearDown() {

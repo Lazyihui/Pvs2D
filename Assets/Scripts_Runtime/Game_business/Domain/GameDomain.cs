@@ -54,13 +54,14 @@ public static class GameDomain {
             // 如果有必要这里可以改成用BoxCollider2D来判断
             if (zembie.transform.position.x < -5.9f) {
                 UIApp.Panel_Over_Open(ctx.uiContext);
-                ctx.gameEntity.gameStatus = GameStatus.GameOver;
+                ctx.gameEntity.gameStatus = GameStatus.Pause;
                 break;
             }
 
         }
 
     }
+
 
 
 }

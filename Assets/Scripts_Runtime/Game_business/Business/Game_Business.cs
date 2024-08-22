@@ -120,9 +120,17 @@ public static class GameBusiness {
             ZembieEntity zembie = zembies[i];
 
             if (zembie.status == ZembieStatus.Move) {
-                ZembieDomain.Move(ctx, zembie);
+
+                Debug.Log("ZembieEntity Move");
+                ZembieDomain.Move(ctx, zembie); 
+
             } else if (zembie.status == ZembieStatus.Eat) {
+
                 ZembieDomain.AttackingPlant(ctx, zembie, dt);
+            } else if (zembie.status == ZembieStatus.Pause) {
+
+                // ZembieDomain.Pause(ctx, zembie);
+
             }
 
         }

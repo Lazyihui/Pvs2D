@@ -26,16 +26,22 @@ public static class Pause_Business {
     }
 
 
-    private static void PreTick(GameContext ctx, float dt) {
+    static void PreTick(GameContext ctx, float dt) {
 
     }
 
-    private static void LogicFix(GameContext ctx, float dt) {
+    static void LogicFix(GameContext ctx, float dt) {
 
+        int zemLen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
+        for (int i = 0; i < zemLen; i++) {
+            ZembieEntity zembie = zembies[i];
+
+            ZembieDomain.Clear(ctx, zembie);
+        }
 
     }
 
-    private static void LateTick(GameContext ctx, float dt) {
+    static void LateTick(GameContext ctx, float dt) {
     }
 
 

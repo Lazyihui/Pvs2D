@@ -5,6 +5,8 @@ public enum ZembieStatus : int {
     Move,
 
     Eat,
+
+    Pause,
     Die,
 
 }

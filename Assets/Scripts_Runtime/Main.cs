@@ -65,7 +65,9 @@ public class NewBehaviourScript : MonoBehaviour {
             GameBusiness.Tick(ctx.gameContext, dt);
         } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.GameOver) {
 
-            Debug.Log("GameOver");
+        } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.Pause) {
+            Pause_Business.Tick(ctx.gameContext, dt);
+
         }
 
 

@@ -7,7 +7,7 @@ public enum GameStatus {
 
     GameBusiness,
 
-    GamePause,
+    Pause,
 
     GameOver,
 

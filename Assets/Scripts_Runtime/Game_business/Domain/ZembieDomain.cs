@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public static class ZembieDomain {
-    public static ZembieEntity Spawn(GameContext ctx, Vector2 pos,int typeID) {
+    public static ZembieEntity Spawn(GameContext ctx, Vector2 pos, int typeID) {
         bool has = ctx.assetsContext.TryGetEntity("Zembie_Entity", out GameObject prefab);
         if (!has) {
             Debug.LogError("Zembie_Entity prefab not found");
@@ -141,10 +141,14 @@ public static class ZembieDomain {
 
     }
     public static void Move(GameContext ctx, ZembieEntity entity) {
-
+        Debug.Log("ZembieDomain Move");
         entity.move();
 
     }
 
+
+    public static void Clear(GameContext ctx, ZembieEntity zembie) {
+        zembie.ClearVelocity();
+    }
 
 }
