@@ -41,6 +41,7 @@ public static class GameDomain {
             int index = UnityEngine.Random.Range(0, ctx.gameEntity.zembieSpawnPos.Length);
             Vector2 pos = ctx.gameEntity.zembieSpawnPos[index];
             ZembieEntity zembie = ZembieDomain.Spawn(ctx, pos, 0);
+            zembie.SetSpriteLayer(index);
         }
     }
 

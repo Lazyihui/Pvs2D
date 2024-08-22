@@ -28,29 +28,38 @@ public class NewBehaviourScript : MonoBehaviour {
     }
 
     void Binding(GameContext ctx) {
-        var uiEvent = ctx.uiContext.uiEvent;
 
-        uiEvent.panel_GoodsElement_CardHandle = (id) => {
+        if (ctx.gameEntity.gameStatus == GameStatus.GameBusiness) {
 
 
-            ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
 
-            good.status = GoodStatus.Cooling;
 
-            if (ctx.gameEntity.handPlant != null) {
-                Debug.Log("已经有植物了");
-                return;
-            }
+            var uiEvent = ctx.uiContext.uiEvent;
 
-            ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, good.typeID); // 0x54
-            //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
+            uiEvent.panel_GoodsElement_CardHandle = (id) => {
 
-            //2. 要进入冷却  并且 要扣除阳光
-            // 用卡片来记录来记录阳光
 
-            ctx.uiContext.idService.sunCount -= good.needSunCount;
+                ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
 
-        };
+                good.status = GoodStatus.Cooling;
+
+                if (ctx.gameEntity.handPlant != null) {
+                    Debug.Log("已经有植物了");
+                    return;
+                }
+
+                ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, good.typeID); // 0x54
+                                                                                //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
+
+                //2. 要进入冷却  并且 要扣除阳光
+                // 用卡片来记录来记录阳光
+
+                ctx.uiContext.idService.sunCount -= good.needSunCount;
+
+            };
+
+        }
+
     }
 
 

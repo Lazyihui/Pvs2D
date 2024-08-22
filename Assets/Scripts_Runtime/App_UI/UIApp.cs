@@ -41,6 +41,14 @@ public static class UIApp {
         goodsElement.SetStatus(goodsElement.status, ctx.idService.sunCount, dt);
     }
 
+    public static void Panel_Goods_Close(UIContext ctx) {
+        Panel_Goods panel = ctx.panel_Goods;
+        if (panel == null) {
+            return;
+        }
+        panel.TearDown();
+    }
+
 
     public static void Panel_Prepare_Open(UIContext ctx) {
 

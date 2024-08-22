@@ -160,6 +160,7 @@ MonoBehaviour:
   anim: {fileID: 4299836767076159353}
   attackAnim: {fileID: 0}
   rb: {fileID: 1278866952966165966}
+  sprite: {fileID: 3146808419870187224}
   haveHead: 0
   status: 0
   id: 0

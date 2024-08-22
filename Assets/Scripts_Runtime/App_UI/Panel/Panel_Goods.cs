@@ -34,7 +34,7 @@ public class Panel_Goods : MonoBehaviour {
         };
 
         ele.cdTimer = 0;
-        
+
         ele.cdInterval = tm.cdInterval;
         ele.needSunCount = tm.needSunCount;
 
@@ -52,6 +52,10 @@ public class Panel_Goods : MonoBehaviour {
 
     public void Show() {
         gameObject.SetActive(true);
+    }
+
+    public void TearDown() {
+        Destroy(gameObject);
     }
 
 }

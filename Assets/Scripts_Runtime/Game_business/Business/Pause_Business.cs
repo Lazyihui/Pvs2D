@@ -28,6 +28,7 @@ public static class Pause_Business {
 
     static void PreTick(GameContext ctx, float dt) {
 
+        UIApp.Panel_Goods_Close(ctx.uiContext);
     }
 
     static void LogicFix(GameContext ctx, float dt) {

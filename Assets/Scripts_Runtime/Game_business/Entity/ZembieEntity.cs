@@ -13,6 +13,8 @@ public class ZembieEntity : MonoBehaviour {
 
     [SerializeField] Rigidbody2D rb;
 
+    [SerializeField] SpriteRenderer sprite;
+
     public bool haveHead;
     public ZembieStatus status;
     public int id;
@@ -36,6 +38,11 @@ public class ZembieEntity : MonoBehaviour {
 
     public Action<ZembieEntity, Collision2D> OnCollisionExit2DHandle;
     public void Ctor() { }
+
+    public void SetSpriteLayer(int layer) {
+        sprite.sortingOrder = layer;
+    }
+
 
     public void SetPos(Vector2 pos) {
         transform.position = pos;
