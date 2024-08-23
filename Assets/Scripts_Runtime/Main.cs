@@ -56,8 +56,8 @@ public class NewBehaviourScript : MonoBehaviour {
             uiEvent.panel_Login_LoginHandle = () => {
                 
                 ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
-                Debug.Log("点击登录");
                 UIApp.Panel_Login_Close(ctx.uiContext);
+                LoginBusiness.Enter(ctx);
             };
 
         }
