@@ -40,6 +40,8 @@ public class ZembieEntity : MonoBehaviour {
     public void Ctor() { }
 
     public void SetSpriteLayer(int layer) {
+        
+
         sprite.sortingOrder = layer;
     }
 
