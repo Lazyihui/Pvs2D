@@ -28,7 +28,7 @@ public class GameEntity {
     public GameEntity() {
 
         // 应该是GameStatus.Login 我还没写
-        gameStatus = GameStatus.LoginBusiness;
+        gameStatus = GameStatus.Loading;
 
         handPlant = null;
 

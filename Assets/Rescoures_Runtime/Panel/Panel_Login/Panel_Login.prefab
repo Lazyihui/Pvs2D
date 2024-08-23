@@ -166,6 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda66b1ef6a28364ba4599b2fec670ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnLogin: {fileID: 7789679498226956308}
+  txtLogin: {fileID: 3641374208396938160}
 --- !u!1 &5704274849080232741
 GameObject:
   m_ObjectHideFlags: 0

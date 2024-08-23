@@ -111,4 +111,33 @@ public static class UIApp {
         }
         panel.TearDown();
     }
+
+
+    public static void Panel_Login_Open(UIContext ctx) {
+        Panel_Login panel = ctx.panel_Login;
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_Login", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel_Login not found");
+                return;
+            }
+
+            panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Login>();
+            panel.Ctor();
+            panel.OnClickLoginHandle = () => {
+                ctx.uiEvent.Panel_Login_LoginClick();
+            };
+            ctx.panel_Login = panel;
+        }
+
+        panel.Show();
+    }
+
+    public static void Panel_Login_Close(UIContext ctx) {
+        Panel_Login panel = ctx.panel_Login;
+        if (panel == null) {
+            return;
+        }
+        panel.TearDown();
+    }
 }

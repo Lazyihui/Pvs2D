@@ -12,4 +12,12 @@ public class UIEvent {
             panel_GoodsElement_CardHandle.Invoke(id);
         }
     }
+
+    public Action panel_Login_LoginHandle;
+
+    public void Panel_Login_LoginClick() {
+        if (panel_Login_LoginHandle != null) {
+            panel_Login_LoginHandle.Invoke();
+        }
+    }
 }

@@ -22,40 +22,42 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Binding(ctx.gameContext);
 
-        LoginBusiness.Enter(ctx.gameContext);
+        Loading.Load(ctx.gameContext);
+
+        // LoginBusiness.Enter(ctx.gameContext);
 
 
     }
 
     void Binding(GameContext ctx) {
+        var uiEvent = ctx.uiContext.uiEvent;
 
         if (ctx.gameEntity.gameStatus == GameStatus.GameBusiness) {
 
-
-
-
-            var uiEvent = ctx.uiContext.uiEvent;
-
             uiEvent.panel_GoodsElement_CardHandle = (id) => {
 
-
                 ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
-
                 good.status = GoodStatus.Cooling;
-
                 if (ctx.gameEntity.handPlant != null) {
                     Debug.Log("已经有植物了");
                     return;
                 }
-
                 ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, good.typeID); // 0x54
                                                                                 //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
 
                 //2. 要进入冷却  并且 要扣除阳光
                 // 用卡片来记录来记录阳光
-
                 ctx.uiContext.idService.sunCount -= good.needSunCount;
 
+            };
+
+        } else if (ctx.gameEntity.gameStatus == GameStatus.Loading) {
+
+            uiEvent.panel_Login_LoginHandle = () => {
+                
+                ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
+                Debug.Log("点击登录");
+                UIApp.Panel_Login_Close(ctx.uiContext);
             };
 
         }
@@ -66,9 +68,11 @@ public class NewBehaviourScript : MonoBehaviour {
     void Update() {
         float dt = Time.deltaTime;
 
+        if (ctx.gameContext.gameEntity.gameStatus == GameStatus.Loading) {
 
 
-        if (ctx.gameContext.gameEntity.gameStatus == GameStatus.LoginBusiness) {
+
+        } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.LoginBusiness) {
             LoginBusiness.Tick(ctx.gameContext, dt);
         } else if (ctx.gameContext.gameEntity.gameStatus == GameStatus.GameBusiness) {
             GameBusiness.Tick(ctx.gameContext, dt);
