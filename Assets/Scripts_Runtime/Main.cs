@@ -54,13 +54,25 @@ public class NewBehaviourScript : MonoBehaviour {
         } else if (ctx.gameEntity.gameStatus == GameStatus.Loading) {
 
             uiEvent.panel_Login_LoginHandle = () => {
-                
-                ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
+
                 UIApp.Panel_Login_Close(ctx.uiContext);
-                LoginBusiness.Enter(ctx);
+                UIApp.Panel_Point_Open(ctx.uiContext);
+                ctx.gameEntity.gameStatus = GameStatus.Pointing;
+
+                // 等等把这个放到Pointing里
+                // ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
+                // UIApp.Panel_Login_Close(ctx.uiContext);
+                // LoginBusiness.Enter(ctx);
             };
 
         }
+
+
+        uiEvent.panel_PointModifyNameHandle = () => {
+
+            Debug.Log("修改名字");
+        };
+
 
     }
 

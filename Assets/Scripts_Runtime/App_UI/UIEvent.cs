@@ -20,4 +20,12 @@ public class UIEvent {
             panel_Login_LoginHandle.Invoke();
         }
     }
+
+    public Action panel_PointModifyNameHandle;
+
+    public void Panel_PointModifyNameClick() {
+        if (panel_PointModifyNameHandle != null) {
+            panel_PointModifyNameHandle.Invoke();
+        }
+    }
 }

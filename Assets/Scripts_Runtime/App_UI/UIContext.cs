@@ -14,6 +14,8 @@ public class UIContext {
 
     public Panel_Login panel_Login;
 
+    public Panel_Point panel_Point;
+
     // repo
     public GoodsRespository goodsRespository;
 

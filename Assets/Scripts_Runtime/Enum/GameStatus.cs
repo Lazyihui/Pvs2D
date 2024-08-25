@@ -3,6 +3,8 @@ public enum GameStatus {
 
     Loading,
 
+    Pointing,
+
     LoginBusiness,
 
     GameBusiness,
