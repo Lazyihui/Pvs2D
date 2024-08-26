@@ -888,6 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019647064768353474}
   - component: {fileID: 6199779453921176211}
+  - component: {fileID: 5925542991190730375}
   m_Layer: 5
   m_Name: Panel_ModifyName
   m_TagString: Untagged
@@ -925,3 +926,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9139059089271615052}
   m_CullTransparentMesh: 1
+--- !u!114 &5925542991190730375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139059089271615052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d304d7ea08f0a424ca13154bd5d70076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 4531604590175038020}
+  btnConfirm: {fileID: 5743777110875169123}

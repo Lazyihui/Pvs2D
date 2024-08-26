@@ -16,6 +16,8 @@ public class UIContext {
 
     public Panel_Point panel_Point;
 
+    public Panel_ModifyName panel_ModifyName;
+
     // repo
     public GoodsRespository goodsRespository;
 

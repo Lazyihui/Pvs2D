@@ -28,4 +28,12 @@ public class UIEvent {
             panel_PointModifyNameHandle.Invoke();
         }
     }
+
+    public Action panel_ModifyName_ConfirmHandle;
+
+    public void Panel_ModifyName_ConfirmClick() {
+        if (panel_ModifyName_ConfirmHandle != null) {
+            panel_ModifyName_ConfirmHandle.Invoke();
+        }
+    }
 }

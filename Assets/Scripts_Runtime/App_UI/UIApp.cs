@@ -169,4 +169,35 @@ public static class UIApp {
         }
         panel.TearDown();
     }
+
+    public static void Panel_ModifyName_Open(UIContext ctx) {
+        Panel_ModifyName panel = ctx.panel_ModifyName;
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_ModifyName", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel_ModifyName not found");
+                return;
+            }
+
+            panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_ModifyName>();
+            panel.Ctor();
+            panel.OnbtnConfirmHandle = () => {
+                ctx.uiEvent.Panel_ModifyName_ConfirmClick();
+            };
+            ctx.panel_ModifyName = panel;
+        }
+
+        panel.Show();
+    }
+
+    public static void Panel_ModifyName_Close(UIContext ctx) {
+        Panel_ModifyName panel = ctx.panel_ModifyName;
+        if (panel == null) {
+            return;
+        }
+        panel.TearDown();
+    }
+
+    
+
 }

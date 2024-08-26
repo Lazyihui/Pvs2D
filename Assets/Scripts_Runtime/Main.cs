@@ -70,7 +70,14 @@ public class NewBehaviourScript : MonoBehaviour {
 
         uiEvent.panel_PointModifyNameHandle = () => {
 
-            Debug.Log("修改名字");
+            UIApp.Panel_ModifyName_Open(ctx.uiContext);
+
+
+        };
+
+        uiEvent.panel_ModifyName_ConfirmHandle = () => {
+            
+            UIApp.Panel_ModifyName_Close(ctx.uiContext);
         };
 
 
