@@ -29,11 +29,20 @@ public class UIEvent {
         }
     }
 
-    public Action panel_ModifyName_ConfirmHandle;
+    public Action<string> panel_ModifyName_ConfirmHandle;
 
-    public void Panel_ModifyName_ConfirmClick() {
+    public void Panel_ModifyName_ConfirmClick(string inputName) {
         if (panel_ModifyName_ConfirmHandle != null) {
-            panel_ModifyName_ConfirmHandle.Invoke();
+            panel_ModifyName_ConfirmHandle.Invoke(inputName);
         }
     }
+
+    public Action panel_ModifyName_CancelHandle;
+
+    public void Panel_ModifyName_CancelClick() {
+        if (panel_ModifyName_CancelHandle != null) {
+            panel_ModifyName_CancelHandle.Invoke();
+        }
+    }
+
 }

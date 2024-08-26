@@ -162,6 +162,11 @@ public static class UIApp {
         panel.Show();
     }
 
+    public static void Panel_Point_SetName(UIContext ctx, string name) {
+        Panel_Point panel = ctx.panel_Point;
+        panel.SetName(name);
+    }
+
     public static void Panel_Point_Close(UIContext ctx) {
         Panel_Point panel = ctx.panel_Point;
         if (panel == null) {
@@ -181,14 +186,20 @@ public static class UIApp {
 
             panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_ModifyName>();
             panel.Ctor();
-            panel.OnbtnConfirmHandle = () => {
-                ctx.uiEvent.Panel_ModifyName_ConfirmClick();
+            panel.OnbtnConfirmHandle = (inputName) => {
+                ctx.uiEvent.Panel_ModifyName_ConfirmClick(inputName);
+            };
+
+            panel.OnbtnCancelHandle = () => {
+                ctx.uiEvent.Panel_ModifyName_CancelClick();
             };
             ctx.panel_ModifyName = panel;
         }
 
         panel.Show();
     }
+
+
 
     public static void Panel_ModifyName_Close(UIContext ctx) {
         Panel_ModifyName panel = ctx.panel_ModifyName;
@@ -198,6 +209,6 @@ public static class UIApp {
         panel.TearDown();
     }
 
-    
+
 
 }

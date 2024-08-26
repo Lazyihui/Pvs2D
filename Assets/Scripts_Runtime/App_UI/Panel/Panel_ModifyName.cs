@@ -1,16 +1,27 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class Panel_ModifyName : MonoBehaviour {
-    [SerializeField] TMP_InputField inputField;
+    
+    [SerializeField] InputField inputField;
+
     [SerializeField] Button btnConfirm;
 
-    public Action OnbtnConfirmHandle;
+    [SerializeField] Button btnCancel;
+
+    public Action<string> OnbtnConfirmHandle;
+
+
+
+    public Action OnbtnCancelHandle;
     public void Ctor() {
         btnConfirm.onClick.AddListener(() => {
-            OnbtnConfirmHandle?.Invoke();
+            OnbtnConfirmHandle?.Invoke(inputField.text);
+        });
+
+        btnCancel.onClick.AddListener(() => {
+            OnbtnCancelHandle?.Invoke();
         });
     }
 

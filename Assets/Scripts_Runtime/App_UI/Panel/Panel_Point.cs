@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Panel_Point : MonoBehaviour {
 
+    [SerializeField] Text Name;
 
     [SerializeField] Button ModifyName;
 
@@ -15,6 +16,11 @@ public class Panel_Point : MonoBehaviour {
             OnClickModifyNameHandle?.Invoke();
         });
     }
+
+    public void SetName(string name) {
+        Name.text = name;
+    }
+
 
     public void Show() {
         gameObject.SetActive(true);

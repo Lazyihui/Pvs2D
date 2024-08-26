@@ -75,11 +75,17 @@ public class NewBehaviourScript : MonoBehaviour {
 
         };
 
-        uiEvent.panel_ModifyName_ConfirmHandle = () => {
-            
-            UIApp.Panel_ModifyName_Close(ctx.uiContext);
+        uiEvent.panel_ModifyName_ConfirmHandle = (inputName) => {
+
+            Debug.Log("inputName:" + inputName);
+            UIApp.Panel_Point_SetName(ctx.uiContext, inputName);
         };
 
+        uiEvent.panel_ModifyName_CancelHandle = () => {
+
+            UIApp.Panel_ModifyName_Close(ctx.uiContext);
+
+        };
 
     }
 
