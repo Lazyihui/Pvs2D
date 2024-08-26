@@ -157,14 +157,25 @@ public static class UIApp {
                 ctx.uiEvent.Panel_PointModifyNameClick();
             };
             ctx.panel_Point = panel;
+
+            Panel_Point_UpdateName(ctx);
         }
 
         panel.Show();
     }
 
+    public static void Panel_Point_UpdateName(UIContext ctx) {
+        Panel_Point panel = ctx.panel_Point;
+
+        panel.SetName(PlayerPrefs.GetString("name"));
+    }
+
     public static void Panel_Point_SetName(UIContext ctx, string name) {
+
         Panel_Point panel = ctx.panel_Point;
         panel.SetName(name);
+        PlayerPrefs.SetString("name", name);
+
     }
 
     public static void Panel_Point_Close(UIContext ctx) {
