@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModuleAudio : MonoBehaviour {
+public class Audio_Entity : MonoBehaviour {
 
     [SerializeField] AudioSource audioSource;
 
