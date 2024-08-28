@@ -26,6 +26,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         // LoginBusiness.Enter(ctx.gameContext);
 
+        ModuleAudio moduleAudio = GameObject.Find("Audio").GetComponent<ModuleAudio>();
 
     }
 
@@ -92,6 +93,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
     void Update() {
         float dt = Time.deltaTime;
+
+        ModuleAudio moduleAudio = GameObject.Find("Audio").GetComponent<ModuleAudio>();
+        moduleAudio.PlayAudio(Config.Plant);
 
         if (ctx.gameContext.gameEntity.gameStatus == GameStatus.Loading) {
 
