@@ -155,7 +155,19 @@ public static class UIApp {
             panel.Ctor();
             panel.OnClickModifyNameHandle = () => {
                 ctx.uiEvent.Panel_PointModifyNameClick();
+              
             };
+            panel.OnClickAdvanceHandle = () => {
+                ctx.uiEvent.Panel_PointAdvanceClick();
+            };
+            panel.OnClickMiniGameHandle = () => {
+                ctx.uiEvent.Panel_PointMiniGameClick();
+            };
+            panel.OnClickBrainHandle = () => {
+                ctx.uiEvent.Panel_PointBrainClick();
+            };
+
+            
             ctx.panel_Point = panel;
 
             Panel_Point_UpdateName(ctx);

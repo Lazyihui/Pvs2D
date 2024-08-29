@@ -16,6 +16,9 @@ public class GameContext {
     public ZembieRepository zembieRepository;
 
     public ZembieHeadRepository zembieHeadRepository;
+
+    public AudioRepository audioRepository;
+
     // inject
     public AssetsContext assetsContext;
 
@@ -41,10 +44,11 @@ public class GameContext {
         bulletRepository = new BulletRepository();
         zembieRepository = new ZembieRepository();
         zembieHeadRepository = new ZembieHeadRepository();
+        audioRepository = new AudioRepository();
     }
 
     public void Inject(AssetsContext assetsContext, IDService idService, ModuleInput moduleInput, Canvas canvas,
-   Transform CellGroup, UIContext uiContext,TemplateContext templateContext,ModuleCamera moduleCamera) {
+   Transform CellGroup, UIContext uiContext, TemplateContext templateContext, ModuleCamera moduleCamera) {
         this.assetsContext = assetsContext;
         this.idService = idService;
         this.moduleInput = moduleInput;

@@ -10,11 +10,37 @@ public class Panel_Point : MonoBehaviour {
 
     [SerializeField] Button ModifyName;
 
+    [SerializeField] Button btn_Advance;
+    [SerializeField] Button btn_MiniGame;
+    [SerializeField] Button btn_Brain;
+
+
     public Action OnClickModifyNameHandle;
+
+
+    public Action OnClickAdvanceHandle;
+
+    public Action OnClickMiniGameHandle;
+
+    public Action OnClickBrainHandle;
     public void Ctor() {
         ModifyName.onClick.AddListener(() => {
             OnClickModifyNameHandle?.Invoke();
         });
+
+        btn_Advance.onClick.AddListener(() => {
+            OnClickAdvanceHandle?.Invoke();
+        });
+
+        btn_MiniGame.onClick.AddListener(() => {
+            OnClickMiniGameHandle?.Invoke();
+        });
+
+        btn_Brain.onClick.AddListener(() => {
+            OnClickBrainHandle?.Invoke();
+        });
+
+
     }
 
     public void SetName(string name) {

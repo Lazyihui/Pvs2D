@@ -58,10 +58,6 @@ public class NewBehaviourScript : MonoBehaviour {
                 UIApp.Panel_Point_Open(ctx.uiContext);
                 ctx.gameEntity.gameStatus = GameStatus.Pointing;
 
-                // 等等把这个放到Pointing里
-                // ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
-                // UIApp.Panel_Login_Close(ctx.uiContext);
-                // LoginBusiness.Enter(ctx);
             };
 
         }
@@ -84,6 +80,20 @@ public class NewBehaviourScript : MonoBehaviour {
 
             UIApp.Panel_ModifyName_Close(ctx.uiContext);
 
+        };
+
+        uiEvent.panel_PointAdvanceHandle = () => {
+
+            UIApp.Panel_Point_Close(ctx.uiContext);
+            ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
+            LoginBusiness.Enter(ctx);
+
+        };
+
+        uiEvent.panel_PointMiniGameHandle = () => {
+        };
+
+        uiEvent.panel_PointBrainHandle = () => {
         };
 
     }

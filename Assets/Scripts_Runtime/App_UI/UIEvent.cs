@@ -45,4 +45,28 @@ public class UIEvent {
         }
     }
 
+    public Action panel_PointAdvanceHandle;
+
+    public void Panel_PointAdvanceClick() {
+        if (panel_PointAdvanceHandle != null) {
+            panel_PointAdvanceHandle.Invoke();
+        }
+    }
+
+    public Action panel_PointMiniGameHandle;
+
+    public void Panel_PointMiniGameClick() {
+        if (panel_PointMiniGameHandle != null) {
+            panel_PointMiniGameHandle.Invoke();
+        }
+    }
+
+    public Action panel_PointBrainHandle;
+
+    public void Panel_PointBrainClick() {
+        if (panel_PointBrainHandle != null) {
+            panel_PointBrainHandle.Invoke();
+        }
+    }
+
 }

@@ -572,6 +572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: {fileID: 6528243837513913987}
   ModifyName: {fileID: 7846942189096135745}
+  btn_Advance: {fileID: 8460081080753834594}
+  btn_MiniGame: {fileID: 6822747446384572057}
+  btn_Brain: {fileID: 8056011841871320415}
 --- !u!1 &5863131437086748696
 GameObject:
   m_ObjectHideFlags: 0

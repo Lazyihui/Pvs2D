@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Audio_Entity : MonoBehaviour {
+public class AudioEntity : MonoBehaviour {
 
     [SerializeField] AudioSource audioSource;
 
+    public int id;
+
+    public void Ctor() {
+    }
 
     public void PlayAudio(string path) {
         AudioClip clip = Resources.Load<AudioClip>(path);
