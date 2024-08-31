@@ -11,10 +11,13 @@ public class AudioEntity : MonoBehaviour {
     public void Ctor() {
     }
 
+
+
     public void PlayAudio(string path) {
         AudioClip clip = Resources.Load<AudioClip>(path);
         Debug.Log(clip);
         audioSource.clip = clip;
+
         audioSource.Play();
     }
 
