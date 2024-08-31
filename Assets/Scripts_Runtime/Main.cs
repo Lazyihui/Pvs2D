@@ -24,8 +24,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Loading.Load(ctx.gameContext);
 
-        AudioEntity audio = AudioDomain.Spawn(ctx.gameContext);
-
+        AudioEntity audio = AudioDomain.Spawn(ctx.gameContext,0);
+        
         // LoginBusiness.Enter(ctx.gameContext);
 
     }

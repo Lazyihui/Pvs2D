@@ -23,6 +23,24 @@ MonoBehaviour:
     m_SerializedLabels:
     - Entity
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be4b01daaf5f86c4397ea36c4c726b0d
+    m_Address: AudioTM 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AudioTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1afa327282553e046b33d62eb94cca86
+    m_Address: AudioTM 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AudioTM
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbaa9bb6471c740488137ebcc3dbd21a
+    m_Address: AudioTM 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AudioTM
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9414da8affcaeb344b6d5e834d8b1f12, type: 2}
   m_SchemaSet:

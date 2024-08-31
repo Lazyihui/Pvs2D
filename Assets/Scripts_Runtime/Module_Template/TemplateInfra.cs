@@ -43,6 +43,17 @@ public class TemplateInfra {
             ctx.bulletPtr = ptr;
         }
 
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "AudioTM";
+            var ptr = Addressables.LoadAssetsAsync<AudioTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.audios.Add(go.typeID, go);
+            }
+            ctx.audioPtr = ptr;
+        }
+
     }
 
 
@@ -55,6 +66,9 @@ public class TemplateInfra {
         }
         if (ctx.bulletPtr.IsValid()) {
             Addressables.Release(ctx.bulletPtr);
+        }
+        if (ctx.audioPtr.IsValid()) {
+            Addressables.Release(ctx.audioPtr);
         }
     }
 }

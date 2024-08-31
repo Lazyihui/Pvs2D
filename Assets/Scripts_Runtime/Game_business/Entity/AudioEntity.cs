@@ -12,6 +12,11 @@ public class AudioEntity : MonoBehaviour {
     }
 
 
+    public void SetClip(AudioClip clip) {
+        Debug.Log(clip);
+        audioSource.clip = clip;
+    }
+
 
     public void PlayAudio(string path) {
         AudioClip clip = Resources.Load<AudioClip>(path);
@@ -26,6 +31,10 @@ public class AudioEntity : MonoBehaviour {
 
         AudioClip clip = Resources.Load<AudioClip>(path);
         AudioSource.PlayClipAtPoint(clip, transform.position, voluem);
+    }
+
+    public void TearDown() {
+        GameObject.Destroy(gameObject);
     }
 
 

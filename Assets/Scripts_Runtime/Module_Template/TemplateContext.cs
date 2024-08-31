@@ -23,9 +23,14 @@ public class TemplateContext {
 
     public AsyncOperationHandle bulletPtr;
 
+    public Dictionary<int, AudioTM> audios;
+
+    public AsyncOperationHandle audioPtr;
+
     public TemplateContext() {
         cards = new Dictionary<int, CardTM>();
         plants = new Dictionary<int, PlantTM>();
         bullets = new Dictionary<int, BulletTM>();
+        audios = new Dictionary<int, AudioTM>();
     }
 }
