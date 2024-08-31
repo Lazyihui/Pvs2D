@@ -25,7 +25,7 @@ public class NewBehaviourScript : MonoBehaviour {
         Loading.Load(ctx.gameContext);
 
         AudioEntity audio = AudioDomain.Spawn(ctx.gameContext,0);
-        
+
         // LoginBusiness.Enter(ctx.gameContext);
 
     }
@@ -120,11 +120,11 @@ public class NewBehaviourScript : MonoBehaviour {
 
         }
 
-        int lenAudio = ctx.gameContext.audioRepository.TakeAll(out AudioEntity[] audios);
-        for (int i = 0; i < lenAudio; i++) {
-            AudioEntity audio = audios[i];
-            audio.PlayAudio("Audio/LoseWin");
-        }
+        // int lenAudio = ctx.gameContext.audioRepository.TakeAll(out AudioEntity[] audios);
+        // for (int i = 0; i < lenAudio; i++) {
+        //     AudioEntity audio = audios[i];
+        //     audio.PlayAudio("Audio/LoseWin");
+        // }
 
 
     }
