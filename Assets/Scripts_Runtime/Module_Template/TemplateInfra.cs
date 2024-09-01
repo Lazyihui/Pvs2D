@@ -53,6 +53,16 @@ public class TemplateInfra {
             }
             ctx.audioPtr = ptr;
         }
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "MapTM";
+            var ptr = Addressables.LoadAssetsAsync<MapTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.maps.Add(go.typeID, go);
+            }
+            ctx.mapPtr = ptr;
+        }
 
     }
 
@@ -69,6 +79,9 @@ public class TemplateInfra {
         }
         if (ctx.audioPtr.IsValid()) {
             Addressables.Release(ctx.audioPtr);
+        }
+        if (ctx.mapPtr.IsValid()) {
+            Addressables.Release(ctx.mapPtr);
         }
     }
 }

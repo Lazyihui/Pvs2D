@@ -24,7 +24,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Loading.Load(ctx.gameContext);
 
-        AudioEntity audio = AudioDomain.Spawn(ctx.gameContext,0);
+        AudioEntity audio = AudioDomain.Spawn(ctx.gameContext, 0);
 
         // LoginBusiness.Enter(ctx.gameContext);
 
@@ -86,6 +86,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         uiEvent.panel_PointAdvanceHandle = () => {
 
+            MapDomain.Spawn(ctx, 0);
             UIApp.Panel_Point_Close(ctx.uiContext);
             ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
             LoginBusiness.Enter(ctx);
@@ -93,6 +94,11 @@ public class NewBehaviourScript : MonoBehaviour {
         };
 
         uiEvent.panel_PointMiniGameHandle = () => {
+
+            MapDomain.Spawn(ctx, 1);
+            UIApp.Panel_Point_Close(ctx.uiContext);
+            ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
+            LoginBusiness.Enter(ctx);
         };
 
         uiEvent.panel_PointBrainHandle = () => {

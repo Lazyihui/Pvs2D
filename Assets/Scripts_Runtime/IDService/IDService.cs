@@ -16,6 +16,7 @@ public class IDService {
 
     public int audioIDRecord;
 
+    public int mapIDRecord;
     public IDService() {
         sunCount = 300;
 
@@ -26,6 +27,7 @@ public class IDService {
         zembieRecordID = 0;
         zembieHeadRecordID=0;
         audioIDRecord = 0;
+        mapIDRecord = 0;
     }
 
 }
