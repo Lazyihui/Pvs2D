@@ -23,6 +23,8 @@ public class GameEntity {
 
     public float zembieSpawnTimer;
 
+    public bool isGameBegin;
+
 
 
     public GameEntity() {
@@ -43,6 +45,8 @@ public class GameEntity {
         zembieSpawnPos[2] = new Vector2(9, -0.05f);
         zembieSpawnPos[3] = new Vector2(9, -1.47f);
         zembieSpawnPos[4] = new Vector2(9, -3.28f);
+
+        isGameBegin = false;
 
     }
 

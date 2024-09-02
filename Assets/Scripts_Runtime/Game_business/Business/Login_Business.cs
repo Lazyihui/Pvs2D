@@ -43,20 +43,24 @@ public static class LoginBusiness {
 
     private static void PreTick(GameContext ctx, float dt) {
 
-        ctx.moduleCamera.MovetRight(new Vector3(5, 0, -10), dt);
-        ctx.moduleCamera.MoveLeft(new Vector3(0, 0, -10), dt);
 
-        if (ctx.moduleCamera.isAchieveRight && ctx.moduleCamera.isAchieveLeft &&ctx.gameEntity.gameStatus == GameStatus.GameBusiness) {
+        bool hasMoveRight = ctx.moduleCamera.MovetRight(new Vector3(5, 0, -10), dt);
+        if (hasMoveRight) {
+            UIApp.Panel_SelectCard_Open(ctx.uiContext);
+        }
+
+        if (ctx.moduleCamera.isAchieveRight && ctx.moduleCamera.isAchieveLeft && ctx.gameEntity.isGameBegin) {
             UIApp.Panel_Prepare_Open(ctx.uiContext);
             UIApp.Panel_Prepare_Update(ctx.uiContext, dt);
         }
 
+        // 要改
+        ctx.moduleCamera.MoveLeft(new Vector3(0, 0, -10), dt);
 
         bool has = UIApp.Panel_Prepare_Close(ctx.uiContext);
 
         if (has) {
             GameBusiness.Enter(ctx);
-            
             ctx.gameEntity.gameStatus = GameStatus.GameBusiness;
         }
 

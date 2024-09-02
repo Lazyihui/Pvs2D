@@ -20,9 +20,9 @@ public class ModuleCamera {
     }
 
 
-    public void MovetRight(Vector3 movePos, float dt) {
+    public bool MovetRight(Vector3 movePos, float dt) {
         if (isAchieveRight) {
-            return;
+            return false;
         }
 
         Vector3 pos = camera.transform.position;
@@ -35,7 +35,9 @@ public class ModuleCamera {
             // 这里放到开始游戏的时候
             // isAchieveLeft = false;//
             isAchieveLeft = true;
-
+            return true;
+        }else{
+            return false;
         }
     }
 

@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3504840949186670715}
   - component: {fileID: 3936451165899714665}
+  - component: {fileID: -1898326694674469141}
   m_Layer: 5
   m_Name: Panel_SelectCard
   m_TagString: Untagged
@@ -251,3 +252,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7424572085456074759}
   m_CullTransparentMesh: 1
+--- !u!114 &-1898326694674469141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7424572085456074759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b8068138542d545b0e5b51e5597757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardElementPrefab: {fileID: 1111565457289398174, guid: b99beff47e4f1ab459e0632f59589d5a, type: 3}
