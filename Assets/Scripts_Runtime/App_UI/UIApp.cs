@@ -35,6 +35,7 @@ public static class UIApp {
     public static void Panel_GoodsUpdateSunCount(UIContext ctx) {
         Panel_Goods panel = ctx.panel_Goods;
         panel.SetSunCount(ctx.idService.sunCount);
+
     }
 
     public static void Panel_GoodsElement_SetStatus(UIContext ctx, Panel_GoodsElement goodsElement, float dt) {

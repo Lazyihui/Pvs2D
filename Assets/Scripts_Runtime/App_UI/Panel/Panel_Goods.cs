@@ -26,6 +26,8 @@ public class Panel_Goods : MonoBehaviour {
 
 
         // goodsElement.Init(spriteLight, spriteDark);
+
+        ele.cardType = CardType.GoodCard;
         ele.Ctor();
         ele.typeID = typeID;
         ele.Init(tm.spriteLight, tm.spriteDark, tm.needSunCount);

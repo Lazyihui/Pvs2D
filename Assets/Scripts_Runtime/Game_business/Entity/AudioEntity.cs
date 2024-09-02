@@ -13,7 +13,6 @@ public class AudioEntity : MonoBehaviour {
 
 
     public void SetClip(AudioClip clip) {
-        Debug.Log(clip);
         audioSource.clip = clip;
         audioSource.loop = true;
         audioSource.Play();

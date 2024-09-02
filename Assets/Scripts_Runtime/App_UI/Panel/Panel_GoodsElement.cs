@@ -17,6 +17,7 @@ public class Panel_GoodsElement : MonoBehaviour {
     public int typeID;
     public GoodStatus status;
 
+    public CardType cardType;
 
 
     public Action<int> OnClickCardHandle;

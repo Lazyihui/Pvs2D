@@ -84,11 +84,13 @@ public static class GameBusiness {
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
         for (int i = 0; i < goodlen; i++) {
             Panel_GoodsElement good = goods[i];
-            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, good, dt);
-
-            if (Input.GetKeyDown(KeyCode.A)) {
-                Debug.Log(good.status);
+            if (good.cardType == CardType.GoodCard) {
+                UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, good, dt);
+                if (Input.GetKeyDown(KeyCode.A)) {
+                    Debug.Log(good.status);
+                }
             }
+
         }
 
         int plantLen = ctx.plantRepository.TakeAll(out PlantEntity[] plants);
@@ -121,7 +123,7 @@ public static class GameBusiness {
 
             if (zembie.status == ZembieStatus.Move) {
 
-                ZembieDomain.Move(ctx, zembie); 
+                ZembieDomain.Move(ctx, zembie);
 
             } else if (zembie.status == ZembieStatus.Eat) {
 
