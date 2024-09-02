@@ -156,7 +156,7 @@ public static class UIApp {
             panel.Ctor();
             panel.OnClickModifyNameHandle = () => {
                 ctx.uiEvent.Panel_PointModifyNameClick();
-              
+
             };
             panel.OnClickAdvanceHandle = () => {
                 ctx.uiEvent.Panel_PointAdvanceClick();
@@ -168,7 +168,7 @@ public static class UIApp {
                 ctx.uiEvent.Panel_PointBrainClick();
             };
 
-            
+
             ctx.panel_Point = panel;
 
             Panel_Point_UpdateName(ctx);
@@ -233,6 +233,31 @@ public static class UIApp {
         panel.TearDown();
     }
 
+    public static void Panel_SelectCard_Open(UIContext ctx) {
+        Panel_SelectCard panel = ctx.panel_SelectCard;
+
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_SelectCard", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel_SelectCard not found");
+                return;
+            }
+            panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_SelectCard>();
+            panel.Ctor();
+            ctx.panel_SelectCard = panel;
+        }
+
+        panel.Show();
+    }
 
 
+    public static void Panel_SelectCard_Close(UIContext ctx) {
+        Panel_SelectCard panel = ctx.panel_SelectCard;
+        if (panel == null) {
+            return;
+        }
+        panel.TearDown();
+    }
+
+    
 }

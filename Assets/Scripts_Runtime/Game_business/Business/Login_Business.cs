@@ -46,7 +46,7 @@ public static class LoginBusiness {
         ctx.moduleCamera.MovetRight(new Vector3(5, 0, -10), dt);
         ctx.moduleCamera.MoveLeft(new Vector3(0, 0, -10), dt);
 
-        if (ctx.moduleCamera.isAchieveRight && ctx.moduleCamera.isAchieveLeft) {
+        if (ctx.moduleCamera.isAchieveRight && ctx.moduleCamera.isAchieveLeft &&ctx.gameEntity.gameStatus == GameStatus.GameBusiness) {
             UIApp.Panel_Prepare_Open(ctx.uiContext);
             UIApp.Panel_Prepare_Update(ctx.uiContext, dt);
         }

@@ -18,6 +18,8 @@ public class UIContext {
 
     public Panel_ModifyName panel_ModifyName;
 
+    public Panel_SelectCard panel_SelectCard;
+
     // repo
     public GoodsRespository goodsRespository;
 

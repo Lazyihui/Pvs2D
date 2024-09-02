@@ -8,6 +8,8 @@ public class Panel_SelectCard : MonoBehaviour {
 
     [SerializeField] Panel_GoodsElement cardElementPrefab;
 
+    public void Ctor() { }
+
     public void Show() {
         gameObject.SetActive(true);
     }
