@@ -102,8 +102,13 @@ public class NewBehaviourScript : MonoBehaviour {
         };
         // 进入游戏的卡片选择
 
-        uiEvent.panel_CardElement_CardHandle = (typeID)=>{
-            Debug.Log("typeID:" + typeID);
+        uiEvent.panel_CardElement_CardHandle = (id) => {
+            Debug.Log("id:" + id);
+            ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement card);
+            UIApp.Panel_GoodsElementAdd(ctx.uiContext, card.typeID);
+
+            card.status = GoodStatus.Cooling;
+
         };
     }
 

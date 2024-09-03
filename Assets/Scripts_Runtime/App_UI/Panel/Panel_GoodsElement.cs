@@ -36,7 +36,7 @@ public class Panel_GoodsElement : MonoBehaviour {
     }
 
     public void Ctor() {
-       
+
 
         cardButton.onClick.AddListener(() => {
             // status = GoodStatus.Cooling;
@@ -44,7 +44,7 @@ public class Panel_GoodsElement : MonoBehaviour {
         });
 
         // 不能写在这里 要用TM
-       
+
     }
 
     //这里逻辑有点问题
@@ -66,16 +66,22 @@ public class Panel_GoodsElement : MonoBehaviour {
 
     void Cooling(float dt, int sunCount) {
         // 冷却
-        cdTimer += dt;
-        cardMask.fillAmount = (cdInterval - cdTimer) / cdInterval;
 
-        if (cdTimer >= cdInterval) {
-            this.status = GoodStatus.WaitingSun;
-            cdTimer = 0;
+        if (this.cardType == CardType.SelectCard) {
+
+            spriteLight.gameObject.SetActive(false);
+            spriteDark.gameObject.SetActive(true);
+            cardMask.gameObject.SetActive(true);
+        } else {
+            cdTimer += dt;
+            cardMask.fillAmount = (cdInterval - cdTimer) / cdInterval;
+
+            if (cdTimer >= cdInterval) {
+                this.status = GoodStatus.WaitingSun;
+                cdTimer = 0;
+            }
+
         }
-        spriteLight.gameObject.SetActive(false);
-        spriteDark.gameObject.SetActive(true);
-        cardMask.gameObject.SetActive(true);
     }
 
     void WaitingSun(int sunCount) {
