@@ -265,3 +265,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardElementPrefab: {fileID: 1111565457289398174, guid: b99beff47e4f1ab459e0632f59589d5a, type: 3}
+  cardElementGroup: {fileID: 2992512841602974418}

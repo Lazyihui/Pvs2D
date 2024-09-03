@@ -250,6 +250,11 @@ public static class UIApp {
         panel.Show();
     }
 
+    public static void Panel_SelectCard_AddCardElement(UIContext ctx, int typeID) {
+        Panel_SelectCard panel = ctx.panel_SelectCard;
+        panel.AddCardElement(ctx, typeID);
+    }
+
 
     public static void Panel_SelectCard_Close(UIContext ctx) {
         Panel_SelectCard panel = ctx.panel_SelectCard;
@@ -259,5 +264,5 @@ public static class UIApp {
         panel.TearDown();
     }
 
-    
+
 }
