@@ -2,14 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Panel_SelectCard : MonoBehaviour {
 
     [SerializeField] Panel_GoodsElement cardElementPrefab;
 
+
+
     [SerializeField] Transform cardElementGroup;
-    public void Ctor() { }
+
+
+    [SerializeField] Button btn_StartGame;
+
+    public Action panel_ClickBeginGameHandle;
+
+    public void Ctor() {
+        btn_StartGame.onClick.AddListener(() => {
+            panel_ClickBeginGameHandle.Invoke();
+        });
+    }
 
 
     public void AddCardElement(UIContext ctx, int typeID) {

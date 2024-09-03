@@ -103,12 +103,26 @@ public class NewBehaviourScript : MonoBehaviour {
         // 进入游戏的卡片选择
 
         uiEvent.panel_CardElement_CardHandle = (id) => {
+
+            if (ctx.gameEntity.plantCardCount >= 7) {
+                Debug.Log("已经选择了7张卡片");
+                return;
+            }
             Debug.Log("id:" + id);
             ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement card);
             UIApp.Panel_GoodsElementAdd(ctx.uiContext, card.typeID);
-
+            ctx.gameEntity.plantCardCount++;
             card.status = GoodStatus.Cooling;
 
+        };
+
+        // 开始游戏按钮
+        uiEvent.panel_ClickBeginGameHandle = () => {
+            if (ctx.gameEntity.plantCardCount < 7) {
+                Debug.Log("还没有选择5张卡片");
+                return;
+            }
+            Debug.Log("ksis");
         };
     }
 

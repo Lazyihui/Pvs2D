@@ -248,6 +248,9 @@ public static class UIApp {
             }
             panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_SelectCard>();
             panel.Ctor();
+            panel.panel_ClickBeginGameHandle = () => {
+                ctx.uiEvent.panel_ClickBeginGameHandle();
+            };
             ctx.panel_SelectCard = panel;
         }
 

@@ -25,7 +25,8 @@ public class GameEntity {
 
     public bool isGameBegin;
 
-
+    // 记录植物卡片的数量
+    public int plantCardCount;
 
     public GameEntity() {
 
@@ -47,6 +48,8 @@ public class GameEntity {
         zembieSpawnPos[4] = new Vector2(9, -3.28f);
 
         isGameBegin = false;
+
+        plantCardCount = 0;
 
     }
 

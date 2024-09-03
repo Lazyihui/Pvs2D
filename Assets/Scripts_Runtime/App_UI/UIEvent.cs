@@ -77,6 +77,12 @@ public class UIEvent {
         }
     }
 
+    public Action panel_ClickBeginGameHandle;
 
+    public void Panel_ClickBeginGameClick() {
+        if (panel_ClickBeginGameHandle != null) {
+            panel_ClickBeginGameHandle.Invoke();
+        }
+    }
 
 }
