@@ -80,7 +80,7 @@ public class NewBehaviourScript : MonoBehaviour {
             UIApp.Panel_ModifyName_Close(ctx.uiContext);
 
         };
-
+        // 冒险关卡
         uiEvent.panel_PointAdvanceHandle = () => {
 
             MapDomain.Spawn(ctx, 0);
@@ -89,7 +89,7 @@ public class NewBehaviourScript : MonoBehaviour {
             LoginBusiness.Enter(ctx);
 
         };
-
+        // 小游戏关卡
         uiEvent.panel_PointMiniGameHandle = () => {
 
             MapDomain.Spawn(ctx, 1);
@@ -97,10 +97,14 @@ public class NewBehaviourScript : MonoBehaviour {
             ctx.gameEntity.gameStatus = GameStatus.LoginBusiness;
             LoginBusiness.Enter(ctx);
         };
-
+        // 关卡
         uiEvent.panel_PointBrainHandle = () => {
         };
+        // 进入游戏的卡片选择
 
+        uiEvent.panel_CardElement_CardHandle = (typeID)=>{
+            Debug.Log("typeID:" + typeID);
+        };
     }
 
 

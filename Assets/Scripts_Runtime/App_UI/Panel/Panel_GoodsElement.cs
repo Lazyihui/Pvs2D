@@ -36,7 +36,7 @@ public class Panel_GoodsElement : MonoBehaviour {
     }
 
     public void Ctor() {
-        status = GoodStatus.Cooling;
+       
 
         cardButton.onClick.AddListener(() => {
             // status = GoodStatus.Cooling;
@@ -58,6 +58,10 @@ public class Panel_GoodsElement : MonoBehaviour {
             Ready(sunCount);
         }
 
+    }
+
+    public void SetCardStatus(GoodStatus status) {
+        this.status = status;
     }
 
     void Cooling(float dt, int sunCount) {

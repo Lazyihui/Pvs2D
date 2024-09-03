@@ -42,6 +42,10 @@ public static class UIApp {
         goodsElement.SetStatus(goodsElement.status, ctx.idService.sunCount, dt);
     }
 
+    public static void Panel_CardsElement_SetStatus(UIContext ctx, Panel_GoodsElement cardsElement, float dt) {
+        cardsElement.SetStatus(cardsElement.status, ctx.idService.sunCount, dt);
+    }
+
     public static void Panel_Goods_Close(UIContext ctx) {
         Panel_Goods panel = ctx.panel_Goods;
         if (panel == null) {
@@ -257,10 +261,10 @@ public static class UIApp {
 
 
     public static void Panel_SelectCard_AddCardElement(UIContext ctx, Panel_GoodsElement card) {
-    
+
         Panel_SelectCard panel = ctx.panel_SelectCard;
         panel.AddCardElement(ctx, card.typeID);
-    
+
     }
 
     public static void Panel_SelectCard_Close(UIContext ctx) {

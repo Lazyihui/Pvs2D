@@ -16,7 +16,7 @@ public class Panel_SelectCard : MonoBehaviour {
 
         bool has = ctx.templateContext.cards.TryGetValue(typeID, out CardTM tm);
 
-        if(!has){
+        if (!has) {
             Debug.LogError("no card typeID: " + typeID);
             return;
         }
@@ -29,7 +29,7 @@ public class Panel_SelectCard : MonoBehaviour {
         ele.typeID = typeID;
         ele.Init(tm.spriteLight, tm.spriteDark, tm.needSunCount);
         ele.OnClickCardHandle = (id) => {
-            ctx.uiEvent.Panel_GoodsElement_CardClick(id);
+            ctx.uiEvent.Panel_CardElement_CardClick(id);
         };
 
         ele.cdTimer = 0;
@@ -39,10 +39,9 @@ public class Panel_SelectCard : MonoBehaviour {
 
         ele.id = ctx.idService.goodsIDRecord++;
         ctx.goodsRespository.Add(ele);
-        
-
 
     }
+
     public void Show() {
         gameObject.SetActive(true);
     }

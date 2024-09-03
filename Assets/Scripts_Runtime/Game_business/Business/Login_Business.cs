@@ -9,7 +9,7 @@ public static class LoginBusiness {
 
         //UIApp
         UIApp.Panel_Goods_Open(ctx.uiContext);
-        
+
 
     }
 
@@ -71,6 +71,12 @@ public static class LoginBusiness {
 
     private static void LogicFix(GameContext ctx, float dt) {
 
+        int lenCard = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] cards);
+
+        for (int i = 0; i < lenCard; i++) {
+            Panel_GoodsElement card = cards[i];
+            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, card, dt);
+        }
 
     }
 

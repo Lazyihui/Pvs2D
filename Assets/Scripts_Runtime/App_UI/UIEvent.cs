@@ -69,4 +69,14 @@ public class UIEvent {
         }
     }
 
+    public Action<int> panel_CardElement_CardHandle;
+
+    public void Panel_CardElement_CardClick(int id) {
+        if (panel_CardElement_CardHandle != null) {
+            panel_CardElement_CardHandle.Invoke(id);
+        }
+    }
+
+
+
 }
