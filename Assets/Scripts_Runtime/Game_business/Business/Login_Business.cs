@@ -9,9 +9,8 @@ public static class LoginBusiness {
 
         //UIApp
         UIApp.Panel_Goods_Open(ctx.uiContext);
+        
 
-        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 0);
-        UIApp.Panel_GoodsElementAdd(ctx.uiContext, 1);
     }
 
 
@@ -47,6 +46,8 @@ public static class LoginBusiness {
         bool hasMoveRight = ctx.moduleCamera.MovetRight(new Vector3(5, 0, -10), dt);
         if (hasMoveRight) {
             UIApp.Panel_SelectCard_Open(ctx.uiContext);
+            UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 0);
+            UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 0);
             UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 0);
             UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 1);
         }

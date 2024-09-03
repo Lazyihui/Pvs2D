@@ -24,6 +24,7 @@ public class Panel_SelectCard : MonoBehaviour {
         Panel_GoodsElement ele = Instantiate(cardElementPrefab, cardElementGroup);
 
         ele.cardType = CardType.SelectCard;
+        ele.status = GoodStatus.Ready;
         ele.Ctor();
         ele.typeID = typeID;
         ele.Init(tm.spriteLight, tm.spriteDark, tm.needSunCount);
@@ -38,7 +39,6 @@ public class Panel_SelectCard : MonoBehaviour {
 
         ele.id = ctx.idService.goodsIDRecord++;
         ctx.goodsRespository.Add(ele);
-
         
 
 

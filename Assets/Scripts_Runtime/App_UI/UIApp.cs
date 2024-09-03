@@ -256,6 +256,13 @@ public static class UIApp {
     }
 
 
+    public static void Panel_SelectCard_AddCardElement(UIContext ctx, Panel_GoodsElement card) {
+    
+        Panel_SelectCard panel = ctx.panel_SelectCard;
+        panel.AddCardElement(ctx, card.typeID);
+    
+    }
+
     public static void Panel_SelectCard_Close(UIContext ctx) {
         Panel_SelectCard panel = ctx.panel_SelectCard;
         if (panel == null) {
@@ -263,6 +270,8 @@ public static class UIApp {
         }
         panel.TearDown();
     }
+
+
 
 
 }
