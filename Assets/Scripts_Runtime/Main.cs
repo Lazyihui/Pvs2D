@@ -122,7 +122,11 @@ public class NewBehaviourScript : MonoBehaviour {
                 Debug.Log("还没有选择5张卡片");
                 return;
             }
-            Debug.Log("ksis");
+            ctx.moduleCamera.isAchieveLeft = false;
+            ctx.moduleCamera.MoveLeft(new Vector3(0, 0, -10), 1);
+            ctx.gameEntity.isGameBegin = true;
+
+            UIApp.Panel_SelectCard_Close(ctx.uiContext);
         };
     }
 

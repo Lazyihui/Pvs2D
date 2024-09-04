@@ -50,6 +50,10 @@ public static class LoginBusiness {
             UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 0);
             UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 0);
             UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 1);
+            UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 1);
+            UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 1);
+            UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 1);
+            UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 1);
         }
 
         if (ctx.moduleCamera.isAchieveRight && ctx.moduleCamera.isAchieveLeft && ctx.gameEntity.isGameBegin) {
@@ -81,6 +85,8 @@ public static class LoginBusiness {
     }
 
     private static void LateTick(GameContext ctx, float dt) {
+
+        
     }
 
 

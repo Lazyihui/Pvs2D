@@ -33,7 +33,6 @@ public class ModuleCamera {
             pos.x = movePos.x;
             isAchieveRight = true;
             // 这里放到开始游戏的时候
-            // isAchieveLeft = false;//
             isAchieveLeft = true;
             return true;
         }else{

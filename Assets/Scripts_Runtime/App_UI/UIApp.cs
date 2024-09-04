@@ -275,6 +275,14 @@ public static class UIApp {
         if (panel == null) {
             return;
         }
+        int lenCards = ctx.goodsRespository.TakeAll(out Panel_GoodsElement[] cards);
+
+        for(int i = 0; i < lenCards; i++) {
+            Panel_GoodsElement card = cards[i];
+            if(card.cardType == CardType.SelectCard) {
+                ctx.goodsRespository.Remove(card);
+            }
+        }
         panel.TearDown();
     }
 
