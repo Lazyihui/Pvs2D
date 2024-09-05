@@ -34,22 +34,26 @@ public class NewBehaviourScript : MonoBehaviour {
         var uiEvent = ctx.uiContext.uiEvent;
 
 
-        uiEvent.panel_GoodsElement_CardHandle = (id) => {
+        // if (ctx.gameEntity.gameStatus == GameStatus.GameBusiness) {
 
-            ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
-            good.status = GoodStatus.Cooling;
-            if (ctx.gameEntity.handPlant != null) {
-                Debug.Log("已经有植物了");
-                return;
-            }
-            ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, good.typeID); // 0x54
-                                                                            //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
 
-            //2. 要进入冷却  并且 要扣除阳光
-            // 用卡片来记录来记录阳光
-            ctx.uiContext.idService.sunCount -= good.needSunCount;
+            uiEvent.panel_GoodsElement_CardHandle = (id) => {
 
-        };
+                ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
+                good.status = GoodStatus.Cooling;
+                if (ctx.gameEntity.handPlant != null) {
+                    Debug.Log("已经有植物了");
+                    return;
+                }
+                ctx.gameEntity.handPlant = PlantDomain.Spawn(ctx, good.typeID); // 0x54
+                                                                                //1. 还要种植 (先种植在计算) 写完在 CellDomain.Plant 里
+
+                //2. 要进入冷却  并且 要扣除阳光
+                // 用卡片来记录来记录阳光
+                ctx.uiContext.idService.sunCount -= good.needSunCount;
+
+            };
+        // }
 
 
         uiEvent.panel_Login_LoginHandle = () => {
@@ -108,7 +112,6 @@ public class NewBehaviourScript : MonoBehaviour {
                 Debug.Log("已经选择了7张卡片");
                 return;
             }
-            Debug.Log("id:" + id);
             ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement card);
             UIApp.Panel_GoodsElementAdd(ctx.uiContext, card.typeID);
             ctx.gameEntity.plantCardCount++;
@@ -127,6 +130,7 @@ public class NewBehaviourScript : MonoBehaviour {
             ctx.gameEntity.isGameBegin = true;
 
             UIApp.Panel_SelectCard_Close(ctx.uiContext);
+            
         };
     }
 

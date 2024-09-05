@@ -80,6 +80,9 @@ public class Panel_GoodsElement : MonoBehaviour {
                 this.status = GoodStatus.WaitingSun;
                 cdTimer = 0;
             }
+            spriteLight.gameObject.SetActive(false);
+            spriteDark.gameObject.SetActive(true);
+            cardMask.gameObject.SetActive(true);
 
         }
     }

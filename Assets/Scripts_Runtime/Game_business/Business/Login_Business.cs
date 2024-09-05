@@ -69,6 +69,7 @@ public static class LoginBusiness {
         if (has) {
             GameBusiness.Enter(ctx);
             ctx.gameEntity.gameStatus = GameStatus.GameBusiness;
+            Debug.Log("GameBusiness");
         }
 
     }
@@ -79,7 +80,7 @@ public static class LoginBusiness {
 
         for (int i = 0; i < lenCard; i++) {
             Panel_GoodsElement card = cards[i];
-            UIApp.Panel_GoodsElement_SetStatus(ctx.uiContext, card, dt);
+            UIApp.Panel_CardsElement_SetStatus(ctx.uiContext, card, dt);
         }
 
     }

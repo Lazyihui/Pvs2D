@@ -277,9 +277,9 @@ public static class UIApp {
         }
         int lenCards = ctx.goodsRespository.TakeAll(out Panel_GoodsElement[] cards);
 
-        for(int i = 0; i < lenCards; i++) {
+        for (int i = 0; i < lenCards; i++) {
             Panel_GoodsElement card = cards[i];
-            if(card.cardType == CardType.SelectCard) {
+            if (card.cardType == CardType.SelectCard) {
                 ctx.goodsRespository.Remove(card);
             }
         }
