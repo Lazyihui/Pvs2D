@@ -63,9 +63,8 @@ public static class ZembieDomain {
             entity.status = ZembieStatus.Die;
             entity.GetComponent<Collider2D>().enabled = false;
 
-            //应该会出错
-            ctx.zembieRepository.Remove(entity);
-            entity.TearDown();
+            //应该会出错 9.5没看到错的
+            ZembieDomain.TearDown(ctx, entity);
         }
 
 
@@ -151,4 +150,9 @@ public static class ZembieDomain {
         zembie.anim.speed = 0;
     }
 
+    public static void TearDown(GameContext ctx, ZembieEntity zembie) {
+        ctx.zembieRepository.Remove(zembie);
+        zembie.TearDown();
+
+    }
 }

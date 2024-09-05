@@ -10,7 +10,13 @@ public static class GameBusiness {
     public static void Enter(GameContext ctx) {
 
 
+        // 右边的关卡僵尸
+        int lenzem = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
 
+        for (int i = 0; i < lenzem; i++) {
+            ZembieEntity zembie = zembies[i];
+            ZembieDomain.TearDown(ctx, zembie);
+        }
 
         // cell 
         // TODO: 45 要改的根据不同的地图有不同的值

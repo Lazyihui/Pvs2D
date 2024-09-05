@@ -66,7 +66,4 @@ public class Panel_Prepare : MonoBehaviour {
         gameObject.SetActive(true);
     }
 
-    public void Hide() {
-        gameObject.SetActive(false);
-    }
 }

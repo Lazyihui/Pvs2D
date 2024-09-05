@@ -9,7 +9,7 @@ public class ZembieEntity : MonoBehaviour {
 
     [SerializeField] public Animator anim;
 
-    [SerializeField] public Animation attackAnim;
+    // [SerializeField] public Animation attackAnim;
 
     [SerializeField] Rigidbody2D rb;
 
@@ -39,9 +39,11 @@ public class ZembieEntity : MonoBehaviour {
     public Action<ZembieEntity, Collision2D> OnCollisionExit2DHandle;
     public void Ctor() { }
 
-    public void SetSpriteLayer(int layer) {
-        
+    public void SetAnim(int speed) {
+        anim.speed = speed;
+    }
 
+    public void SetSpriteLayer(int layer) {
         sprite.sortingOrder = layer;
     }
 

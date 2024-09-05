@@ -9,6 +9,18 @@ public static class LoginBusiness {
 
         //UIApp
         UIApp.Panel_Goods_Open(ctx.uiContext);
+        //  第一关
+        ZembieDomain.Spawn(ctx, new Vector2(9, 3.32f), 0);
+        ZembieDomain.Spawn(ctx, new Vector2(10, -1.32f), 0);
+
+        int lenzem = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
+
+        for (int i = 0; i < lenzem; i++) {
+            ZembieEntity zembie = zembies[i];
+
+            zembie.SetAnim(0);
+
+        }
 
 
     }
@@ -43,7 +55,12 @@ public static class LoginBusiness {
     private static void PreTick(GameContext ctx, float dt) {
 
 
+        // 第一关卡
+
         bool hasMoveRight = ctx.moduleCamera.MovetRight(new Vector3(5, 0, -10), dt);
+
+
+
         if (hasMoveRight) {
             UIApp.Panel_SelectCard_Open(ctx.uiContext);
             UIApp.Panel_SelectCard_AddCardElement(ctx.uiContext, 0);
@@ -69,8 +86,20 @@ public static class LoginBusiness {
         if (has) {
             GameBusiness.Enter(ctx);
             ctx.gameEntity.gameStatus = GameStatus.GameBusiness;
+            int len = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
+            for (int i = 0; i < len; i++) {
+                Panel_GoodsElement card = goods[i];
+                if (card.cardType == CardType.SelectCard) {
+                    return;
+                }
+                card.status = GoodStatus.Cooling;
+            }
+
+
             Debug.Log("GameBusiness");
         }
+
+        ////////////////////////////////////////
 
     }
 
@@ -87,7 +116,7 @@ public static class LoginBusiness {
 
     private static void LateTick(GameContext ctx, float dt) {
 
-        
+
     }
 
 

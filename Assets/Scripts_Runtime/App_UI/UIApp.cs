@@ -84,7 +84,7 @@ public static class UIApp {
         if (panel == null) {
             return false;
         } else if (panel.isFinish) {
-            panel.Hide();
+            panel.TearDown();
             return true;
         } else {
             return false;
