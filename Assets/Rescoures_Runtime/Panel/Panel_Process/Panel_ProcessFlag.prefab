@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1663464033442938126}
   - component: {fileID: 5814403459439603416}
   - component: {fileID: 7933143500796924620}
+  - component: {fileID: 1831821769148295988}
   m_Layer: 5
-  m_Name: ProcessElement
+  m_Name: Panel_ProcessFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,3 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1831821769148295988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2255686486736592749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63418abdcfb81904eaff5d00287d2219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 7933143500796924620}
+  id: 0
+  typeID: 0
+  width: 0

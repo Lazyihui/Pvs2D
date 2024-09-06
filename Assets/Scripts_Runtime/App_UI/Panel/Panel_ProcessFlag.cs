@@ -5,14 +5,28 @@ using UnityEngine.UI;
 
 
 
-public class Panel_ProcessElement : MonoBehaviour {
+public class Panel_ProcessFlag : MonoBehaviour {
 
+    [SerializeField] Image image;
     public int id;
 
     public int typeID;
     public float width;
 
-    public void Ctor() { }
+    public void Ctor() {
+    }
+
+    public void SetPos(Vector2 pos) {
+        RectTransform rt = this.GetComponent<RectTransform>();
+        rt.anchoredPosition = pos;
+        Debug.Log("SetPos"+rt.anchoredPosition);
+    }
+
+    public void SetImage(Sprite sprite) {
+        image.sprite = sprite;
+        image.SetNativeSize();
+
+    }
 
     public void SetWidth(float width) {
         this.width = width;

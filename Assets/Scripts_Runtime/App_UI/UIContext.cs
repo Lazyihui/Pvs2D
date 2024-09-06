@@ -25,6 +25,8 @@ public class UIContext {
     // repo
     public GoodsRespository goodsRespository;
 
+    public FlagRespository flagRespository;
+
     // inject
     public AssetsContext assetsContext;
 
@@ -34,6 +36,7 @@ public class UIContext {
     public Canvas canvas;
     public UIContext() {
         goodsRespository = new GoodsRespository();
+        flagRespository = new FlagRespository();
         uiEvent = new UIEvent();
     }
 

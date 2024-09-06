@@ -303,5 +303,18 @@ public static class UIApp {
         panel.Show();
     }
 
+    
+    public static void Panel_Process_AddFlag(UIContext ctx, int typeID,Vector2 pos) {
+        Panel_Process panel = ctx.panel_Process;
+        panel.Addflag(ctx, typeID,pos);
+    }
 
+
+    public static void Panel_Process_Close(UIContext ctx) {
+        Panel_Process panel = ctx.panel_Process;
+        if (panel == null) {
+            return;
+        }
+        panel.TearDown();
+    }
 }
