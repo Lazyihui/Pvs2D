@@ -88,6 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8734767212516144273}
   - component: {fileID: 4418332367147162514}
+  - component: {fileID: 7509883637253570243}
   m_Layer: 5
   m_Name: Panel_Process
   m_TagString: Untagged
@@ -123,6 +124,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2462282387471396968}
   m_CullTransparentMesh: 1
+--- !u!114 &7509883637253570243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462282387471396968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc68db4c0451074cbb2e4ae10db8ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4587225388570779468
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 159.5, y: 2.9}
-  m_SizeDelta: {x: 22, y: 23}
+  m_AnchoredPosition: {x: 164.9, y: 3.025}
+  m_SizeDelta: {x: 33.75, y: 33.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2712927840254868216
 CanvasRenderer:

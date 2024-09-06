@@ -287,6 +287,21 @@ public static class UIApp {
     }
 
 
+    public static void Panel_Process_Open(UIContext ctx) {
+        Panel_Process panel = ctx.panel_Process;
+        if (panel == null) {
+            bool has = ctx.assetsContext.TryGetPanel("Panel_Process", out GameObject prefab);
+            if (!has) {
+                Debug.LogError("Panel_Process not found");
+                return;
+            }
+            panel = GameObject.Instantiate(prefab, ctx.canvas.transform).GetComponent<Panel_Process>();
+            panel.Ctor();
+            ctx.panel_Process = panel;
+        }
+
+        panel.Show();
+    }
 
 
 }

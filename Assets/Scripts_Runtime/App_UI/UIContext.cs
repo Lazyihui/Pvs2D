@@ -20,6 +20,8 @@ public class UIContext {
 
     public Panel_SelectCard panel_SelectCard;
 
+    public Panel_Process panel_Process;
+
     // repo
     public GoodsRespository goodsRespository;
 

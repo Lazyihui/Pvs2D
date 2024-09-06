@@ -28,6 +28,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
         // LoginBusiness.Enter(ctx.gameContext);
 
+
+        UIApp.Panel_Process_Open(ctx.uiContext);
+
     }
 
     void Binding(GameContext ctx) {
