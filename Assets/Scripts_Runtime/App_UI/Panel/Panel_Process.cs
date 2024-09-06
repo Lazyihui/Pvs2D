@@ -6,10 +6,20 @@ using UnityEngine.UI;
 
 public class Panel_Process : MonoBehaviour {
 
+    public float width;
 
 
-    public void Ctor() { }
 
+    public void Ctor() {
+
+        width = 321;
+
+    }
+
+
+    public void AddProcess(UIContext ctx, int typeID) {
+        
+    }
 
     public void Show() {
         this.gameObject.SetActive(true);
@@ -18,6 +28,7 @@ public class Panel_Process : MonoBehaviour {
     public void TearDown() {
         GameObject.Destroy(this.gameObject);
     }
+
 
 
 }

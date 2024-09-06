@@ -97,6 +97,7 @@ MonoBehaviour:
     - BulletTM
     - AudioTM
     - MapTM
+    - FlagTM
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 03343b598c43d4d46a0da00250a94613, type: 2}

@@ -31,11 +31,16 @@ public class TemplateContext {
 
     public AsyncOperationHandle mapPtr;
 
+    public Dictionary<int, flagTM> flags;
+
+    public AsyncOperationHandle flagPtr;
+
     public TemplateContext() {
         cards = new Dictionary<int, CardTM>();
         plants = new Dictionary<int, PlantTM>();
         bullets = new Dictionary<int, BulletTM>();
         audios = new Dictionary<int, AudioTM>();
         maps = new Dictionary<int, MapTM>();
+        flags = new Dictionary<int, flagTM>();
     }
 }

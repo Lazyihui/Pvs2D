@@ -64,6 +64,16 @@ public class TemplateInfra {
             ctx.mapPtr = ptr;
         }
 
+        {
+            AssetLabelReference labelReference = new AssetLabelReference();
+            labelReference.labelString = "FlagTM";
+            var ptr = Addressables.LoadAssetsAsync<flagTM>(labelReference, null);
+            var list = ptr.WaitForCompletion();
+            foreach (var go in list) {
+                ctx.flags.Add(go.typeID, go);
+            }
+            ctx.flagPtr = ptr;
+        }
     }
 
 
@@ -82,6 +92,9 @@ public class TemplateInfra {
         }
         if (ctx.mapPtr.IsValid()) {
             Addressables.Release(ctx.mapPtr);
+        }
+        if (ctx.flagPtr.IsValid()) {
+            Addressables.Release(ctx.flagPtr);
         }
     }
 }
