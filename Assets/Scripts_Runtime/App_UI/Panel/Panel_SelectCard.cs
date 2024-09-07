@@ -54,6 +54,17 @@ public class Panel_SelectCard : MonoBehaviour {
 
     }
 
+    public void Move_ToFlag(float t , float total, float dt,Panel_ProcessFlag mstHead) {
+
+        t+=dt;
+        Vector2 pos =  mstHead.transform.position;
+
+        pos.x = (t / total) * mstHead.width;
+        mstHead.transform.position = pos;
+
+        
+    }
+
     public void Show() {
         gameObject.SetActive(true);
     }
