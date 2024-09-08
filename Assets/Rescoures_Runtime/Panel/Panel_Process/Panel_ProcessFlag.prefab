@@ -89,6 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7933143500796924620}
+  rectTransform: {fileID: 1663464033442938126}
   id: 0
   typeID: 0
   width: 0
+  t: 0
+  total: 0

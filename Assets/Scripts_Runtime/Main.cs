@@ -158,6 +158,13 @@ public class NewBehaviourScript : MonoBehaviour {
 
         }
 
+        int lenFlag = ctx.gameContext.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
+
+        for (int i = 0; i < lenFlag; i++) {
+            Panel_ProcessFlag flag = flags[i];
+            UIApp.Panel_Process_HeadMove(ctx.gameContext.uiContext, flag, dt);
+        }
+
         // int lenAudio = ctx.gameContext.audioRepository.TakeAll(out AudioEntity[] audios);
         // for (int i = 0; i < lenAudio; i++) {
         //     AudioEntity audio = audios[i];

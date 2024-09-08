@@ -309,6 +309,14 @@ public static class UIApp {
         panel.Addflag(ctx, typeID,pos);
     }
 
+    public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag, float dt) {
+        if(flag.typeID ==1){
+            return;
+        }
+
+        flag.Move_ToFlag(ref flag.t, flag.total, dt, flag);
+        
+    }
 
     public static void Panel_Process_Close(UIContext ctx) {
         Panel_Process panel = ctx.panel_Process;
