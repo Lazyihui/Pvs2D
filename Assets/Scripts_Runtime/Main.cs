@@ -42,6 +42,7 @@ public class NewBehaviourScript : MonoBehaviour {
         }
     }
 
+
     void Binding(GameContext ctx) {
         var uiEvent = ctx.uiContext.uiEvent;
 
@@ -171,13 +172,11 @@ public class NewBehaviourScript : MonoBehaviour {
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
             UIApp.Panel_Process_HeadMove(ctx.gameContext.uiContext, flag, dt);
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                UIApp.Panel_Process_FlagUp(ctx.gameContext.uiContext, flag, dt);
+            }
         }
 
-        // int lenAudio = ctx.gameContext.audioRepository.TakeAll(out AudioEntity[] audios);
-        // for (int i = 0; i < lenAudio; i++) {
-        //     AudioEntity audio = audios[i];
-        //     audio.PlayAudio("Audio/LoseWin");
-        // }
 
 
     }

@@ -303,14 +303,15 @@ public static class UIApp {
         panel.Show();
     }
 
-    
+
     public static void Panel_Process_AddFlag(UIContext ctx, int typeID) {
         Panel_Process panel = ctx.panel_Process;
         panel.Addflag(ctx, typeID);
     }
 
     public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag, float dt) {
-        if(flag.typeID ==1){
+        // 0是头部 1是flag
+        if (flag.typeID == 1) {
             return;
         }
 
@@ -318,14 +319,20 @@ public static class UIApp {
 
     }
 
-    public static void Panel_Process_SetFlagPos(UIContext ctx, Panel_ProcessFlag flag,float flagCount) {
-        if(flag.typeID ==0){
+    public static void Panel_Process_SetFlagPos(UIContext ctx, Panel_ProcessFlag flag, float flagCount) {
+        if (flag.typeID == 0) {
             return;
         }
-        flag.SetFlagPos(flag,flagCount);
+        flag.SetFlagPos(flag, flagCount);
 
-    }   
+    }
 
+    public static void Panel_Process_FlagUp(UIContext ctx, Panel_ProcessFlag flag, float dt) {
+        if (flag.typeID == 0) {
+            return;
+        }
+        flag.FlagUp(flag, dt);
+    }
 
     public static void Panel_Process_Close(UIContext ctx) {
         Panel_Process panel = ctx.panel_Process;
