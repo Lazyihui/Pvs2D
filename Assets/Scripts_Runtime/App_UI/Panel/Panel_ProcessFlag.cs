@@ -17,12 +17,9 @@ public class Panel_ProcessFlag : MonoBehaviour {
 
     public float t;
 
-    public float total;
-
     public Vector2 startPos;
     public void Ctor() {
         t = 0;
-        total = 10;
         startPos = rectTransform.anchoredPosition;
     }
 
@@ -37,8 +34,15 @@ public class Panel_ProcessFlag : MonoBehaviour {
     }
 
     public void Move_ToFlag(ref float t, float total, float dt, Panel_ProcessFlag mstHead) {
+
+
         t += dt;
         Vector2 pos = mstHead.rectTransform.anchoredPosition;
+
+        if(t/total>0.5f){
+            Debug.Log("flag move to flag");
+            return;
+        }
 
         pos.x = -(t / total) * mstHead.width;
         mstHead.rectTransform.anchoredPosition = pos;

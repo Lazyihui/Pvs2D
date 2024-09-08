@@ -309,13 +309,13 @@ public static class UIApp {
         panel.Addflag(ctx, typeID);
     }
 
-    public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag, float dt) {
+    public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag, float gameTotallTime, float dt) {
         // 0是头部 1是flag
         if (flag.typeID == 1) {
             return;
         }
 
-        flag.Move_ToFlag(ref flag.t, flag.total, dt, flag);
+        flag.Move_ToFlag(ref flag.t, gameTotallTime, dt, flag);
 
     }
 

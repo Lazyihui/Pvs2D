@@ -24,7 +24,17 @@ public static class GameBusiness {
             CellDomain.Spawn(ctx);
         }
 
+        UIApp.Panel_Process_Open(ctx.uiContext);
+        UIApp.Panel_Process_AddFlag(ctx.uiContext, 0);
+        UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
+        UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
 
+        int lenFlag = ctx.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
+        for (int i = 0; i < lenFlag; i++) {
+            Panel_ProcessFlag flag = flags[i];
+            UIApp.Panel_Process_SetFlagPos(ctx.uiContext, flag, 2);
+
+        }
     }
 
     public static void Load() {
@@ -140,6 +150,17 @@ public static class GameBusiness {
 
             }
 
+        }
+
+
+        int lenFlag = ctx.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
+
+        for (int i = 0; i < lenFlag; i++) {
+            Panel_ProcessFlag flag = flags[i];
+            UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, ctx.gameEntity.gameTotallTime, dt);
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
+            }
         }
 
 

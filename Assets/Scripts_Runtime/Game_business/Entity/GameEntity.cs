@@ -28,6 +28,9 @@ public class GameEntity {
     // 记录植物卡片的数量
     public int plantCardCount;
 
+    // 一局游戏的时间
+    public float gameTotallTime;
+
     public GameEntity() {
 
         // 应该是GameStatus.Login 我还没写
@@ -50,6 +53,8 @@ public class GameEntity {
         isGameBegin = false;
 
         plantCardCount = 0;
+
+        gameTotallTime = 60;
 
     }
 

@@ -36,7 +36,7 @@ public static class GameDomain {
 
         ctx.gameEntity.zembieSpawnTimer += dt;
 
-        if (ctx.gameEntity.zembieSpawnTimer >= 2) {
+        if (ctx.gameEntity.zembieSpawnTimer >= 10) {
             ctx.gameEntity.zembieSpawnTimer = 0;
             int index = UnityEngine.Random.Range(0, ctx.gameEntity.zembieSpawnPos.Length);
             Vector2 pos = ctx.gameEntity.zembieSpawnPos[index];

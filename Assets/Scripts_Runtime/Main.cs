@@ -29,17 +29,7 @@ public class NewBehaviourScript : MonoBehaviour {
         // LoginBusiness.Enter(ctx.gameContext);
 
 
-        UIApp.Panel_Process_Open(ctx.uiContext);
-        UIApp.Panel_Process_AddFlag(ctx.uiContext, 0);
-        UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
-        UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
-
-        int lenFlag = ctx.gameContext.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
-        for (int i = 0; i < lenFlag; i++) {
-            Panel_ProcessFlag flag = flags[i];
-            UIApp.Panel_Process_SetFlagPos(ctx.uiContext, flag, 2);
-
-        }
+     
     }
 
 
@@ -167,15 +157,6 @@ public class NewBehaviourScript : MonoBehaviour {
 
         }
 
-        int lenFlag = ctx.gameContext.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
-
-        for (int i = 0; i < lenFlag; i++) {
-            Panel_ProcessFlag flag = flags[i];
-            UIApp.Panel_Process_HeadMove(ctx.gameContext.uiContext, flag, dt);
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                UIApp.Panel_Process_FlagUp(ctx.gameContext.uiContext, flag, dt);
-            }
-        }
 
 
 
