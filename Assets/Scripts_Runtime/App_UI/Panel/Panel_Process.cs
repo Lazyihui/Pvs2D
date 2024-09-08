@@ -18,7 +18,7 @@ public class Panel_Process : MonoBehaviour {
     }
 
 
-    public void Addflag(UIContext ctx, int typeID,Vector2 pos) {
+    public void Addflag(UIContext ctx, int typeID) {
 
         bool has = ctx.templateContext.flags.TryGetValue(typeID, out flagTM tm);
         if (!has) {
@@ -29,14 +29,14 @@ public class Panel_Process : MonoBehaviour {
         ctx.assetsContext.TryGetPanel("Panel_ProcessFlag", out GameObject prefab);
         Panel_ProcessFlag element = GameObject.Instantiate(prefab, elementGroup).GetComponent<Panel_ProcessFlag>();
 
+        // element.SetPos(pos);
         element.Ctor();
-        element.SetPos(pos);
 
         element.SetWidth(width);
         element.SetImage(tm.sprite);
         element.Show();
 
-        element.id++;
+        element.id= ctx.idService.flagIDRecord++;
         element.typeID = typeID;
         ctx.flagRespository.Add(element);
     }

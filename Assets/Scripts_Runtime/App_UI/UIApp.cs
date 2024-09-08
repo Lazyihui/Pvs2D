@@ -304,9 +304,9 @@ public static class UIApp {
     }
 
     
-    public static void Panel_Process_AddFlag(UIContext ctx, int typeID,Vector2 pos) {
+    public static void Panel_Process_AddFlag(UIContext ctx, int typeID) {
         Panel_Process panel = ctx.panel_Process;
-        panel.Addflag(ctx, typeID,pos);
+        panel.Addflag(ctx, typeID);
     }
 
     public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag, float dt) {
@@ -315,7 +315,7 @@ public static class UIApp {
         }
 
         flag.Move_ToFlag(ref flag.t, flag.total, dt, flag);
-        
+
     }
 
     public static void Panel_Process_Close(UIContext ctx) {

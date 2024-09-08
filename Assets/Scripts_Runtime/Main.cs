@@ -30,7 +30,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
 
         UIApp.Panel_Process_Open(ctx.uiContext);
-        UIApp.Panel_Process_AddFlag(ctx.uiContext, 0, new Vector2(133, 0));
+        UIApp.Panel_Process_AddFlag(ctx.uiContext, 0);
+        UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
 
     }
 

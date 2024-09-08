@@ -18,18 +18,21 @@ public class Panel_ProcessFlag : MonoBehaviour {
     public float t;
 
     public float total;
+
+    public Vector2 startPos;
     public void Ctor() {
         t = 0;
         total = 10;
+        startPos = rectTransform.anchoredPosition;
     }
 
-    public void SetPos(Vector2 pos) {
-        // RectTransform rt = this.GetComponent<RectTransform>();
-        // rt.anchoredPosition = pos;
+    // public void SetPos(Vector2 pos) {
+    //     // RectTransform rt = this.GetComponent<RectTransform>();
+    //     // rt.anchoredPosition = pos;
 
-        rectTransform.anchoredPosition = pos;
+    //     rectTransform.anchoredPosition = pos;
 
-    }
+    // }
 
     public void SetImage(Sprite sprite) {
         image.sprite = sprite;
@@ -48,10 +51,9 @@ public class Panel_ProcessFlag : MonoBehaviour {
     public void Move_ToFlag(ref float t, float total, float dt, Panel_ProcessFlag mstHead) {
         t += dt;
         Vector2 pos = mstHead.rectTransform.anchoredPosition;
-        Debug.Log("pos" + pos);
 
-        pos.x = (t / total) * mstHead.width;
-
+        pos.x = -(t / total) * mstHead.width;
+        Debug.Log("pos.x=" + pos.x);
         mstHead.rectTransform.anchoredPosition = pos;
 
         // Debug.Log("t=" + t + "total" + total);
