@@ -26,14 +26,6 @@ public class Panel_ProcessFlag : MonoBehaviour {
         startPos = rectTransform.anchoredPosition;
     }
 
-    // public void SetPos(Vector2 pos) {
-    //     // RectTransform rt = this.GetComponent<RectTransform>();
-    //     // rt.anchoredPosition = pos;
-
-    //     rectTransform.anchoredPosition = pos;
-
-    // }
-
     public void SetImage(Sprite sprite) {
         image.sprite = sprite;
         image.SetNativeSize();
@@ -42,10 +34,6 @@ public class Panel_ProcessFlag : MonoBehaviour {
 
     public void SetWidth(float width) {
         this.width = width;
-
-        //9.8 这里可能要改
-        // RectTransform rt = this.GetComponent<RectTransform>();
-        // rt.sizeDelta = new Vector2(width, rt.sizeDelta.y);
     }
 
     public void Move_ToFlag(ref float t, float total, float dt, Panel_ProcessFlag mstHead) {
@@ -53,13 +41,19 @@ public class Panel_ProcessFlag : MonoBehaviour {
         Vector2 pos = mstHead.rectTransform.anchoredPosition;
 
         pos.x = -(t / total) * mstHead.width;
-        Debug.Log("pos.x=" + pos.x);
         mstHead.rectTransform.anchoredPosition = pos;
-
-        // Debug.Log("t=" + t + "total" + total);
-
     }
 
+    public void SetFlagPos(Panel_ProcessFlag flag,float flagCount) {
+        Vector2 pos = flag.rectTransform.anchoredPosition;
+
+        pos.x = -flag.width*((float)flag.id/flagCount);
+        // pos.x = -flag.width*0.5f;
+
+        flag.rectTransform.anchoredPosition = pos;
+        
+
+    }
 
 
     public void Show() {

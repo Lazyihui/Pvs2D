@@ -32,7 +32,14 @@ public class NewBehaviourScript : MonoBehaviour {
         UIApp.Panel_Process_Open(ctx.uiContext);
         UIApp.Panel_Process_AddFlag(ctx.uiContext, 0);
         UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
+        UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
 
+        int lenFlag = ctx.gameContext.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
+        for (int i = 0; i < lenFlag; i++) {
+            Panel_ProcessFlag flag = flags[i];
+            UIApp.Panel_Process_SetFlagPos(ctx.uiContext, flag, 2);
+
+        }
     }
 
     void Binding(GameContext ctx) {

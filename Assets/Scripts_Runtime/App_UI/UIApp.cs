@@ -318,6 +318,15 @@ public static class UIApp {
 
     }
 
+    public static void Panel_Process_SetFlagPos(UIContext ctx, Panel_ProcessFlag flag,float flagCount) {
+        if(flag.typeID ==0){
+            return;
+        }
+        flag.SetFlagPos(flag,flagCount);
+
+    }   
+
+
     public static void Panel_Process_Close(UIContext ctx) {
         Panel_Process panel = ctx.panel_Process;
         if (panel == null) {
