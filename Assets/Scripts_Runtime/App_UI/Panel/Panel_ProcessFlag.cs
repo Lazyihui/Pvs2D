@@ -18,9 +18,19 @@ public class Panel_ProcessFlag : MonoBehaviour {
     public float t;
 
     public Vector2 startPos;
+
+    // head 特有
+    public bool isAchieveFlag;
+    // flag 特有
+    public bool isUpFlag;
+
+
+
     public void Ctor() {
         t = 0;
         startPos = rectTransform.anchoredPosition;
+        isUpFlag = false;
+        isAchieveFlag = false;
     }
 
     public void SetImage(Sprite sprite) {
@@ -39,8 +49,16 @@ public class Panel_ProcessFlag : MonoBehaviour {
         t += dt;
         Vector2 pos = mstHead.rectTransform.anchoredPosition;
 
-        if(t/total>0.5f){
-            Debug.Log("flag move to flag");
+        // TODO: 要根据flag的数量来计算 要改的
+        if (t / total > 0.5f) {
+            isAchieveFlag = true;
+        }
+
+        if (t / total > 1) {
+            isAchieveFlag = true;
+        }
+
+        if (isAchieveFlag) {
             return;
         }
 

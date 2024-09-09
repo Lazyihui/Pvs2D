@@ -40,9 +40,6 @@ public static class BulletDomain {
             return;
         }
 
-        Debug.Log(bullet.id);
-
-
         int zemlen = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
         for (int i = 0; i < zemlen; i++) {
             ZembieEntity zembie = zembies[i];

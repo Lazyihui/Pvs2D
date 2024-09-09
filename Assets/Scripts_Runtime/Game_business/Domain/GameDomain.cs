@@ -43,6 +43,8 @@ public static class GameDomain {
             ZembieEntity zembie = ZembieDomain.Spawn(ctx, pos, 0);
             zembie.SetSpriteLayer(index);
         }
+
+        
     }
 
 

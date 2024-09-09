@@ -28,7 +28,6 @@ public class NewBehaviourScript : MonoBehaviour {
 
         // LoginBusiness.Enter(ctx.gameContext);
 
-
      
     }
 

@@ -30,6 +30,7 @@ public static class GameBusiness {
         UIApp.Panel_Process_AddFlag(ctx.uiContext, 1);
 
         int lenFlag = ctx.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
+
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
             UIApp.Panel_Process_SetFlagPos(ctx.uiContext, flag, 2);
@@ -154,13 +155,16 @@ public static class GameBusiness {
 
 
         int lenFlag = ctx.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
-
+        Panel_ProcessFlag head = flags[0];
+        head.isAchieveFlag = ctx.gameEntity.isAchieveFlag;
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
             UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, ctx.gameEntity.gameTotallTime, dt);
-            if (Input.GetKeyDown(KeyCode.Space)) {
+
+            if (ctx.gameEntity.isAchieveFlag) {
                 UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
             }
+
         }
 
 

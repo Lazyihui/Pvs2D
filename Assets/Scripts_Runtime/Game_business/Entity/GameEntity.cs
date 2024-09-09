@@ -30,6 +30,8 @@ public class GameEntity {
 
     // 一局游戏的时间
     public float gameTotallTime;
+    // 是否达到旗帜
+    public bool isAchieveFlag;
 
     public GameEntity() {
 
@@ -54,8 +56,9 @@ public class GameEntity {
 
         plantCardCount = 0;
 
-        gameTotallTime = 60;
+        gameTotallTime = 120;
 
+        isAchieveFlag = false;
     }
 
 }
