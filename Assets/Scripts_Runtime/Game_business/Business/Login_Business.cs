@@ -95,8 +95,6 @@ public static class LoginBusiness {
                 card.status = GoodStatus.Cooling;
             }
 
-
-            Debug.Log("GameBusiness");
         }
 
         ////////////////////////////////////////

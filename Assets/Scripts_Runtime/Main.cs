@@ -26,19 +26,12 @@ public class NewBehaviourScript : MonoBehaviour {
 
         AudioEntity audio = AudioDomain.Spawn(ctx.gameContext, 0);
 
-        // LoginBusiness.Enter(ctx.gameContext);
-
-     
     }
 
 
     void Binding(GameContext ctx) {
         var uiEvent = ctx.uiContext.uiEvent;
-
-
         // if (ctx.gameEntity.gameStatus == GameStatus.GameBusiness) {
-
-
         uiEvent.panel_GoodsElement_CardHandle = (id) => {
 
             ctx.uiContext.goodsRespository.TryGet(id, out Panel_GoodsElement good);
@@ -56,23 +49,15 @@ public class NewBehaviourScript : MonoBehaviour {
 
         };
         // }
-
-
         uiEvent.panel_Login_LoginHandle = () => {
-
             UIApp.Panel_Login_Close(ctx.uiContext);
             UIApp.Panel_Point_Open(ctx.uiContext);
             ctx.gameEntity.gameStatus = GameStatus.Pointing;
 
         };
 
-
-
         uiEvent.panel_PointModifyNameHandle = () => {
-
             UIApp.Panel_ModifyName_Open(ctx.uiContext);
-
-
         };
 
         uiEvent.panel_ModifyName_ConfirmHandle = (inputName) => {
@@ -107,9 +92,7 @@ public class NewBehaviourScript : MonoBehaviour {
         uiEvent.panel_PointBrainHandle = () => {
         };
         // 进入游戏的卡片选择
-
         uiEvent.panel_CardElement_CardHandle = (id) => {
-
             if (ctx.gameEntity.plantCardCount >= 7) {
                 Debug.Log("已经选择了7张卡片");
                 return;

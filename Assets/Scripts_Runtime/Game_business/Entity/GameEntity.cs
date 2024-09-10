@@ -56,7 +56,7 @@ public class GameEntity {
 
         plantCardCount = 0;
 
-        gameTotallTime = 120;
+        gameTotallTime = 30;
 
         isAchieveFlag = false;
     }

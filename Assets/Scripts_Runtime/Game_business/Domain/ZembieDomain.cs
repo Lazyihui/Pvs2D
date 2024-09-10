@@ -55,7 +55,6 @@ public static class ZembieDomain {
         entity.hp -= damage;
         float hpPercent = entity.hp / entity.hpMax;
 
-        Debug.Log(hpPercent);
 
         entity.anim.SetFloat("HpPercent", hpPercent);
 

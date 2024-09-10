@@ -156,14 +156,18 @@ public static class GameBusiness {
 
         int lenFlag = ctx.uiContext.flagRespository.TakeAll(out Panel_ProcessFlag[] flags);
         Panel_ProcessFlag head = flags[0];
-        head.isAchieveFlag = ctx.gameEntity.isAchieveFlag;
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
             UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, ctx.gameEntity.gameTotallTime, dt);
+            ctx.gameEntity.isAchieveFlag = head.isAchieveFlag;
 
-            if (ctx.gameEntity.isAchieveFlag) {
+            bool isAchieveFlag = head.isAchieveFlag;
+            if (isAchieveFlag) {
                 UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
+                isAchieveFlag = false;
+                head.isAchieveFlag = false;
             }
+
 
         }
 
