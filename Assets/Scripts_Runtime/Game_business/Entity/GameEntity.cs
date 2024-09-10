@@ -32,9 +32,10 @@ public class GameEntity {
     public float gameTotallTime;
 
     public float gameTimer;//百分比
-    // 是否达到旗帜
-    public bool isAchieveFlag;
 
+    public float percent;
+    // 是否达到旗帜
+    public bool isAchieveFlag;//什么时候设置false,在这一波僵尸全部死亡的时候设置为false
     public GameEntity() {
 
         // 应该是GameStatus.Login 我还没写
@@ -62,6 +63,7 @@ public class GameEntity {
 
         gameTimer = 0;
 
+        percent = 0;
         isAchieveFlag = false;
     }
 

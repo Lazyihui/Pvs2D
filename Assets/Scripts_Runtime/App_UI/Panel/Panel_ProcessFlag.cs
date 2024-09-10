@@ -36,13 +36,11 @@ public class Panel_ProcessFlag : MonoBehaviour {
         this.width = width;
     }
 
-    public void Move_ToFlag(ref float t, float total, float dt, Panel_ProcessFlag mstHead) {
+    public void Move_ToFlag(float percent, float dt, Panel_ProcessFlag mstHead) {
 
 
-        t += dt;
         Vector2 pos = mstHead.rectTransform.anchoredPosition;
-
-        pos.x = -(t / total) * mstHead.width;
+        pos.x = -(percent) * mstHead.width;
         mstHead.rectTransform.anchoredPosition = pos;
     }
 
@@ -67,10 +65,8 @@ public class Panel_ProcessFlag : MonoBehaviour {
         // flag.rectTransform.anchoredPosition = pos;
 
         Vector2 pos = flag.rectTransform.anchoredPosition;
-        Debug.Log("flagUp" + dt);
 
         if (pos.y > 30) {
-            Debug.Log("flagUp" + pos.y);
             flag.rectTransform.anchoredPosition = pos;
             return;
         }

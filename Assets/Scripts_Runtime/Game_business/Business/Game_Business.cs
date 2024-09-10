@@ -98,6 +98,9 @@ public static class GameBusiness {
 
         GameDomain.SpawnSunTimer(ctx, dt);
 
+        // 得到游戏进度的百分比
+        GameDomain.GetGamePercent(ctx,dt);
+
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
         for (int i = 0; i < goodlen; i++) {
             Panel_GoodsElement good = goods[i];
@@ -158,13 +161,12 @@ public static class GameBusiness {
         Panel_ProcessFlag head = flags[0];
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
+            float percent = ctx.gameEntity.percent;
 
 
             if (!ctx.gameEntity.isAchieveFlag) {
-                UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, ref ctx.gameEntity.gameTimer, ctx.gameEntity.gameTotallTime, dt);
+                UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, percent, dt);
             }
-
-            float percent = ctx.gameEntity.gameTimer / ctx.gameEntity.gameTotallTime;
 
             if (Input.GetKeyDown(KeyCode.A)) {
                 Debug.Log(percent);
@@ -177,6 +179,8 @@ public static class GameBusiness {
             }
 
         }
+
+
 
 
     }

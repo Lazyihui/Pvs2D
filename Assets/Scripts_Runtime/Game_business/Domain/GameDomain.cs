@@ -44,7 +44,7 @@ public static class GameDomain {
             zembie.SetSpriteLayer(index);
         }
 
-        
+
     }
 
 
@@ -63,6 +63,17 @@ public static class GameDomain {
 
         }
 
+    }
+
+    public static void GetGamePercent(GameContext ctx, float dt) {
+        if (ctx.gameEntity.isAchieveFlag) {
+            return;
+        }
+
+        ctx.gameEntity.gameTimer += dt;
+
+        ctx.gameEntity.percent = ctx.gameEntity.gameTimer / ctx.gameEntity.gameTotallTime;
+        Debug.Log(ctx.gameEntity.percent);
     }
 
 
