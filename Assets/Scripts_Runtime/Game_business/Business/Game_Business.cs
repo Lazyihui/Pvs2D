@@ -158,16 +158,14 @@ public static class GameBusiness {
         Panel_ProcessFlag head = flags[0];
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
-            UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, ctx.gameEntity.gameTotallTime, dt);
-            ctx.gameEntity.isAchieveFlag = head.isAchieveFlag;
 
-            bool isAchieveFlag = head.isAchieveFlag;
-            if (isAchieveFlag) {
+            UIApp.Panel_Process_HeadMove(ctx.uiContext, flag,ref ctx.gameEntity.gameTimer, ctx.gameEntity.gameTotallTime, dt);
+
+            float percent = ctx.gameEntity.gameTimer / ctx.gameEntity.gameTotallTime;
+
+            if (percent >= 0.5f) {
                 UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
-                isAchieveFlag = false;
-                head.isAchieveFlag = false;
             }
-
 
         }
 

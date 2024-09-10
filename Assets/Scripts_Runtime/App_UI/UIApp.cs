@@ -309,13 +309,12 @@ public static class UIApp {
         panel.Addflag(ctx, typeID);
     }
 
-    public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag, float gameTotallTime, float dt) {
+    public static void Panel_Process_HeadMove(UIContext ctx, Panel_ProcessFlag flag,ref float gameTimer, float gameTotallTime, float dt) {
         // 0是头部 1是flag
         if (flag.typeID == 1) {
             return;
         }
-
-        flag.Move_ToFlag(ref flag.t, gameTotallTime, dt, flag);
+        flag.Move_ToFlag(ref gameTimer, gameTotallTime, dt, flag);
 
     }
 
@@ -327,7 +326,7 @@ public static class UIApp {
 
     }
 
-    public static void Panel_Process_FlagUp(UIContext ctx, Panel_ProcessFlag flag,float dt) {
+    public static void Panel_Process_FlagUp(UIContext ctx, Panel_ProcessFlag flag, float dt) {
         if (flag.typeID == 0) {
             return;
         }

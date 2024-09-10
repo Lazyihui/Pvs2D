@@ -30,6 +30,8 @@ public class GameEntity {
 
     // 一局游戏的时间
     public float gameTotallTime;
+
+    public float gameTimer;//百分比
     // 是否达到旗帜
     public bool isAchieveFlag;
 
@@ -57,6 +59,8 @@ public class GameEntity {
         plantCardCount = 0;
 
         gameTotallTime = 30;
+
+        gameTimer = 0;
 
         isAchieveFlag = false;
     }

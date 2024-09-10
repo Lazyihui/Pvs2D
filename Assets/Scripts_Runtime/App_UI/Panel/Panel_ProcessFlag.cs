@@ -14,23 +14,16 @@ public class Panel_ProcessFlag : MonoBehaviour {
     public int typeID;
     public float width;
 
-
-    public float t;
-
     public Vector2 startPos;
 
-    // head 特有
-    public bool isAchieveFlag;
     // flag 特有
     public bool isUpFlag;
 
 
 
     public void Ctor() {
-        t = 0;
         startPos = rectTransform.anchoredPosition;
         isUpFlag = false;
-        isAchieveFlag = false;
     }
 
     public void SetImage(Sprite sprite) {
@@ -49,29 +42,15 @@ public class Panel_ProcessFlag : MonoBehaviour {
         t += dt;
         Vector2 pos = mstHead.rectTransform.anchoredPosition;
 
-        // TODO: 要根据flag的数量来计算 要改的
-        if (t / total > 0.5f) {
-            isAchieveFlag = true;
-        }
-
-        if (t / total > 1) {
-            isAchieveFlag = true;
-        }
-
-        if (isAchieveFlag) {
-            return;
-        }
-
         pos.x = -(t / total) * mstHead.width;
         mstHead.rectTransform.anchoredPosition = pos;
     }
 
     public void SetFlagPos(Panel_ProcessFlag flag, float flagCount) {
+
+
         Vector2 pos = flag.rectTransform.anchoredPosition;
-
         pos.x = -flag.width * ((float)flag.id / flagCount);
-        // pos.x = -flag.width*0.5f;
-
         flag.rectTransform.anchoredPosition = pos;
 
 
@@ -87,8 +66,13 @@ public class Panel_ProcessFlag : MonoBehaviour {
         // Debug.Log("flagUp" + pos.y);
         // flag.rectTransform.anchoredPosition = pos;
 
+
         Vector2 pos = flag.rectTransform.anchoredPosition;
-        pos.y += 30;
+        if (pos.y > 30) {
+            flag.rectTransform.anchoredPosition = pos;
+            return;
+        }
+        pos.y += dt;
         flag.rectTransform.anchoredPosition = pos;
 
 
