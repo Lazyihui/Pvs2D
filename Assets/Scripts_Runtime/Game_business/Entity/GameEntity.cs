@@ -58,7 +58,7 @@ public class GameEntity {
 
         plantCardCount = 0;
 
-        gameTotallTime = 30;
+        gameTotallTime = 15;
 
         gameTimer = 0;
 

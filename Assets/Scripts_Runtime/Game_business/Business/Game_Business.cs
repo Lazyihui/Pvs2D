@@ -159,12 +159,21 @@ public static class GameBusiness {
         for (int i = 0; i < lenFlag; i++) {
             Panel_ProcessFlag flag = flags[i];
 
-            UIApp.Panel_Process_HeadMove(ctx.uiContext, flag,ref ctx.gameEntity.gameTimer, ctx.gameEntity.gameTotallTime, dt);
+
+            if (!ctx.gameEntity.isAchieveFlag) {
+                UIApp.Panel_Process_HeadMove(ctx.uiContext, flag, ref ctx.gameEntity.gameTimer, ctx.gameEntity.gameTotallTime, dt);
+            }
 
             float percent = ctx.gameEntity.gameTimer / ctx.gameEntity.gameTotallTime;
 
+            if (Input.GetKeyDown(KeyCode.A)) {
+                Debug.Log(percent);
+            }
             if (percent >= 0.5f) {
-                UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
+                if (flag.id == 1) {
+                    ctx.gameEntity.isAchieveFlag = true;
+                    UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
+                }
             }
 
         }

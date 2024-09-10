@@ -66,13 +66,15 @@ public class Panel_ProcessFlag : MonoBehaviour {
         // Debug.Log("flagUp" + pos.y);
         // flag.rectTransform.anchoredPosition = pos;
 
-
         Vector2 pos = flag.rectTransform.anchoredPosition;
+        Debug.Log("flagUp" + dt);
+
         if (pos.y > 30) {
+            Debug.Log("flagUp" + pos.y);
             flag.rectTransform.anchoredPosition = pos;
             return;
         }
-        pos.y += dt;
+        pos.y += dt*10;
         flag.rectTransform.anchoredPosition = pos;
 
 
