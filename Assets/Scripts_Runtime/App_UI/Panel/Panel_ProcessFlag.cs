@@ -46,31 +46,20 @@ public class Panel_ProcessFlag : MonoBehaviour {
 
     public void SetFlagPos(Panel_ProcessFlag flag, float flagCount) {
 
-
         Vector2 pos = flag.rectTransform.anchoredPosition;
         pos.x = -flag.width * ((float)flag.id / flagCount);
         flag.rectTransform.anchoredPosition = pos;
 
-
     }
 
     public void FlagUp(Panel_ProcessFlag flag, float dt) {
-        // Vector2 pos = flag.rectTransform.anchoredPosition;
-        // if (pos.y > 30) {
-        //     flag.rectTransform.anchoredPosition = pos;
-        //     return;
-        // }
-        // pos.y = +dt;
-        // Debug.Log("flagUp" + pos.y);
-        // flag.rectTransform.anchoredPosition = pos;
-
         Vector2 pos = flag.rectTransform.anchoredPosition;
 
         if (pos.y > 30) {
             flag.rectTransform.anchoredPosition = pos;
             return;
         }
-        pos.y += dt*10;
+        pos.y += dt * 10;
         flag.rectTransform.anchoredPosition = pos;
 
 

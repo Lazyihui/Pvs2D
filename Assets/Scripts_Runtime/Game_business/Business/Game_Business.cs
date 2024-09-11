@@ -87,6 +87,11 @@ public static class GameBusiness {
         // 生成zembie
         // 第一波僵尸  5个 间隔 5s
         GameDomain.SpawnZembieTimer(ctx, dt);
+        int lenZem = ctx.zembieRepository.TakeAll(out ZembieEntity[] zembies);
+
+        if (lenZem == 0) {
+            ctx.gameEntity.isAchieveFlag = false;
+        }
 
 
 
@@ -99,7 +104,7 @@ public static class GameBusiness {
         GameDomain.SpawnSunTimer(ctx, dt);
 
         // 得到游戏进度的百分比
-        GameDomain.GetGamePercent(ctx,dt);
+        GameDomain.GetGamePercent(ctx, dt);
 
         int goodlen = ctx.uiContext.goodsRespository.TakeAll(out Panel_GoodsElement[] goods);
         for (int i = 0; i < goodlen; i++) {
@@ -171,12 +176,15 @@ public static class GameBusiness {
             if (Input.GetKeyDown(KeyCode.A)) {
                 Debug.Log(percent);
             }
+
             if (percent >= 0.5f) {
+                Debug.Log(percent);
                 if (flag.id == 1) {
                     ctx.gameEntity.isAchieveFlag = true;
                     UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);
                 }
             }
+
 
         }
 

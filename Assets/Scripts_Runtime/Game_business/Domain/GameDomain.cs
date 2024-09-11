@@ -69,11 +69,8 @@ public static class GameDomain {
         if (ctx.gameEntity.isAchieveFlag) {
             return;
         }
-
         ctx.gameEntity.gameTimer += dt;
-
         ctx.gameEntity.percent = ctx.gameEntity.gameTimer / ctx.gameEntity.gameTotallTime;
-        Debug.Log(ctx.gameEntity.percent);
     }
 
 
