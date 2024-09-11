@@ -31,15 +31,13 @@ public static class CellDomain {
             return;
         }
 
-
-
         cell.isHavsPlant = true;
-
 
         ctx.gameEntity.handPlant.transform.position = cell.transform.position;
         // 0x54 = 2
         ctx.gameEntity.handPlant.status = PlantStatus.Enable;
         ctx.gameEntity.handPlant.GetComponent<Collider2D>().enabled = true;
+        ctx.gameEntity.handPlant.SetAnimSpeed(1);
 
         ctx.gameEntity.handPlant = null;
 

@@ -11,11 +11,7 @@ public static class PlantDomain {
     public static PlantEntity Spawn(GameContext ctx, int typeID) {
 
         bool has = ctx.templateContext.plants.TryGetValue(typeID, out PlantTM tm);
-
-
-
         ctx.assetsContext.TryGetEntity("Plant_Entity", out GameObject prefab);
-
         GameObject go = GameObject.Instantiate(prefab);
         go.GetComponent<Collider2D>().enabled = false;
         PlantEntity plant = go.GetComponent<PlantEntity>();
@@ -24,6 +20,7 @@ public static class PlantDomain {
         plant.typeID = tm.typeID;
 
         plant.SetAnim(tm.animator, tm.sprite);
+        plant.SetAnimSpeed(0);
         plant.spawnBulletInterval = tm.spawnBulletInterval;
         plant.spawnBulletTimer = tm.spawnBulletTimer;
 

@@ -34,7 +34,7 @@ public class PlantEntity : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
-       
+
     }
 
     public void TearDown() {
@@ -44,6 +44,10 @@ public class PlantEntity : MonoBehaviour {
     public void SetAnim(RuntimeAnimatorController animator, Sprite sprite) {
         anim.runtimeAnimatorController = animator;
         this.sprite.sprite = sprite;
+    }
+
+    public void SetAnimSpeed(float speed) {
+        anim.speed = speed;
     }
 
     public void SetPos(Vector2 pos) {
