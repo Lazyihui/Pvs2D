@@ -35,21 +35,36 @@ public static class PlantDomain {
 
     }
 
+    public static void RayTesthasZembie(GameContext ctx, PlantEntity plant, float dt) {
 
-    public static void SetStatus(GameContext ctx, PlantEntity plant, float dt) {
+        RaycastHit2D[] hit = Physics2D.RaycastAll(plant.transform.position, Vector2.right, 5f);
+        Debug.Log(hit.Length);
+        if (hit.Length > 0) {
+            for (int i = 0; i < hit.Length; i++) {
+                RaycastHit2D hit2D = hit[i];
+                if (hit2D.collider.gameObject.tag == "Cell") {
+                } else {
+                    Debug.Log(hit2D.collider.gameObject.name);
 
-        if (plant.status == PlantStatus.Disable) {
+                }
+
+                if (hit2D.collider.gameObject.tag == "Zembie") {
+                    // 生成子弹
+                    PlantDomain.SpawnBullet(ctx, plant, dt);
+
+                }
+            }
+
 
         }
 
-        if (plant.status == PlantStatus.Enable) {
-            spawnSunflower(ctx, plant, dt);
-            SpawnBullet(ctx, plant, dt);
-        }
+
+
+        Debug.DrawRay(plant.transform.position, Vector2.right * 15f, Color.red);
 
     }
 
-    static void spawnSunflower(GameContext ctx, PlantEntity plant, float dt) {
+    public static void spawnSunflower(GameContext ctx, PlantEntity plant, float dt) {
 
         if (plant.typeID != PlantConst.SunFlower) {
             return;
@@ -95,12 +110,15 @@ public static class PlantDomain {
             return;
         }
 
+
+
         plant.spawnBulletTimer += dt;
         if (plant.spawnBulletTimer >= plant.spawnBulletInterval) {
             plant.spawnBulletTimer = 0;
             Vector2 pos = new Vector2(plant.transform.position.x + 0.5f, plant.transform.position.y + 0.3f);
             BulletEntity bullet = BulletDomain.Spawn(ctx, pos, BulletConst.shooter);
         }
+
     }
 
     public static void Clear(GameContext ctx, PlantEntity plant) {

@@ -123,7 +123,22 @@ public static class GameBusiness {
             PlantEntity plant = plants[i];
 
             GameDomain.UpdataHandPlantPos(ctx, plant);
-            PlantDomain.SetStatus(ctx, plant, dt);
+
+            if (plant.status == PlantStatus.Disable) {
+            }
+
+            if (plant.status == PlantStatus.Enable) {
+                // 生成阳光
+                PlantDomain.spawnSunflower(ctx, plant, dt);
+
+
+                if (plant.typeID == PlantConst.PeaShooter) {
+                    PlantDomain.RayTesthasZembie(ctx, plant, dt);
+
+                }
+            }
+
+
 
         }
 
@@ -178,7 +193,6 @@ public static class GameBusiness {
             }
 
             if (percent >= 0.5f) {
-                Debug.Log(percent);
                 if (flag.id == 1) {
                     ctx.gameEntity.isAchieveFlag = true;
                     UIApp.Panel_Process_FlagUp(ctx.uiContext, flag, dt);

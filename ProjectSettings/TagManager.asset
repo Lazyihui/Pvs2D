@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plant
+  - Zembie
+  - Cell
   layers:
   - Default
   - TransparentFX
