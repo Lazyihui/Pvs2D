@@ -37,8 +37,7 @@ public static class PlantDomain {
 
     public static void RayTesthasZembie(GameContext ctx, PlantEntity plant, float dt) {
 
-        RaycastHit2D[] hit = Physics2D.RaycastAll(plant.transform.position, Vector2.right, 5f);
-        Debug.Log(hit.Length);
+        RaycastHit2D[] hit = Physics2D.RaycastAll(plant.transform.position, Vector2.right, 15f);
         if (hit.Length > 0) {
             for (int i = 0; i < hit.Length; i++) {
                 RaycastHit2D hit2D = hit[i];
@@ -60,7 +59,7 @@ public static class PlantDomain {
 
 
 
-        Debug.DrawRay(plant.transform.position, Vector2.right * 15f, Color.red);
+        Debug.DrawRay(plant.transform.position, Vector2.right * 5f, Color.red);
 
     }
 
